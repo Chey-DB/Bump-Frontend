@@ -1,20 +1,23 @@
 import React, { useEffect, useState} from 'react'
 
-const MotivationalQuotes = () => {
-    const [quotes, setQuotes] = useState('')
+const MotivationalQuote = () => {
+    const [quote, setQuote] = useState('')
 
     useEffect(() => {
         fetch('https://type.fit/api/quotes')
         .then(response => response.json())
         .then(data => {
             const randomQuote = Math.floor(Math.random() * data.length)
-            setQuotes(data[randomQuote].text)
+            setQuote(data[randomQuote].text)
         })      
-    })
+    }, [])
 
   return (
-    <div>MotivationalQuotes</div>
+    <div className='motivational-quote'>
+        <h3>Motivational Quote of the day:</h3>
+        <p>{quote}</p>
+    </div>
   )
 }
 
-export default MotivationalQuotes
+export default MotivationalQuote
