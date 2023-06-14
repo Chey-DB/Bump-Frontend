@@ -12,8 +12,11 @@ const ProgressBar = ({ dueDate, currentWeek }) => {
 
 
   return (
-    <div className='progress-bar'>
-        <div className='progress-bar-fill' style={{ width: `${calculateProgress()}%` }}></div>
+    <div className="progress-bar-container">
+      <h3>Progress Bar </h3>
+      <div className="progress-bar">
+        <div className="progress-bar-fill" style={{ width: `${calculateProgress()}%` }}></div>
+      </div>
     </div>
   )
 }
