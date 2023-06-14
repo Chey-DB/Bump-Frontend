@@ -8,7 +8,7 @@ const Header = () => {
     <main>
       <header>
       <Link to="/"><img src="" alt="logo" /></Link>
-        <h1>Bump</h1>
+        <h1 id='navbar-name'>Bump</h1>
         <nav>
           <ul>
             <li><Link to="/">Home</Link></li>
