@@ -8,6 +8,7 @@ const styles = ({ isActive }) => ({
   backgroundColor: isActive ? '#f5f5f5' : '',
   borderRadius: '5rem',
   padding:'0.5rem 1rem',
+  color: 'black',
   transition: 'background-color 1s',
 });
 
@@ -36,8 +37,7 @@ const LoggedNav = () => {
       <header>
         <nav>
           <div className="branding">
-            {/* <NavLink to="/"><img src="" alt="logo" /></NavLink> */}
-            <h1 id='navbar-name'>Bump</h1>
+          <NavLink to="/" style={{color: 'black'}}><h1 id='navbar-name'>Bump</h1></NavLink>
           </div>
           <ul id='nav-list'>
             <li className='navlink'><NavLink style={styles} to="/dashboard">Dashbaord</NavLink></li>
