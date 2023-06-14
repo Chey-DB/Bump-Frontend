@@ -15,7 +15,7 @@ const DashboardPage = () => {
       <div className='button-div'>
         <button>Press Me</button>
       </div>
-      <div>
+      <div >
         <MotivationalQuote />
       </div>
     </div>
