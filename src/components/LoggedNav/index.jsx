@@ -13,7 +13,7 @@ const LoggedNav = () => {
             <h1 id='navbar-name'>Bump</h1>
           </div>
           <ul id='nav-list'>
-            <li><Link to="/">Dashbaord</Link></li>
+            <li><Link to="/dashboard">Dashbaord</Link></li>
             <li><Link to="/calendar">Calendar</Link></li>
             <li><Link to="/community">Community</Link></li>
             <li><Link to="/my-journal">My Journal</Link></li>
