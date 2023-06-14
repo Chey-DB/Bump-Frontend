@@ -16,6 +16,10 @@ body{
     border: 1px solid black;
 }
 
+a{
+    text-decoration: none;
+}
+
 h1{
     font-size: 3.5rem;
     margin: 1.5rem 0;
