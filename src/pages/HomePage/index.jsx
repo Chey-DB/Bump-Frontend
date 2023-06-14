@@ -1,8 +1,11 @@
 import React from 'react'
+
+import { Checklist } from '../../components'
 import './styles.css'
 
 const HomePage = () => {
   return (
+    <>
     <div className='container'>
       <h1>Home Page</h1>
       <h2>This is something</h2>
@@ -14,6 +17,7 @@ const HomePage = () => {
         <button>Press Me</button>
       </div>
     </div>
+    </>
   )
 }
 

@@ -1,15 +1,13 @@
 header {
     background-color: #fff;
     border-bottom: 1px solid #e6e6e6;
-    height: 77px;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
     z-index: 1;
-    display: flex;
 }
 
-ul {
+/* ul {
     display: flex;
     list-style: none;
     margin: 0;
@@ -19,4 +17,4 @@ ul {
 #navbar-name{
     margin: 0;
     font-size: 3rem;
-}
+} */
