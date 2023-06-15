@@ -72,7 +72,7 @@ const LoggedNav = () => {
           <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} style={{transform: 'translateY(5px)'}}></i>
           </div>
-          <NavLink to="/" id='pfp-link activeClassName="active" className="nav-links" onClick={handleClick}'><img id='pfp' src="blank-profile-picture.webp" alt="profile picture" /></NavLink>
+          <NavLink to="/" id='pfp-link activeClassName="active" className="nav-links" onClick={handleClick}'><img id='pfp' src={profilePicture ? profilePicture :"blank-profile-picture.webp"} alt="profile picture" /></NavLink>
         </div>
       </nav>
       <Outlet />
