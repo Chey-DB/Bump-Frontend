@@ -2,12 +2,15 @@ import React from 'react'
 import './styles.css'
 
 const RegisterPage = () => {
-  const handleGoogleSignIn = () => {}
+  const handleGoogleSignIn = () => {
+    window.open('http://localhost:3000/auth/google', '_self')
+
+  }
     
   return (
     <div className='container'>
+      <button onClick={handleGoogleSignIn}>Sign in with Google</button>
       <form action="POST">
-        <button >Sign in with Google</button>
         <label htmlFor="username">Username:</label>
         <input type="text" name="username" id="username" placeholder="Username" />
         <label htmlFor="password">Password:</label>
