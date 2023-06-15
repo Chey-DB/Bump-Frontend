@@ -7,7 +7,7 @@ const DashboardPage = () => {
 
     const user = {
         dueDate: new Date('2023-12-31'),
-        currentWeek: 18,
+        currentWeek: 15,
     }
 
   return (
