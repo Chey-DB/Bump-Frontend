@@ -4,16 +4,6 @@ import axios from 'axios'
 
 import './LoggedNav.css'
 
-const styles = ({ isActive }) => ({
-  backgroundColor: isActive ? '#f5f5f5' : '',
-  borderRadius: '5rem',
-  padding:'0.5rem 1rem',
-  color: 'black',
-  transition: 'background-color 1s',
-});
-
-
-
 const LoggedNav = () => {
 
   const [profilePicture, setProfilePicture] = useState('')
@@ -21,50 +11,50 @@ const LoggedNav = () => {
 
   const handleClick = () => setClick(!click);
 
-  useEffect(() => {
-    const getProfilePicture = async () => {
-      try {
-        const response = await axios.get(`/users/`);
-        setProfilePicture(response.data.profilePic);
-      } catch (error) {
-        console.error('Error fetching ProfilePicture:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const getProfilePicture = async () => {
+  //     try {
+  //       const response = await axios.get(`/users/`);
+  //       setProfilePicture(response.data.profilePic);
+  //     } catch (error) {
+  //       console.error('Error fetching ProfilePicture:', error);
+  //     }
+  //   };
   
-    getProfilePicture();
-  }, []);
+  //   getProfilePicture();
+  // }, []);
 
 
   return (
     <>
       <nav className="navbar">
         <div className="nav-container">
-          <NavLink exact to="/" className="nav-logo">
+          <NavLink to="/" className="nav-logo">
             {/* <img src="Bump-logo.png" alt="" style={{width: '5rem', borderRadius: '5rem'}}/> */}
           </NavLink>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <NavLink to="/dashboard" activeClassName="active" className="nav-links" onClick={handleClick}>
+              <NavLink to="/dashboard"  className="nav-links" onClick={handleClick}>
                 Dashboard
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/calendar" activeClassName="active" className="nav-links" onClick={handleClick}>
+              <NavLink to="/calendar"  className="nav-links" onClick={handleClick}>
                 Calendar
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/community" activeClassName="active" className="nav-links" onClick={handleClick}>
+              <NavLink to="/community"  className="nav-links" onClick={handleClick}>
                 Community
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/my-journal" activeClassName="active" className="nav-links" onClick={handleClick}>
+              <NavLink to="/my-journal"  className="nav-links" onClick={handleClick}>
                 My Journal
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/faqs" activeClassName="active" className="nav-links" onClick={handleClick}>
+              <NavLink to="/faqs"  className="nav-links" onClick={handleClick}>
                 FAQs
               </NavLink>
             </li>
@@ -72,7 +62,7 @@ const LoggedNav = () => {
           <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} style={{transform: 'translateY(5px)'}}></i>
           </div>
-          <NavLink to="/" id='pfp-link' activeClassName="active" className="nav-links" onClick={handleClick}><img id='pfp' src={profilePicture ? profilePicture :"blank-profile-picture.webp"} alt="profile picture" /></NavLink>
+          <NavLink to="/" id='pfp-link' className="nav-links" onClick={handleClick}><img id='pfp' src={profilePicture ? profilePicture :"blank-profile-picture.webp"} alt="profile picture" /></NavLink>
         </div>
       </nav>
       <Outlet />
