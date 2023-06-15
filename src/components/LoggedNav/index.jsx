@@ -40,7 +40,7 @@ const LoggedNav = () => {
       <nav className="navbar">
         <div className="nav-container">
           <NavLink exact to="/" className="nav-logo">
-            Bump
+            {/* <img src="Bump-logo.png" alt="" style={{width: '5rem', borderRadius: '5rem'}}/> */}
           </NavLink>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
@@ -72,7 +72,7 @@ const LoggedNav = () => {
           <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} style={{transform: 'translateY(5px)'}}></i>
           </div>
-          <NavLink to="/" id='pfp-link activeClassName="active" className="nav-links" onClick={handleClick}'><img id='pfp' src={profilePicture ? profilePicture :"blank-profile-picture.webp"} alt="profile picture" /></NavLink>
+          <NavLink to="/" id='pfp-link' activeClassName="active" className="nav-links" onClick={handleClick}><img id='pfp' src={profilePicture ? profilePicture :"blank-profile-picture.webp"} alt="profile picture" /></NavLink>
         </div>
       </nav>
       <Outlet />
