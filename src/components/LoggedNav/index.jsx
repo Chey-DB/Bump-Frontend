@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import axios from 'axios'
 
-import './styles.css'
+import './LoggedNav.css'
 
 const styles = ({ isActive }) => ({
   backgroundColor: isActive ? '#f5f5f5' : '',
@@ -17,6 +17,9 @@ const styles = ({ isActive }) => ({
 const LoggedNav = () => {
 
   const [profilePicture, setProfilePicture] = useState('')
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => setClick(!click);
 
   useEffect(() => {
     const getProfilePicture = async () => {
@@ -34,21 +37,44 @@ const LoggedNav = () => {
 
   return (
     <>
-      <header>
-        <nav>
-          <div className="branding">
-          <NavLink to="/" style={{color: 'black'}}><h1 id='navbar-name'>Bump</h1></NavLink>
-          </div>
-          <ul id='nav-list'>
-            <li className='navlink'><NavLink style={styles} to="/dashboard">Dashbaord</NavLink></li>
-            <li className='navlink'><NavLink style={styles} to="/calendar">Calendar</NavLink></li>
-            <li className='navlink'><NavLink style={styles} to="/community">Community</NavLink></li>
-            <li className='navlink'><NavLink style={styles} to="/my-journal">My Journal</NavLink></li>
-            <li className='navlink'><NavLink style={styles} to="/faqs">FAQs</NavLink></li>
+      <nav className="navbar">
+        <div className="nav-container">
+          <NavLink exact to="/" className="nav-logo">
+            Bump
+          </NavLink>
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <NavLink to="/dashboard" activeClassName="active" className="nav-links" onClick={handleClick}>
+                Dashboard
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/calendar" activeClassName="active" className="nav-links" onClick={handleClick}>
+                Calendar
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/community" activeClassName="active" className="nav-links" onClick={handleClick}>
+                Community
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/my-journal" activeClassName="active" className="nav-links" onClick={handleClick}>
+                My Journal
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/faqs" activeClassName="active" className="nav-links" onClick={handleClick}>
+                FAQs
+              </NavLink>
+            </li>
           </ul>
-          <NavLink to="/" id='pfp-link'><img id='pfp' src={profilePicture ? profilePicture : "blank-profile-picture.webp"} alt="profile picture" /></NavLink>
-        </nav>
-      </header>
+          <div className="nav-icon" onClick={handleClick}>
+            <i className={click ? "fas fa-times" : "fas fa-bars"} style={{transform: 'translateY(5px)'}}></i>
+          </div>
+          <NavLink to="/" id='pfp-link activeClassName="active" className="nav-links" onClick={handleClick}'><img id='pfp' src="blank-profile-picture.webp" alt="profile picture" /></NavLink>
+        </div>
+      </nav>
       <Outlet />
     </>
   )
