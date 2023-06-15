@@ -2,7 +2,7 @@ import React from 'react'
 import './styles.css'
 import MotivationalQuote from '../../components/MotivationalQuote'
 import ProgressBar from '../../components/ProgressBar'
-import Checklist from '../../components/Checklist' 
+// import Checklist from '../../components/Checklist' 
 
 const DashboardPage = () => {
 
@@ -14,7 +14,7 @@ const DashboardPage = () => {
   return (
     <>
     <div className='container'>
-      <Checklist />
+      {/* <Checklist /> */}
       <h1>Dashboard Page</h1>
       <h2>This is something</h2>
       <br />

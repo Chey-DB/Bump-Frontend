@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import axios from 'axios'
 
+// import {Checklist} from '..'
 import './LoggedNav.css'
 
 const LoggedNav = () => {
@@ -65,6 +66,7 @@ const LoggedNav = () => {
           <NavLink to="/" id='pfp-link' className="nav-links" onClick={handleClick}><img id='pfp' src={profilePicture ? profilePicture :"blank-profile-picture.webp"} alt="profile picture" /></NavLink>
         </div>
       </nav>
+      {/* <Checklist /> */}
       <Outlet />
     </>
   )

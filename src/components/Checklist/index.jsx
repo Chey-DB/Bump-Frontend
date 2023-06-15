@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import './styles.css'
+import './styles.css';
 
 const Checklist = () => {
-  const [checklist, setChecklist] = useState([]);
+  const [checklistData, setChecklistData] = useState([]);
   const [user, setUser] = useState('');
 
   useEffect(() => {
     const getChecklist = async () => {
       try {
         const response = await axios.get(`http://localhost:3000/checklists/user/${user}`);
-        console.log(response);
-        setChecklist(response.data);
+        setChecklistData(response.data);
       } catch (err) {
         console.log(err.message);
       }
@@ -24,30 +23,38 @@ const Checklist = () => {
   }, [user]);
 
   useEffect(() => {
-    setUser('6488473bfa7d92ab51dfef3f');
+    setUser('6488473bfa7d92ab51dfef3f'); //Currently hard coded but will be retriving from cookies
   }, []);
 
-  const handleCheckboxChange = (itemId) => {
-    setChecklist((prevChecklist) => {
-      return prevChecklist.map((item) => {
-        if (item._id === itemId) {
-          return { ...item, isCompleted: !item.isCompleted };
+  const handleCheckboxChange = async (ChecklistItemId) => {
+    setChecklistData((prevChecklistData) => {
+      return prevChecklistData.map((data) => {
+        if (data._id === ChecklistItemId) {
+          const updatedItem = { ...data, isCompleted: !data.isCompleted };
+          axios.put(`http://localhost:3000/checklists/${ChecklistItemId}`, updatedItem)
+            .then((response) => {
+              // console.log(response.data);
+            })
+            .catch((error) => {
+              console.log(error.message);
+            });
+          return updatedItem;
         }
-        return item;
+        return data;
       });
     });
   };
 
   return (
     <div id="checklist">
-      {checklist.map((item) => (
-        <div key={item._id}>
-            <h3>{item.title}</h3>
-            <p>{item.content}</p>
+      {checklistData.map((checklistItem) => (
+        <div key={checklistItem._id}>
+          <h3>{checklistItem.title}</h3>
+          <p>{checklistItem.content}</p>
           <input
             type="checkbox"
-            checked={item.isCompleted}
-            onChange={() => handleCheckboxChange(item._id)}
+            checked={checklistItem.isCompleted}
+            onChange={() => handleCheckboxChange(checklistItem._id)}
           />
         </div>
       ))}
@@ -55,5 +62,4 @@ const Checklist = () => {
   );
 };
 
-
-export default Checklist
+export default Checklist;
