@@ -3,7 +3,7 @@ import React from 'react'
 import './styles.css'
 import MotivationalQuote from '../../components/MotivationalQuote'
 import ProgressBar from '../../components/ProgressBar'
-import { Greeting, InformationCard } from '../../components'
+import { Greeting, InformationCard, NextAppointment } from '../../components'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -37,10 +37,9 @@ const DashboardPage = () => {
       <div>
         <Greeting/>
       </div>
-      <br />
-      <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi iste, fugiat neque quod ipsa error alias totam dolorum sapiente explicabo?</h3>
-      <br />
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio, quaerat cumque et id sapiente accusantium commodi earum cupiditate exercitationem impedit veritatis natus pariatur repellendus odit nostrum at aut aspernatur. Perferendis!</p>
+      <div>
+        <NextAppointment />
+      </div>
       <div >
         <MotivationalQuote />
       </div>
