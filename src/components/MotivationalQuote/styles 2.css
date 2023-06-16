@@ -1,0 +1,33 @@
+.motivational-quote-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 25%;
+  max-width: 400px;
+  margin: 20px;
+}
+
+.motivational-quote {
+  background-color: #d0a1d9;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.motivational-quote h3 {
+  font-size: 18px;
+  color: #333;
+}
+
+.motivational-quote p {
+  font-size: 16px;
+  color: #fffefe;
+  margin-top: 10px;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.quote-mark {
+  font-size: 45px;
+  color: #fff;
+  margin-right: 10px;
+}

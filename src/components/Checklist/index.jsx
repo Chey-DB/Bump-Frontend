@@ -46,16 +46,20 @@ const Checklist = () => {
   };
 
   return (
-    <div id="checklist">
+    <div id="checklist" data-testId="checklist">
       {checklistData.map((checklistItem) => (
-        <div key={checklistItem._id}>
-          <h3>{checklistItem.title}</h3>
-          <p>{checklistItem.content}</p>
-          <input
-            type="checkbox"
-            checked={checklistItem.isCompleted}
-            onChange={() => handleCheckboxChange(checklistItem._id)}
-          />
+        <div className="checklist-item" key={checklistItem._id}>
+          <div className="item-wrapper">
+            <div>
+              <h3>{checklistItem.title}</h3>
+              <p>{checklistItem.content}</p>
+            </div>
+            <input
+              type="checkbox"
+              checked={checklistItem.isCompleted}
+              onChange={() => handleCheckboxChange(checklistItem._id)}
+            />
+          </div>
         </div>
       ))}
     </div>

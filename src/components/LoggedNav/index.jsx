@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import axios from 'axios'
 
-// import {Checklist} from '..'
 import './LoggedNav.css'
+import ChecklistButton from '../ChecklistButton'
 
 const LoggedNav = () => {
 
@@ -30,6 +30,7 @@ const LoggedNav = () => {
     <>
       <nav className="navbar">
         <div className="nav-container">
+          <ChecklistButton />
           <NavLink to="/" className="nav-logo">
             <img src="Bump-logo.png" alt="bump logo" id='navbar-logo-img'/>
           </NavLink>
