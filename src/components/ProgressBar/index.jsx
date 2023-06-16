@@ -59,7 +59,10 @@ const ProgressBar = ({ dueDate, currentWeek }) => {
 
   return (
     <div className="progress-bar-container">
-      <h3 className="trimester">{renderTrimesterText()}</h3>
+      <div>
+        <h2 className='my-journey'>My Journey</h2>
+      </div>
+        <h3 className="trimester">{renderTrimesterText()}</h3>
       <div className="progress-bar">
         {renderMarkers()}
         <div className="progress-bar-fill" style={{ width: `${calculateProgress()}%` }}></div>
