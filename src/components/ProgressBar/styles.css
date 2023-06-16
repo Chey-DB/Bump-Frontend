@@ -1,13 +1,82 @@
+.progress-bar-container {
+  text-align: center;
+  border: 1px solid #afafaf;
+  padding: 30px;
+}
+
 .progress-bar {
-    width: 100%;
-    height: 20px;
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .progress-bar-fill {
-    height: 100%;
-    background-color: #43a047;
-    transition: width 0.5s ease-in-out;
-  }
+  position: relative;
+  width: 100%;
+  height: 25px; /* Increased height */
+  background-color: #e0e0e0;
+  border-radius: 20px; /* Adjusted border-radius */
+  overflow: visible; /* Changed to visible */
+}
+
+.progress-bar-marker {
+  position: absolute;
+  /* Adjusted position */
+  top: -30%;
+  transform: translateX(-50%);
+  width: 40px; /* Increased width */
+  height: 40px; /* Increased height */
+  background-color: #89D6B6;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.5px #afafaf;
+}
+
+.progress-bar-week {
+  font-size: 14px;
+  word-spacing: 4px;
+  position: relative; /* Add position relative */
+  top: 4px; /* Adjust the value to move the text down by desired pixels */
+}
+
+
+.progress-bar-marker:nth-child(1) {
+  left: 0;
+}
+
+.progress-bar-marker:nth-child(2) {
+  left: 33.3333%;
+}
+
+.progress-bar-marker:nth-child(3) {
+  left: 66.666%;
+}
+
+.progress-bar-marker:nth-child(4) {
+  left: 100%;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #A194D5;
+  transition: width 0.5s ease-in-out;
+}
+
+.marker-week{
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.trimester{
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.baby-icon {
+  position: absolute;
+  top: -40px; /* Adjust the vertical position as needed */
+}
+
+.baby-icon__image {
+  width: 40px; /* Adjust the width as needed */
+  height: 40px; /* Adjust the height as needed */
+}
+
+.my-journey {
+  margin-bottom: 15px;
+  /* border: 0.5px solid #afafaf; */
+  text-decoration: underline;
+}

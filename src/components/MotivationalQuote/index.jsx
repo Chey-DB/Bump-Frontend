@@ -32,16 +32,17 @@ const MotivationalQuote = () => {
   }, []);
 
   return (
-    <div className="motivational-quote-container">
-      <div className="motivational-quote">
-         <span className="quote-mark quote-mark-left">&#8220;</span>
+    <div className="motivational-quote-wrapper">
+      <div className="motivational-quote-container">
+        <div className="motivational-quote">
+          <span className="quote-mark quote-mark-left">&#8220;</span>
           <h3>Motivational Quote of the day:</h3>
           <p>{quote}</p>
-        <span className="quote-mark quote-mark-right">&#8220;</span>
+          <span className="quote-mark quote-mark-right">&#8220;</span>
+        </div>
       </div>
     </div>
   );
 };
 
 export default MotivationalQuote;
-
