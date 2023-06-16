@@ -7,6 +7,7 @@ const RegisterPage = () => {
 
   }
     
+  console.log(document.cookie)
   return (
     <div className='container'>
       <button onClick={handleGoogleSignIn}>Sign in with Google</button>
