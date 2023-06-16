@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { Checklist } from '../../components'
 import './styles.css'
 
 const HomePage = () => {
