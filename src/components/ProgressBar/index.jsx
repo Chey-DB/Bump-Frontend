@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css';
+import pramImage from './mothers.png'
 
 const ProgressBar = ({ dueDate, currentWeek }) => {
   const calculateProgress = () => {
@@ -42,14 +43,29 @@ const ProgressBar = ({ dueDate, currentWeek }) => {
     }
   };
 
+  const renderPram = () => {
+    const progressPercentage = calculateProgress();
+    const babyPram = {
+      left: `${progressPercentage}%`,
+      transform: 'translateX(-50%)'
+    };
+
+    return (
+      <div className="baby-icon" style={babyPram}>
+       <img className="baby-icon__image" src={pramImage} alt="pram"/>
+      </div>
+    );
+  };
+
   return (
     <div className="progress-bar-container">
-      <h3 className='trimester'>{renderTrimesterText()}</h3>
+      <h3 className="trimester">{renderTrimesterText()}</h3>
       <div className="progress-bar">
         {renderMarkers()}
         <div className="progress-bar-fill" style={{ width: `${calculateProgress()}%` }}></div>
+        {renderPram()}
       </div>
-      <p className='marker-week'>{`Week: ${currentWeek}`}</p>
+      <p className="marker-week">{`Week: ${currentWeek}`}</p>
     </div>
   );
 };

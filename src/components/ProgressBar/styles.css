@@ -57,3 +57,13 @@
   font-size: 20px;
   margin-bottom: 40px;
 }
+
+.baby-icon {
+  position: absolute;
+  top: -40px; /* Adjust the vertical position as needed */
+}
+
+.baby-icon__image {
+  width: 40px; /* Adjust the width as needed */
+  height: 40px; /* Adjust the height as needed */
+}
