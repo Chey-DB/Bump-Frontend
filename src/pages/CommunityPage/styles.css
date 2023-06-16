@@ -1,0 +1,14 @@
+ul {
+  display: block;
+  text-decoration: none;
+  float: center;
+}
+.post-navbar {
+  display: block;
+  text-align: center;
+  padding: 5% 7.5% 5% 7.5%;
+  float: left;
+}
+.post-navbar:hover {
+  background-color: #89d6b6;
+}
