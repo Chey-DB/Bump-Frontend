@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Modal from 'react-modal';
-import Datetime from 'react-datetime'
+import Datetime from 'react-datetime';
+import DateTimePicker from 'react-datetime-picker';
 Modal.setAppElement('#root')
 
 const AddEvent = ({isOpen, onClose, onEventAdded}) => {

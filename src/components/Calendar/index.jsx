@@ -40,7 +40,7 @@ const Calendar = () => {
         <FullCalendar
           ref={calendarRef}
           events={events}
-          plugins={[ dayGridPlugin, interactionPlugin, timeGridplugin]}
+          plugins={[ dayGridPlugin]}
           initialView={"dayGridMonth"}
           eventAdd={event => handleEventAdd(event)}
           datesSet={(date) => handleDatesSet(date)}
