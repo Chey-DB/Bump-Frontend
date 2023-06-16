@@ -6,4 +6,5 @@ export { default as MotivationalQuote } from "./MotivationalQuote";
 export { default as ProgressBar } from "./ProgressBar";
 export { default as InformationCard } from "./InformationCard";
 export { default as Greeting } from "./Greeting";
+export { default as NextAppointment } from "./NextAppointment";
 export { default as PostCard } from "./PostCard";
