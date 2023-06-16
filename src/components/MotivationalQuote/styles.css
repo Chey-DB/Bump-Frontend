@@ -6,6 +6,7 @@
 }
 
 .motivational-quote-container {
+  position: relative;
   width: 60%;
   max-width: 100%;
   margin-top: 20px;
@@ -37,4 +38,20 @@
   font-size: 45px;
   color: #000000;
   margin-right: 10px;
+}
+
+.quotation-mark-img{
+  position: absolute;
+  width: 6rem;
+}
+
+#left-qm{
+  left: 0;
+  transform: scaleX(-1) scaleY(-1) translateX(45px) translateY(45px) rotate(-20deg);
+}
+
+#right-qm{
+  right: 0;
+  bottom: 0;
+  transform:translateX(45px) translateY(45px) rotate(20deg);
 }
