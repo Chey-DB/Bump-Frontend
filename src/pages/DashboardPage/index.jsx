@@ -30,7 +30,7 @@ const DashboardPage = () => {
 
   const logout = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/auth/logout");
+      const response = await axios.get("http://localhost:3000/auth/logout", { withCredentials: true});
       if (response.status === 200) {
         navigate("/login");
       } else {
@@ -61,6 +61,7 @@ const DashboardPage = () => {
         </p>
         <div className="button-div">
           <button>Press Me</button>
+          <button onClick={logout}>Log Out</button>
         </div>
       </div>
     </>

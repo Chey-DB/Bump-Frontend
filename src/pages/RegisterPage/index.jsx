@@ -6,7 +6,6 @@ const RegisterPage = () => {
     window.open('http://localhost:3000/auth/google', '_self')
   }
 
-  console.log(document.cookie)
   return (
     <div className='container'>
       <button onClick={handleGoogleSignIn}>Sign in with Google</button>
