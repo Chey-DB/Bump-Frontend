@@ -2,7 +2,7 @@ import React from 'react'
 import './styles.css'
 import MotivationalQuote from '../../components/MotivationalQuote'
 import ProgressBar from '../../components/ProgressBar'
-import { InformationCard } from '../../components'
+import { Greeting, InformationCard } from '../../components'
 // import Checklist from '../../components/Checklist' 
 
 const DashboardPage = () => {
@@ -16,8 +16,9 @@ const DashboardPage = () => {
     <>
     <div className='container'>
       {/* <Checklist /> */}
-      <h1>Dashboard Page</h1>
-      <h2>This is something</h2>
+      <div>
+        <Greeting/>
+      </div>
       <br />
       <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi iste, fugiat neque quod ipsa error alias totam dolorum sapiente explicabo?</h3>
       <br />
