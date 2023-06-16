@@ -1,4 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
+import Modal from 'react-modal'
+
+
 
 
 import * as Pages from './pages'

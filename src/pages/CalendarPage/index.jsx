@@ -1,10 +1,13 @@
 import React from 'react'
+import Calendar from '../../components/Calendar';
 import './styles.css'
+
 
 const CalendarPage = () => {
   return (
     <>
     <div className='container'>
+      <Calendar />
       <h1>Calendar Page</h1>
       <h2>This is something</h2>
       <br />
@@ -14,7 +17,7 @@ const CalendarPage = () => {
       <div className='button-div'>
         <button>Press Me</button>
       </div>
-    </div>
+      </div>
     </>
   )
 }
