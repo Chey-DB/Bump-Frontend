@@ -1,0 +1,52 @@
+.All-Post {
+  background-color: #a194d5;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+ul {
+  display: block;
+  text-decoration: none;
+  float: center;
+}
+
+li {
+  display: block;
+  text-align: center;
+  padding: 5% 7.5% 5% 7.5%;
+  float: left;
+}
+ul :hover {
+  background-color: #89d6b6;
+}
+
+.card {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  /* height: 50rem; */
+  margin: 2%;
+  border-radius: 15px;
+}
+.user-data {
+  display: flex;
+  justify-content: flex-start;
+  margin: 1%;
+  /* padding: 10%; */
+  background-color: red;
+}
+
+.q-title {
+  flex-grow: 1;
+  background-color: green;
+}
+.q-content {
+  background-color: yellow;
+  padding: 10%;
+  margin: 1%;
+}
+.q-comment {
+  background-color: grey;
+  padding: 10%;
+  margin: 1%;
+}
