@@ -25,6 +25,13 @@
   box-shadow: 0 0 0 0.5px #afafaf;
 }
 
+.progress-bar-week {
+  font-size: 14px;
+  word-spacing: 4px;
+  position: relative; /* Add position relative */
+  top: 4px; /* Adjust the value to move the text down by desired pixels */
+}
+
 
 .progress-bar-marker:nth-child(1) {
   left: 0;

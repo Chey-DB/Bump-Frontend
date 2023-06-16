@@ -20,7 +20,7 @@ const ProgressBar = ({ dueDate, currentWeek }) => {
 
   const renderMarkers = () => {
     const markers = [
-      { week: 0, label: 'Week 0' },
+      { week: 0, label: 'Week    0' },
       { week: 13, label: 'Week 13' },
       { week: 27, label: 'Week 27' },
       { week: 40, label: 'Week 40' }
@@ -71,3 +71,4 @@ const ProgressBar = ({ dueDate, currentWeek }) => {
 };
 
 export default ProgressBar;
+
