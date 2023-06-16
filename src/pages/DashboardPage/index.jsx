@@ -2,13 +2,14 @@ import React from 'react'
 import './styles.css'
 import MotivationalQuote from '../../components/MotivationalQuote'
 import ProgressBar from '../../components/ProgressBar'
+import { InformationCard } from '../../components'
 // import Checklist from '../../components/Checklist' 
 
 const DashboardPage = () => {
 
     const user = {
         dueDate: new Date('2023-12-31'),
-        currentWeek: 19,
+        currentWeek: 35,
     }
 
   return (
@@ -29,6 +30,9 @@ const DashboardPage = () => {
       </div>
       <div>
         <ProgressBar dueDate={user.dueDate} currentWeek={user.currentWeek} />
+      </div>
+      <div>
+        <InformationCard />
       </div>
     </div>
     </>
