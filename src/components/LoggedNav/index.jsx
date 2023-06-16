@@ -31,7 +31,7 @@ const LoggedNav = () => {
       <nav className="navbar">
         <div className="nav-container">
           <NavLink to="/" className="nav-logo">
-            {/* <img src="Bump-logo.png" alt="" style={{width: '5rem', borderRadius: '5rem'}}/> */}
+            <img src="Bump-logo.png" alt="bump logo" id='navbar-logo-img'/>
           </NavLink>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
@@ -63,7 +63,7 @@ const LoggedNav = () => {
           <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} style={{transform: 'translateY(5px)'}}></i>
           </div>
-          <NavLink to="/" id='pfp-link' className="nav-links" onClick={handleClick}><img id='pfp' src={profilePicture ? profilePicture :"blank-profile-picture.webp"} alt="profile picture" /></NavLink>
+          <NavLink to="/" id='pfp-link' onClick={handleClick}><img id='pfp' src={profilePicture ? profilePicture :"blank-profile-picture.webp"} alt="profile picture" /></NavLink>
         </div>
       </nav>
       {/* <Checklist /> */}
