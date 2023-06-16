@@ -73,4 +73,13 @@
 .baby-icon__image {
   width: 40px; /* Adjust the width as needed */
   height: 40px; /* Adjust the height as needed */
+<<<<<<< HEAD
+=======
+}
+
+.my-journey {
+  margin-bottom: 15px;
+  /* border: 0.5px solid #afafaf; */
+  text-decoration: underline;
+>>>>>>> 14fc03b08247b407b23ff189237ae9807092cb77
 }
