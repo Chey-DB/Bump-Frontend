@@ -8,6 +8,21 @@ import { useNavigate } from "react-router-dom";
 const DashboardPage = () => {
   const navigate = useNavigate();
 
+  axios.get('http://localhost:3000/auth/checkUser', { withCredentials: true })
+  .then(response => {
+    console.log(response.data);
+    if (response.data) {
+      // User is logged in
+      // Use the user data
+      console.log(response.data._id);
+    } else {
+      // User is not logged in
+      console.log("User is not logged in");
+    }
+  });
+
+
+
   const user = {
     dueDate: new Date("2023-12-31"),
     currentWeek: 18,
