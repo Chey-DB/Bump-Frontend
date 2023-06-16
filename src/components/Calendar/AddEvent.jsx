@@ -30,8 +30,7 @@ const AddEvent = ({isOpen, onClose, onEventAdded}) => {
                 <form onSubmit={onSubmit}>
                     <div>
                         <label>Start Date</label>
-                        <Datetime value={start} onChange={date => setStart(date)}/>
-                    
+                        <Datetime value={start} onChange={date => setStart(date)}/>     
                         <label>End Date</label>
                         <Datetime value={end} onChange={date => setEnd(date)}/>
                     </div>
