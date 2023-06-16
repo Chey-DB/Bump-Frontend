@@ -4,7 +4,6 @@ import { Routes, Route } from 'react-router-dom'
 import * as Pages from './pages'
 // import Header from './components/Header'
 import LoggedNav from './components/LoggedNav'
-// import NavBar from './components/Navbar'
 
 import "./App.css"
 
