@@ -1,9 +1,55 @@
 #checklist {
   border: 1px solid black;
-  background-color: rgb(179, 179, 179);
+  background-color: var(--purple);
   position: fixed;
-  top: 4rem;
+  top: 5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items:flex-start;
   left: 0;
   min-height: 100vh;
   width: clamp(25vw, 20rem, 100vw);
+  border-radius: 0 5px 5px 0;
+}
+
+/* styles.css */
+
+#checklist {
+  font-family: Arial, sans-serif;
+}
+.item-wrapper{
+  color: white;
+  margin: 0.3rem 0.5rem;
+  padding: 1rem;
+  background-color: var(--green);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.checklist-item {
+  width: 100%;
+}
+
+.checklist-item h3 {
+  margin-top: 0;
+}
+
+.checklist-item p {
+  margin-bottom: 5px;
+}
+
+.checklist-item input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.checklist-item input[type="checkbox"]:checked + h3 {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.checklist-item input[type="checkbox"]:checked + p {
+  text-decoration: line-through;
+  color: #888;
 }
