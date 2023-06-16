@@ -4,21 +4,6 @@
   display: flex;
   flex-direction: column;
 }
-ul {
-  display: block;
-  text-decoration: none;
-  float: center;
-}
-
-li {
-  display: block;
-  text-align: center;
-  padding: 5% 7.5% 5% 7.5%;
-  float: left;
-}
-ul :hover {
-  background-color: #89d6b6;
-}
 
 .card {
   background-color: white;
@@ -33,20 +18,34 @@ ul :hover {
   justify-content: flex-start;
   margin: 1%;
   /* padding: 10%; */
-  background-color: red;
+  /* background-color: red; */
 }
-
-.q-title {
-  flex-grow: 1;
-  background-color: green;
-}
-.q-content {
+.q-name {
+  height: 3rem;
   background-color: yellow;
-  padding: 10%;
-  margin: 1%;
 }
-.q-comment {
+.q-date {
+  height: 6rem;
+  background-color: burlywood;
+}
+.title {
+  flex-grow: 1;
+  /* height: 5rem; */
+  background-color: green;
+  align-self: flex-start;
+}
+.content {
+  background-color: yellow;
+}
+.comment {
   background-color: grey;
   padding: 10%;
   margin: 1%;
+  text-align: right;
+}
+
+.img {
+  height: 50%;
+  width: 50%;
+  float: right;
 }

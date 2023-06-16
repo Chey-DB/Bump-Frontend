@@ -29,11 +29,11 @@ const CommunityPage = () => {
           AllPosts
           <div className="header">
             <ul>
-              <li>All</li>
-              <li>Posts</li>
-              <li>Questions</li>
-              <li>search</li>
-              <li>+</li>
+              <li className="post-navbar">All</li>
+              <li className="post-navbar">Posts</li>
+              <li className="post-navbar">Questions</li>
+              <li className="post-navbar">search</li>
+              <li className="post-navbar">+</li>
             </ul>
           </div>
         </div>
