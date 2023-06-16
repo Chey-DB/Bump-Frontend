@@ -29,6 +29,7 @@ const DashboardPage = () => {
   return (
     <>
       <div className="container">
+        {/* <Checklist /> */}
         <h1>Dashboard Page</h1>
         <h2>This is something</h2>
         <br />
@@ -45,13 +46,6 @@ const DashboardPage = () => {
         </p>
         <div className="button-div">
           <button>Press Me</button>
-          <button onClick={logout}>logout</button>
-        </div>
-        <div>
-          <MotivationalQuote />
-        </div>
-        <div>
-          <ProgressBar dueDate={user.dueDate} currentWeek={user.currentWeek} />
         </div>
       </div>
     </>
