@@ -12,8 +12,9 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "cloudinary-react": "^1.8.1",
     "axios": "^1.4.0",
+    "cloudinary-react": "^1.8.1",
+    "esbuild": "^0.18.4",
     "react": "^18.2.0",
     "react-datetime": "^3.2.0",
     "react-dom": "^18.2.0",
