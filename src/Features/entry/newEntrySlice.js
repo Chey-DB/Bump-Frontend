@@ -19,8 +19,15 @@ const newEntrySlice = createSlice({
       };
     },
     resetNewEntry: () => initialState,
+    resetMoodAndSymptoms: (state) => {
+      return {
+        ...state,
+        symptoms: [],
+        mood: [],
+      };
+    },
   },
 });
 
-export const { updateNewEntry, resetNewEntry } = newEntrySlice.actions;
+export const { updateNewEntry, resetNewEntry, resetMoodAndSymptoms } = newEntrySlice.actions;
 export default newEntrySlice.reducer;
