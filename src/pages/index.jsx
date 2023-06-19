@@ -7,4 +7,5 @@ export { default as NotFoundPage } from './NotFoundPage'
 export { default as FAQsPage } from './FAQsPage'
 export { default as RegisterPage } from './RegisterPage'
 export { default as MyJournalPage } from './MyJournalPage'
+export { default as SettingsPage } from './SettingsPage'
 

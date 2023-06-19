@@ -1,0 +1,61 @@
+.settings-form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem 0;
+}
+
+.settings-form-container {
+  position: relative;
+  width: 50rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.settings-form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  border: var(--purple) 10px solid;
+  box-shadow: 8.0px 16.0px 16.0px hsla(267, 50%, 51%, 0.25);
+  align-items: flex-start; /* Align to the left */
+  width: 100%; /* Take up the full width of the container */
+}
+
+.settings-form label {
+  font-size: 18px;
+  color: #333;
+  display: block;
+  margin-bottom: 10px;
+  width: 100%; /* Take up the full width */
+}
+
+.settings-form input,
+.settings-form select,
+.settings-form textarea {
+  width: 100%; /* Take up the full width */
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid #d2d2d2;
+  margin-bottom: 10px;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.settings-form button {
+  background-color: var(--purple);
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  width: fit-content; /* Adjust width to fit content */
+  margin-top: 10px;
+}
+
+.settings-form button:hover {
+  background-color: var(--dark-purple);
+  color: black;
+  border: 1px solid #a194d5;
+}
