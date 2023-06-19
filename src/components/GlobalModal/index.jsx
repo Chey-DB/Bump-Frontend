@@ -9,7 +9,7 @@ const GlobalModal = props => {
   }
 
   return (
-    <div className='modal' onClick={props.onClose}>
+    <div className='modal' onClick={props.onClose} id={props.hasId}>
       <div className="modal-content" onClick={e => e.stopPropagation()}>
         <div className="modal-header">
           <h3 className='modal-title'>{props.title}</h3>

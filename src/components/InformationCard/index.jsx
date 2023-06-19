@@ -7,16 +7,17 @@ import GlobalModal from '../GlobalModal';
 
 const InformationCard = () => {
   const [show, setShow] = useState(false)
-  // useEffect(() => {
-  //   if (show) {
-  //     document.body.classList.add('modal-open');
-  //   } else {
-  //     document.body.classList.remove('modal-open');
-  //   }
-  // }, [show]);
+
+  useEffect(() => {
+    if (show) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+  }, [show]);
   return (
     <>
-        <GlobalModal show={show}></GlobalModal>
+      <GlobalModal show={show} onClose={() => setShow(false)} hasId={'move-down-modal'}></GlobalModal>
       <div className="cards-container" style={{position:'relative'}}>
         <div className="information-card-container">
           <div className="information-card">
