@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useAuth } from '../../Context'
 import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 
 
 const LoadingPage = () => {
@@ -16,7 +16,7 @@ const LoadingPage = () => {
                 const username = response.data.username
                 if (response.data) {
                     setUser({ userId, username })
-                    navigate('/dashbaord')
+                    navigate('/dashboard')
                     // User is logged in
                     // Use the user data
                     console.log(response.data);
@@ -28,7 +28,10 @@ const LoadingPage = () => {
     }, [])
 
   return (
-    <div>LoadingPage</div>
+    <div>
+        LoadingPage
+        <NavLink to="/dashboard">Dashboard</NavLink>
+    </div>
   )
 }
 
