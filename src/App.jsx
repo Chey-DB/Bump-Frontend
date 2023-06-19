@@ -2,13 +2,15 @@ import { Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./Context";
 import ProtectedRoute from "./Route";
 
-import * as Pages from "./pages";
-// import Header from './components/Header'
-import LoggedNav from "./components/LoggedNav";
 
-import "./App.css";
+import * as Pages from './pages'
+// import Header from './components/Header'
+import LoggedNav from './components/LoggedNav'
+
+import "./App.css"
 
 function App() {
+
   return (
     <AuthProvider>
       <Routes>
@@ -31,4 +33,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

@@ -1,0 +1,11 @@
+.side-scroll{
+  width: 40vw;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent items from wrapping to a new line */
+}
+
+.sc-item {
+  display: inline-block; /* Display items in a row */
+  padding: 10px;
+  /* Add any additional styling for your items */
+}

@@ -2,12 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 35vh;
+  margin: 4rem 0;
 }
 
 .motivational-quote-container {
-  width: 60%;
-  max-width: 100%;
+  position: relative;
+  max-width: 40rem;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -16,8 +16,8 @@
   background-color: #ffffff;
   padding: 20px;
   border-radius: 5px;
-  border: #333 1px solid;
-  box-shadow: 0 0 1px 3px #d2d2d2;
+  border: var(--purple) 10px solid;
+  box-shadow: 8.0px 16.0px 16.0px hsla(267, 50%, 51%, 0.25);
 }
 
 .motivational-quote h3 {
@@ -37,4 +37,43 @@
   font-size: 45px;
   color: #000000;
   margin-right: 10px;
+}
+
+.quotation-mark-img{
+  position: absolute;
+  width: 6rem;
+}
+
+#left-qm{
+  left: 0;
+  transform: scaleX(-1) scaleY(-1) translateX(45px) translateY(45px) rotate(-20deg);
+}
+
+#right-qm{
+  right: 0;
+  bottom: 0;
+  transform:translateX(45px) translateY(45px) rotate(20deg);
+}
+
+#quote-header{
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 2rem;
+
+}
+
+#quote-header::after {
+  content: '';
+  display: block;
+  width: 80%;
+  height: 2px;
+  background: #919191;
+  position: absolute;
+  left: 35%; /* Adjust the left value to position the line in the middle */
+  margin-left: -25%; /* Adjust the negative margin to horizontally center the line */
+  margin-top: 0.3rem;
+}
+
+#quote-content{
+  line-height: 2.5rem;
 }

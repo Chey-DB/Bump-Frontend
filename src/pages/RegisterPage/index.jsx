@@ -4,10 +4,9 @@ import './styles.css'
 const RegisterPage = () => {
   const handleGoogleSignIn = () => {
     window.open('http://localhost:3000/auth/google', '_self')
-    console.log()
 
   }
-  
+    
   console.log(document.cookie)
   return (
     <div className='container'>

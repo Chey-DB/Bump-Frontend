@@ -9,9 +9,15 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     max-height: 100vh;
-    background-image: url('background.png');
+    background-image: url('background-2.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    perspective: 1px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 header {
@@ -31,7 +37,8 @@ header {
     /* height: 300vh; */
     margin: 0 10vw;
     /* border: 1px solid black; */
-    background: white;
+    /* background: white; */
+    /* background-attachment: fixed; */
 }
 
 a{
