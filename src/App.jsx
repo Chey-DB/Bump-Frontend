@@ -21,6 +21,7 @@ function App() {
         <Route path="/community" element={<Pages.CommunityPage />} />
         <Route path="/faqs" element={<Pages.FAQsPage />} />
         <Route path="/settings" element={<Pages.SettingsPage />} />
+        <Route path="/user" element={<Pages.UserPage />} />
         <Route path="*" element={<Pages.NotFoundPage />} />
       </Route>
     </Routes>

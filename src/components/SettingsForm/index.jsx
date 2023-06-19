@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './styles.css'; // Import the styles.css file
 
-const SettingsForm = () => {
+const SettingsForm = ({ onFormSubmit }) => {
   const [formData, setFormData] = useState({
     name: '',
     addressLine1: '',
@@ -24,6 +24,9 @@ const SettingsForm = () => {
 
       // Make POST request to local-users endpoint
       await axios.post('http://localhost:3000/local-users', formData);
+
+      // Invoke the onFormSubmit callback with the form data
+      onFormSubmit(formData);
 
       // Reset form data
       setFormData({
@@ -58,6 +61,9 @@ const SettingsForm = () => {
     <div className="settings-form-wrapper">
       <div className="settings-form-container">
         <form className="settings-form" onSubmit={handleSubmit}>
+          <div>
+            <h3>Please fill out this form so we can customise this application to you.</h3>
+          </div>
           <label>
             Name:
             <input type="text" name="name" value={formData.name} onChange={handleChange} />
@@ -100,7 +106,7 @@ const SettingsForm = () => {
             About:
             <textarea name="about" value={formData.about} onChange={handleChange}></textarea>
           </label>
-          <button type="submit">Submit</button>
+          <button onClick={"/dashboard"} type="submit">Submit</button>
         </form>
       </div>
     </div>
