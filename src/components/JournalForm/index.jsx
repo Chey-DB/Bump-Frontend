@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
-import { updateNewEntry, resetNewEntry, resetMoodAndSymptoms } from '../../Features/entry/newEntrySlice';
+import { updateNewEntry, resetNewEntry, resetMoodAndSymptoms } from '../../Features/newEntrySlice';
 import { SymptomMoodPicker } from '..';
 import './JournalForm.css';
 

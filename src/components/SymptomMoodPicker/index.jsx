@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateNewEntry, resetMoodAndSymptoms } from '../../Features/entry/newEntrySlice';
+import { updateNewEntry, resetMoodAndSymptoms } from '../../Features/newEntrySlice';
 import { Checkbox, GlobalModal } from '..';
 import './SymptomMoodPicker.css';
 
