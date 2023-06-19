@@ -79,11 +79,11 @@ const SettingsForm = () => {
             <input type="text" name="postcode" value={formData.postcode} onChange={handleChange} />
           </label>
           <label>
-            Current Week:
+            Current Week of Pregnancy:
             <input type="date" name="currentWeek" value={formData.currentWeek} onChange={handleChange} />
           </label>
           <label>
-            Due Date:
+            Due Date of Pregnancy:
             <input type="date" name="dueDate" value={formData.dueDate} onChange={handleChange} />
           </label>
           <label>
