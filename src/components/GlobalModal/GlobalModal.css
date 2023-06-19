@@ -1,5 +1,5 @@
 .modal{
-  position: fixed;
+  position:fixed;
   left: 0;
   right: 0;
   top: 0;
@@ -17,6 +17,7 @@
   align-self: center;
   background-color: #fff;
   text-align: center;
+  transform: translateY(2rem);
 }
 
 .modal-header, .modal-footer{

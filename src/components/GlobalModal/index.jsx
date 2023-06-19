@@ -3,7 +3,8 @@ import React from 'react'
 import './GlobalModal.css'
 
 const GlobalModal = props => {
-  if (!props.show){
+
+  if (!props.show) {
     return null
   }
 
