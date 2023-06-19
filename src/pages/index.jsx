@@ -9,4 +9,5 @@ export { default as RegisterPage } from './RegisterPage'
 export { default as MyJournalPage } from './MyJournalPage'
 export { default as SettingsPage } from './SettingsPage'
 export { default as UserPage } from './UserPage'    
+export { default as LoadingPage } from './LoadingPage'
 
