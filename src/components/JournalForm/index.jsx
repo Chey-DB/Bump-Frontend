@@ -1,28 +1,34 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import Checkbox from '../Checkbox';
+
+import { updateNewEntry, resetNewEntry, resetMoodAndSymptoms } from '../../Features/entry/newEntrySlice';
+import { SymptomMoodPicker } from '..';
 import './JournalForm.css';
 
 const JournalForm = () => {
-  const [title, setTitle] = useState('');
-  const [journalEntry, setJournalEntry] = useState('');
+  const dispatch = useDispatch();
+  const newEntry = useSelector((state) => state.newEntry);
+
+  const handleTitleChange = (e) => {
+    const title = e.target.value;
+    dispatch(updateNewEntry({ ...newEntry, title: title }));
+  };
+
+  const handleJournalEntryChange = (e) => {
+    const journalEntry = e.target.value;
+    dispatch(updateNewEntry({ ...newEntry, content: journalEntry }));
+  };
 
   const createEntry = async () => {
-    const newEntry = {
-      user_id: '6488473bfa7d92ab51dfef3f', //currently hardcoded
-      title: title,
-      content: journalEntry,
-    };
-
-    console.log(newEntry)
-    // const response = await axios.post(`http://localhost:3000/journals`, newEntry);
+    console.log(newEntry);
+    const response = await axios.post(`http://localhost:3000/journals`, newEntry);
     // Handle the response as needed
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await createEntry();
-
   };
 
   return (
@@ -31,8 +37,8 @@ const JournalForm = () => {
       <input
         type="text"
         id="journal-title-fm"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        value={newEntry.title}
+        onChange={handleTitleChange}
       />
       <label htmlFor="journal-entry-fm">What is on your mind?</label>
       <textarea
@@ -40,11 +46,12 @@ const JournalForm = () => {
         id="journal-entry-fm"
         cols="30"
         rows="10"
-        value={journalEntry}
-        onChange={(e) => setJournalEntry(e.target.value)}
+        value={newEntry.content}
+        onChange={handleJournalEntryChange}
       ></textarea>
+      <button onClick={() => dispatch(resetMoodAndSymptoms())}>Remove Symptoms and Moods</button>
+      <SymptomMoodPicker />
       <button type="submit">Submit</button>
-      {/* <button onClick={() => console.log(selectedSymptoms)}>Check selected symptoms</button> */}
     </form>
   );
 };

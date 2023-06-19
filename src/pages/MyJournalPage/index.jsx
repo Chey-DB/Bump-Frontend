@@ -19,7 +19,6 @@ const MyJournalPage = () => {
         <button>Press Me</button>
       </div>
       <JournalForm />
-      <SymptomMoodPicker />
     </div>
     </>
   )

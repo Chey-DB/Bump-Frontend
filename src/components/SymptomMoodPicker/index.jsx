@@ -40,7 +40,7 @@ const SymptomMoodPicker = () => {
     handleMoodChange();
     handleSymptomChange();
     setShow(false);
-    console.log(newEntry);
+    // console.log(newEntry);
   };
 
   return (
