@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './styles.css'
-import { JournalForm } from '../../components'
+import { JournalForm, GlobalModal, SymptomMoodPicker } from '../../components'
 const MyJournalPage = () => {
+  const [show, setShow] = useState(false)
+  
   return (
     <>
     <div className='container'>
@@ -15,6 +17,10 @@ const MyJournalPage = () => {
         <button>Press Me</button>
       </div>
       <JournalForm />
+      <button onClick={() => setShow(true)}>Add Symptoms and Moods</button>
+      <GlobalModal show={show} onClose={() => setShow(false)} title='Select Moods and Symptoms'>
+        <SymptomMoodPicker />
+      </GlobalModal>
     </div>
     </>
   )
