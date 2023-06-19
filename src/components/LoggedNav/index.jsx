@@ -3,12 +3,16 @@ import { NavLink, Outlet } from 'react-router-dom'
 import axios from 'axios'
 
 import './LoggedNav.css'
-import ChecklistButton from '../ChecklistButton'
+import Checklist from '../Checklist'
 
 const LoggedNav = () => {
-
   const [profilePicture, setProfilePicture] = useState('')
   const [click, setClick] = useState(false);
+  const [toggle, setToggle] = useState(false);
+
+  const buttonPress = () => {
+    setToggle(!toggle);
+  };
 
   const handleClick = () => setClick(!click);
 
@@ -21,7 +25,7 @@ const LoggedNav = () => {
   //       console.error('Error fetching ProfilePicture:', error);
   //     }
   //   };
-  
+
   //   getProfilePicture();
   // }, []);
 
@@ -30,44 +34,48 @@ const LoggedNav = () => {
     <>
       <nav className="navbar">
         <div className="nav-container">
-          <ChecklistButton />
-          <NavLink to="/" className="nav-logo">
-            <img src="Bump-logo.png" alt="bump logo" id='navbar-logo-img'/>
-          </NavLink>
+          <div className="nav-logo-holder">
+            <div onClick={buttonPress} id='checklist-toggler'>
+              <i className={toggle ? "fas fa-times" : "fas fa-list-check"}></i>
+            </div>
+            <Checklist toggle={toggle} />
+            <NavLink to="/" className='nav-logo'>
+              <img src="Bump-logo.png" alt="bump logo" id='navbar-logo-img' />
+            </NavLink>
+          </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <NavLink to="/dashboard"  className="nav-links" onClick={handleClick}>
+              <NavLink to="/dashboard" className="nav-links" onClick={handleClick}>
                 Dashboard
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/calendar"  className="nav-links" onClick={handleClick}>
+              <NavLink to="/calendar" className="nav-links" onClick={handleClick}>
                 Calendar
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/community"  className="nav-links" onClick={handleClick}>
+              <NavLink to="/community" className="nav-links" onClick={handleClick}>
                 Community
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/my-journal"  className="nav-links" onClick={handleClick}>
+              <NavLink to="/my-journal" className="nav-links" onClick={handleClick}>
                 My Journal
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/faqs"  className="nav-links" onClick={handleClick}>
+              <NavLink to="/faqs" className="nav-links" onClick={handleClick}>
                 FAQs
               </NavLink>
             </li>
           </ul>
           <div className="nav-icon" onClick={handleClick}>
-            <i className={click ? "fas fa-times" : "fas fa-bars"} style={{transform: 'translateY(5px)'}}></i>
+            <i className={click ? "fas fa-times" : "fas fa-bars"} style={{ transform: 'translateY(5px)' }}></i>
           </div>
-          <NavLink to="/" id='pfp-link' onClick={handleClick}><img id='pfp' src={profilePicture ? profilePicture :"blank-profile-picture.webp"} alt="profile picture" /></NavLink>
+          <NavLink to="/" id='pfp-link' onClick={handleClick}><img id='pfp' src={profilePicture ? profilePicture : "blank-profile-picture.webp"} alt="profile picture" /></NavLink>
         </div>
       </nav>
-      {/* <Checklist /> */}
       <Outlet />
     </>
   )
