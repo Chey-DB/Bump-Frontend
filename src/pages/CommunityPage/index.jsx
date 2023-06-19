@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { PostCard } from "../../components";
 import { Image, CloudinaryContext } from "cloudinary-react";
 import "./styles.css";
+import Popup from "reactjs-popup";
 
 import CloudinaryUploadWidget from "../../components/PostForm/CloudinaryUploadWidget";
 
@@ -23,6 +24,9 @@ const CommunityPage = () => {
   }, []);
 
   function displayPosts() {
+    function addPost() {
+      return <>{console.log("Hi")}</>;
+    }
     return (
       <>
         <div className="All-Post">
@@ -33,7 +37,61 @@ const CommunityPage = () => {
               <li className="post-navbar">Posts</li>
               <li className="post-navbar">Questions</li>
               <li className="post-navbar">search</li>
-              <li className="post-navbar">+</li>
+              <Popup
+                trigger={<button className="button"> + </button>}
+                model
+                nested
+              >
+                {(close) => (
+                  <div className="modal">
+                    <button className="close" onClick={close}>
+                      &times;
+                    </button>
+                    <div className="header"> New Post </div>
+                    <form>
+                      <label className="label-title">title: </label>
+                      <input type="text" id="input-title"></input>
+                      <br />
+                      <label className="label-content">content: </label>
+                      <input type="text" id="input-content"></input>
+                      <br />
+                      <label className="label-image">image: </label>
+                      <Popup
+                        trigger={<CloudinaryUploadWidget />}
+                        position="top center"
+                        nested
+                      ></Popup>
+
+                      <br />
+                      <label className="label-question">question: </label>
+                      <input type="text" id="input-question"></input>
+                      <br />
+                    </form>
+                    <div className="actions">
+                      <button
+                        className="button"
+                        onClick={() => {
+                          console.log("modal closed ");
+                          const data = {
+                            user_id: "getting this from somewhere",
+                            title: document.getElementById("input-title").value,
+                            content:
+                              document.getElementById("input-content").value,
+                            image: document.getElementById("input-image").value,
+                            comments: [],
+                            question:
+                              document.getElementById("input-question").value,
+                          };
+                          console.log(data);
+                          close();
+                        }}
+                      >
+                        Create Post
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </Popup>
             </ul>
           </div>
         </div>
@@ -56,6 +114,7 @@ const CommunityPage = () => {
   }
   return (
     <>
+      <CloudinaryUploadWidget />
       <div className="container">
         <div>displaying posts: {displayPosts()}</div>
         <CloudinaryContext cloudName="dzbvvdev4">
@@ -64,7 +123,6 @@ const CommunityPage = () => {
           </div>
           <Image publicId="sample" width="0.5" />
         </CloudinaryContext>
-        <CloudinaryUploadWidget />
       </div>
     </>
   );
