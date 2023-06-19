@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import './styles.css';
 
-const Checklist = () => {
+const Checklist = ({ toggle }) => {
   const [checklistData, setChecklistData] = useState([]);
   const [user, setUser] = useState('');
 
@@ -23,7 +23,7 @@ const Checklist = () => {
   }, [user]);
 
   useEffect(() => {
-    setUser('6488473bfa7d92ab51dfef3f'); //Currently hard coded but will be retriving from cookies
+    setUser('6488473bfa7d92ab51dfef3f'); //Currently hard coded but will be retrieving from cookies
   }, []);
 
   const handleCheckboxChange = async (ChecklistItemId) => {
@@ -46,16 +46,21 @@ const Checklist = () => {
   };
 
   return (
-    <div id="checklist">
+    <div id="checklist" data-testid="checklist" style={{ left: toggle ? '0' : '-100%' }}>
       {checklistData.map((checklistItem) => (
-        <div key={checklistItem._id}>
-          <h3>{checklistItem.title}</h3>
-          <p>{checklistItem.content}</p>
-          <input
-            type="checkbox"
-            checked={checklistItem.isCompleted}
-            onChange={() => handleCheckboxChange(checklistItem._id)}
-          />
+        <div className="checklist-item" key={checklistItem._id}>
+          <div className="item-wrapper">
+            <div className='cl-content-wrapper'>
+              <h3 className={checklistItem.isCompleted ? 'completed' : ''}>{checklistItem.title}</h3>
+              <p className={checklistItem.isCompleted ? 'completed' : ''}>{checklistItem.content}</p>
+            </div>
+            <input
+              type="checkbox"
+              checked={checklistItem.isCompleted}
+              onChange={() => handleCheckboxChange(checklistItem._id)}
+              id="checkbox"
+            />
+          </div>
         </div>
       ))}
     </div>

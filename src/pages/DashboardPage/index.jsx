@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 const DashboardPage = () => {
   const navigate = useNavigate();
 
-
   const user = {
     dueDate: new Date("2023-12-31"),
     currentWeek: 18,
