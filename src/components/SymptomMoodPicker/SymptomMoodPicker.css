@@ -1,0 +1,12 @@
+.scroll {
+  overflow-y: auto;
+  max-height: 20vh; /* Adjust the height as needed */
+  margin: 1rem 0;
+  border-top: 1px solid rgb(220, 220, 220);
+}
+
+.sc-item {
+  display: inline-block; /* Display items in a row */
+  padding: 10px;
+  /* Add any additional styling for your items */
+}

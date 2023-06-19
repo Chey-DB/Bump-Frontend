@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './styles.css'
-import { JournalForm } from '../../components'
+import { JournalForm, GlobalModal, SymptomMoodPicker } from '../../components'
+
+import './styles.css'
 const MyJournalPage = () => {
+  
+  
   return (
     <>
     <div className='container'>

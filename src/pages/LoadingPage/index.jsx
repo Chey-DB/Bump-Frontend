@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useAuth } from '../../Context'
 import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 
 
 const LoadingPage = () => {
@@ -28,7 +28,10 @@ const LoadingPage = () => {
     }, [])
 
   return (
-    <div>LoadingPage</div>
+    <div>
+        LoadingPage
+        <NavLink to="/dashboard">Dashboard</NavLink>
+    </div>
   )
 }
 
