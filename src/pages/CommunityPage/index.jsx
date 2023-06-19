@@ -28,7 +28,7 @@ const CommunityPage = () => {
         <div className="All-Post">
           AllPosts
           <div className="header">
-            <ul>
+            <ul className="post-nav-list">
               <li className="post-navbar">All</li>
               <li className="post-navbar">Posts</li>
               <li className="post-navbar">Questions</li>
