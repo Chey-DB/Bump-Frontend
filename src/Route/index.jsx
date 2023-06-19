@@ -1,8 +1,9 @@
-import { Navigate, useLocation } from 'react-router-dom';
+import React, {useContext} from "react";
+import { Navigate, Outlet } from "react-router-dom";
+  import  { useAuth }  from "../Context";
 
-const ProtectedRouteWrapper = ({ children, loggedIn }) => {
-    const location = useLocation();
-    return loggedIn ? children : <Navigate to="/login" state={{ from: location }} />;
-};
+export default function ProtectedRoute({ redirectTo }) {
+    const {user} = useAuth();
 
-export default ProtectedRouteWrapper;
+    return user ? <Outlet /> : <Navigate to={redirectTo} />;
+}
