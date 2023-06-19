@@ -10,9 +10,9 @@ import './JournalForm.css';
 
 const modules = {
   toolbar: [
-    [{ 'header': [3, false] }],
-    ['bold', 'italic', 'underline','strike'],
-    [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+    [{ 'header': [1, 2, false] }],
+    ['bold', 'italic', 'underline', 'strike'],
+    [{ 'list': 'bullet' }],
   ],
 };
 
@@ -20,7 +20,6 @@ const formats = [
   'header',
   'bold', 'italic', 'underline', 'strike', 'blockquote',
   'list', 'bullet', 'indent',
-  'link', 'image'
 ];
 
 const JournalForm = () => {
@@ -51,21 +50,51 @@ const JournalForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="journal-title-fm">Title</label>
-      <input
-        type="text"
-        id="journal-title-fm"
-        value={newEntry.title}
-        onChange={handleTitleChange}
-      />
-      <label htmlFor="journal-entry-fm">What is on your mind?</label>
-      <ReactQuill theme="snow" value={newEntry.content} onChange={handleJournalEntryChange} modules={modules} formats={formats}/>
-      <button onClick={() => dispatch(resetMoodAndSymptoms())}>Remove Symptoms and Moods</button>
-      <SymptomMoodPicker />
-      <button type="submit">Submit</button>
-    </form>
+    <div className='journal-form-wrapper'>
+      <h2>Add New Journal Entry</h2>
+      <form onSubmit={handleSubmit} id='journal-entry-fm'>
+        <div className='fm-group'>
+          <input
+            type="text"
+            id="journal-title-fm"
+            value={newEntry.title}
+            onChange={handleTitleChange}
+            required
+          />
+          <label htmlFor="journal-title-fm" >Title</label>
+        </div>
+        <div className='fm-group'>
+          <textarea name="journalContent" id="journal-content-fm" required></textarea>
+          <label htmlFor="journal-content-fm">Journal Entry</label>
+        </div>
+        <div className='symptom-mood-icon-wp'>
+          <div className="symptom-icon-wrapper">
+            symptoms
+          </div>
+          <div className='sm-divider'>
+
+          </div>
+          <div className='mood-icon-wrapper'>
+            moods
+          </div>
+        </div>
+        <div className='symptom-mood-wrapper fm-group'>
+          <SymptomMoodPicker />
+          <button onClick={() => dispatch(resetMoodAndSymptoms())}>Remove</button>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 };
 
 export default JournalForm;
+
+{/* <ReactQuill 
+  theme="snow" 
+  value={newEntry.content} 
+  onChange={handleJournalEntryChange} 
+  modules={modules} 
+  formats={formats}
+  placeholder='What is on your mind?'
+/> */}

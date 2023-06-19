@@ -51,7 +51,7 @@ const SymptomMoodPicker = () => {
 
   return (
     <>
-      <button onClick={() => {setShow(true), dispatch(resetMoodAndSymptoms())}}>Add Symptoms and Moods</button>
+      <button onClick={() => {setShow(true), dispatch(resetMoodAndSymptoms())}}> + Symptoms and Moods</button>
       <GlobalModal show={show} onClose={() => setShow(false)} title="Select Moods and Symptoms" footer={<button onClick={handleAdd}>Add</button>}>
         <h3>Symptoms</h3>
         <div className="scroll symptoms-holder">
