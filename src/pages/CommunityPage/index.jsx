@@ -3,8 +3,32 @@ import { PostCard } from "../../components";
 import { Image, CloudinaryContext } from "cloudinary-react";
 import "./styles.css";
 import Popup from "reactjs-popup";
-
+import Axios from "axios";
 import CloudinaryUploadWidget from "../../components/PostForm/CloudinaryUploadWidget";
+
+//create image function to get a url for the image once its amde
+async function createImgUrl(img) {
+  const formData = new FormData();
+  formData.append("file", img);
+  formData.append("cloud_name", "dzbvvdev4");
+  formData.append("upload_preset", "bumpPosts");
+
+  try {
+    //post method
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dzbvvdev4/upload",
+      {
+        method: "post",
+        body: formData,
+      }
+    );
+    const data = await res.json();
+    //return a url
+    return data.secure_url;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 const CommunityPage = () => {
   const [post, setPost] = useState([]);
@@ -56,11 +80,11 @@ const CommunityPage = () => {
                       <input type="text" id="input-content"></input>
                       <br />
                       <label className="label-image">image: </label>
-                      <Popup
-                        trigger={<CloudinaryUploadWidget />}
-                        position="top center"
-                        nested
-                      ></Popup>
+                      <input
+                        type="file"
+                        id="input-image"
+                        accept=".jpg,.png"
+                      ></input>
 
                       <br />
                       <label className="label-question">question: </label>
@@ -70,19 +94,25 @@ const CommunityPage = () => {
                     <div className="actions">
                       <button
                         className="button"
-                        onClick={() => {
-                          console.log("modal closed ");
+                        onClick={async () => {
+                          const img_url = await createImgUrl(
+                            document.getElementById("input-image").files[0]
+                          );
+
                           const data = {
                             user_id: "getting this from somewhere",
                             title: document.getElementById("input-title").value,
                             content:
                               document.getElementById("input-content").value,
-                            image: document.getElementById("input-image").value,
+                            image: img_url,
                             comments: [],
                             question:
                               document.getElementById("input-question").value,
                           };
-                          console.log(data);
+                          {
+                            console.log(data);
+                          }
+                          console.log("modal closed ");
                           close();
                         }}
                       >
@@ -98,7 +128,7 @@ const CommunityPage = () => {
         {post.map((p) => (
           <PostCard
             key={p._id}
-            _id={p._id}
+            id={p._id}
             user_id={p.user_id}
             title={p.title}
             content={p.content}
