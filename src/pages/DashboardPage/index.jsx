@@ -45,9 +45,7 @@ const DashboardPage = () => {
       <div>
         <ProgressBar dueDate={user.dueDate} currentWeek={user.currentWeek} />
       </div>
-      <div>
         <InformationCard />
-      </div>
     </div>
     </>
   );
