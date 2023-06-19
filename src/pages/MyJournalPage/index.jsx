@@ -1,8 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './styles.css'
 import { JournalForm, GlobalModal, SymptomMoodPicker } from '../../components'
+
+import './styles.css'
 const MyJournalPage = () => {
   const [show, setShow] = useState(false)
+
+  useEffect(() => {
+    if (show) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+  }, [show]);
   
   return (
     <>
@@ -18,7 +28,7 @@ const MyJournalPage = () => {
       </div>
       <JournalForm />
       <button onClick={() => setShow(true)}>Add Symptoms and Moods</button>
-      <GlobalModal show={show} onClose={() => setShow(false)} title='Select Moods and Symptoms'>
+      <GlobalModal show={show} onClose={() => setShow(false)} title='Select Moods and Symptoms' footer={<button>Add</button>}>
         <SymptomMoodPicker />
       </GlobalModal>
     </div>

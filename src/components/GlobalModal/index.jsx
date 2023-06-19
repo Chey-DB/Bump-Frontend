@@ -17,6 +17,7 @@ const GlobalModal = props => {
           {props.children}
         </div>
         <div className="modal-footer">
+          {props.footer}
           <button onClick={props.onClose}>Close</button>
         </div>
       </div>
