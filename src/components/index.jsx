@@ -9,3 +9,5 @@ export { default as Greeting } from "./Greeting";
 export { default as NextAppointment } from "./NextAppointment";
 export { default as PostCard } from "./PostCard";
 export { default as JournalForm } from "./JournalForm";
+export { default as SettingsForm } from "./SettingsForm"; 
+export { default as UserInformation } from "./UserInformation";
