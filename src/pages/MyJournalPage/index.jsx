@@ -1,6 +1,6 @@
 import React from 'react'
 import './styles.css'
-
+import { JournalForm } from '../../components'
 const MyJournalPage = () => {
   return (
     <>
@@ -14,6 +14,7 @@ const MyJournalPage = () => {
       <div className='button-div'>
         <button>Press Me</button>
       </div>
+      <JournalForm />
     </div>
     </>
   )
