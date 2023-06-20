@@ -64,7 +64,7 @@ const JournalForm = () => {
           <label htmlFor="journal-title-fm" >Title</label>
         </div>
         <div className='fm-group'>
-          <textarea name="journalContent" id="journal-content-fm" required></textarea>
+          <textarea name="journalContent" id="journal-content-fm" value={newEntry.content} onChange={handleJournalEntryChange} required></textarea>
           <label htmlFor="journal-content-fm">Journal Entry</label>
         </div>
         <div className='symptom-mood-icon-wp'>

@@ -1,8 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./Context";
 import ProtectedRoute from "./Route";
-import { store } from './store'
-import { Provider } from 'react-redux'
 
 
 import * as Pages from './pages'
