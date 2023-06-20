@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  user_id: '6488473bfa7d92ab51dfef3f',
+  user_id: '',
   title: '',
   content: '',
   symptoms: [],
@@ -18,7 +18,15 @@ const newEntrySlice = createSlice({
         ...action.payload,
       };
     },
-    resetNewEntry: () => initialState,
+    resetNewEntry: (state) => {
+      return {
+        ...state,
+        title: '',
+        content: '',
+        symptoms: [],
+        mood: [],
+      }
+    },
     resetMoodAndSymptoms: (state) => {
       return {
         ...state,
