@@ -23,8 +23,8 @@
   }
   
   .register-google-icon {
-    width: 20px;
-    height: 20px;
+    width: 28px;
+    height: 28px;
     margin-right: 10px;
   }
   
@@ -132,4 +132,6 @@
     cursor: pointer;
     margin-bottom: 25px;
     margin-top: 15px;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
   }

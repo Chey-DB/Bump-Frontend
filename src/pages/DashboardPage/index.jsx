@@ -13,7 +13,7 @@ const DashboardPage = () => {
 
   const user = {
     dueDate: new Date("2023-12-31"),
-    currentWeek: 27,
+    currentWeek: 35,
   };
 
   const logout = async () => {
