@@ -24,7 +24,6 @@ function App() {
             <Route path="/my-journal" element={<Pages.MyJournalPage />} />
             <Route path="/community" element={<Pages.CommunityPage />} />
             <Route path="/faqs" element={<Pages.FAQsPage />} />
-            
             <Route path="/user" element={<Pages.UserPage />} />
           </Route>
         </Route>
