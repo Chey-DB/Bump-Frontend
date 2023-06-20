@@ -1,4 +1,3 @@
-
 import React from 'react'
 import './styles.css'
 import MotivationalQuote from '../../components/MotivationalQuote'
@@ -45,9 +44,7 @@ const DashboardPage = () => {
       <div>
         <ProgressBar dueDate={user.dueDate} currentWeek={user.currentWeek} />
       </div>
-      <div>
         <InformationCard />
-      </div>
     </div>
     </>
   );

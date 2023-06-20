@@ -12,6 +12,7 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
     "cloudinary-react": "^1.8.1",
     "esbuild": "^0.18.4",
@@ -25,7 +26,8 @@
     "uuid": "^9.0.0",
     "uuidv4": "^6.2.13",
     "react-redux": "^8.1.0",
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "react-quill": "^2.0.0"
   },
   "devDependencies": {
     "@reduxjs/toolkit": "^1.9.5",
