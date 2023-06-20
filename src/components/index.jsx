@@ -12,4 +12,5 @@ export { default as JournalForm } from "./JournalForm";
 export { default as GlobalModal } from "./GlobalModal";
 export { default as Checkbox } from "./Checkbox";
 export { default as SymptomMoodPicker } from './SymptomMoodPicker'
-
+export { default as SettingsForm } from "./SettingsForm"; 
+export { default as UserInformation } from "./UserInformation";
