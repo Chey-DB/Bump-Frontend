@@ -3,7 +3,6 @@ import { PostCard } from "../../components";
 import { Image, CloudinaryContext } from "cloudinary-react";
 import "./styles.css";
 import Popup from "reactjs-popup";
-import Axios from "axios";
 import CloudinaryUploadWidget from "../../components/PostForm/CloudinaryUploadWidget";
 
 //create image function to get a url for the image once its amde
@@ -85,12 +84,13 @@ const CommunityPage = () => {
                         id="input-image"
                         accept=".jpg,.png"
                       ></input>
-
+                      <CloudinaryUploadWidget />;
                       <br />
                       <label className="label-question">question: </label>
                       <input type="text" id="input-question"></input>
                       <br />
                     </form>
+
                     <div className="actions">
                       <button
                         className="button"
