@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./styles.css";
 import babyGirl from "./baby-girl.png";
 import woman from "./woman.png";
@@ -13,6 +13,8 @@ const InformationCard = () => {
   const [week, setWeek] = useState("1-2-3-weeks");
   const [trim, setTrim] = useState("1-to-12");
   
+  const modalButtonRef = useRef(null);
+
   useEffect(() => {
     const getInfo = async () => {
       const info = await axios.get(
@@ -55,11 +57,11 @@ const InformationCard = () => {
                 show={show1}
                 onClose={() => setShow1(false)}
                 hasId={"move-down-modal"}
-                children={
+                buttonRef={modalButtonRef}
+              >
                   <div dangerouslySetInnerHTML={{ __html: response }}></div>
-                }
-              ></GlobalModal>
-              <button className="button-link" onClick={() => setShow1(true)}>
+                </GlobalModal>
+              <button ref={modalButtonRef} className="button-link" onClick={() => setShow1(true)}>
                 Read More
               </button>
             </div>
@@ -81,11 +83,11 @@ const InformationCard = () => {
                 show={show2}
                 onClose={() => setShow2(false)}
                 hasId={"move-down-modal"}
-                children={
-                  <div dangerouslySetInnerHTML={{ __html: response }}></div>
-                }
-              ></GlobalModal>
-              <button className="button-link" onClick={() => setShow2(true)}>
+                buttonRef={modalButtonRef}
+              >
+                <div dangerouslySetInnerHTML={{ __html: response }}></div>
+              </GlobalModal>
+              <button ref={modalButtonRef} className="button-link" onClick={() => setShow2(true)}>
                 Read More
               </button>
             </div>
@@ -107,11 +109,11 @@ const InformationCard = () => {
                 show={show3}
                 onClose={() => setShow3(false)}
                 hasId={"move-down-modal"}
-                children={
+                buttonRef={modalButtonRef}
+              >
                   <div dangerouslySetInnerHTML={{ __html: response }}></div>
-                }
-              ></GlobalModal>
-              <button className="button-link" onClick={() => setShow3(true)}>
+              </GlobalModal>
+              <button ref={modalButtonRef} className="button-link" onClick={() => setShow3(true)}>
                 Read More
               </button>
             </div>

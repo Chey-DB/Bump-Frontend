@@ -39,6 +39,7 @@
   padding: 2rem;
   border-radius: 30px;
   position: relative;
+  width: clamp(30vw, 700px, 70vw);
 }
 
 #journal-entry-fm {
@@ -58,43 +59,43 @@
 .fm-group > label {
   position: absolute;
   left: 50%;
-  top: 20px;
+  top: 50%;
   font-size: 1.2rem;
   color: rgb(160, 160, 160);
   background-color: white;
   transition: all 0.2s ease;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, -50%);
 }
 
 #journal-content-fm:hover + label {
-  top: -12px;
+  top: 0;
   font-size: 1rem;
   color: black;
 }
 #journal-content-fm:focus + label {
-  top: -12px;
+  top: 0;
   font-size: 1rem;
   color: black;
 }
 #journal-content-fm:valid + label {
-  top: -12px;
+  top: 0;
   font-size: 1rem;
   color: black;
 }
 
 #journal-title-fm:hover + label {
-  top: -10px;
+  top: 0;
   font-size: 1rem;
   color: black;
 }
 
 #journal-title-fm:focus + label {
-  top: -10px;
+  top: 0;
   font-size: 1rem;
   color: black;
 }
 #journal-title-fm:valid + label {
-  top: -10px;
+  top: 0;
   font-size: 1rem;
   color: black;
 } 

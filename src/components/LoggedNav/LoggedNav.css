@@ -27,7 +27,6 @@
   padding: 0.1rem;
   margin-top: 0.2rem;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  margin-left: 1rem;
 }
 
 img#pfp{
@@ -49,7 +48,7 @@ a#pfp-link{
 .nav-logo-holder{
   display: flex;
   align-items: center;
-  margin:0 1.3rem;
+  margin:0 0 0 0.8rem;
 }
 
 .nav-logo {
