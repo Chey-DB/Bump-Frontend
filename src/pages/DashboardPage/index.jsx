@@ -9,8 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const DashboardPage = () => {
   const navigate = useNavigate();
-
-  const user = {
+  const userInfo = {
     dueDate: new Date("2023-12-31"),
     currentWeek: 35,
   };
@@ -42,7 +41,7 @@ const DashboardPage = () => {
         <MotivationalQuote />
       </div>
       <div>
-        <ProgressBar dueDate={user.dueDate} currentWeek={user.currentWeek} />
+        <ProgressBar dueDate={userInfo.dueDate} currentWeek={userInfo.currentWeek} />
       </div>
         <InformationCard />
     </div>

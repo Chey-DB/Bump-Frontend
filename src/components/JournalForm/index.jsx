@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 // import 'react-quill/dist/quill.snow.css';
 
 import { updateNewEntry, resetMoodAndSymptoms, resetNewEntry } from '../../Features/newEntrySlice';
 import { SymptomMoodPicker, SMIconDisplay } from '..';
+import { useAuth } from '../../Context';
 import './JournalForm.css';
 
 const JournalForm = () => {
   const dispatch = useDispatch();
   const newEntry = useSelector((state) => state.newEntry);
-  const [value, setValue] = useState('');
+  const {user} = useAuth()
+
+  useEffect(() => {
+    dispatch(updateNewEntry({ ...newEntry, user_id: user.userId }));
+  }, []);
 
   const handleTitleChange = (e) => {
     const title = e.target.value;
@@ -21,17 +26,21 @@ const JournalForm = () => {
     const journalEntry = e.target.value
     dispatch(updateNewEntry({ ...newEntry, content: journalEntry }))
   };
-
+  
   const createEntry = async () => {
-    console.log(newEntry);
-    // const response = await axios.post(`http://localhost:3000/journals`, newEntry);
-    // Handle the response as needed
+
+    try {
+      const response = await axios.post(`http://localhost:3000/journals`, newEntry);
+      console.log(response)
+    } catch (err) {
+      console.log(err)
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(resetNewEntry())
     await createEntry();
+    dispatch(resetNewEntry());
   };
 
   return (
