@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-// import { AuthProvider } from "./Context";
+
 import ProtectedRoute from "./Route";
+import { useAuth } from "./Context";
 
 import * as Pages from "./pages";
 // import Header from './components/Header'
@@ -22,7 +23,7 @@ function App() {
             <Route path="/calendar" element={<Pages.CalendarPage />} />
             <Route path="/my-journal" element={<Pages.MyJournalPage />} />
             <Route path="/community" element={<Pages.CommunityPage />} />
-            <Route path="/faqs" element={<Pages.FAQsPage />} />
+            <Route path="/faqs" element={<Pages.FAQsPage />} />            
             <Route path="/user" element={<Pages.UserPage />} />
           </Route>
         </Route>
