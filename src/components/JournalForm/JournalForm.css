@@ -30,6 +30,7 @@
 .fm-group{
   margin: 1rem 0;
   position: relative;
+  display: inline-block;
 }
 
 .fm-group > label {
@@ -43,6 +44,7 @@
 
 #journal-content-fm + label {
   top: 10px;
+  left: 20px;
 }
 #journal-content-fm:hover + label {
   left: 25px;

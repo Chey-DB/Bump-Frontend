@@ -1,8 +1,20 @@
-import { configureStore } from '@reduxjs/toolkit'
-import newEntryReducer from './Features/newEntrySlice'
+import { legacy_createStore as createStore, combineReducers, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+import calendarReducer from './components/Calendar/reducers/calendarReducer';
+import serviceChangeReducer from './components/Calendar/reducers/serviceChangeReducer';
+import newEntryReducer from './Features/newEntrySlice';
 
-export const store = configureStore({
-  reducer: {
-    newEntry: newEntryReducer,
-  },
-})
+const rootReducer = combineReducers({
+  calendarState: calendarReducer,
+  eventState: serviceChangeReducer,
+  newEntry: newEntryReducer,
+});
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
+);
+
+export default store;
