@@ -9,10 +9,10 @@ const HomePage = () => {
   const navigate = useNavigate()
 
   const handleTestLogin = () => {
-    const user_id = '6488473bfa7d92ab51dfef3f'
+    const userId = '6488473bfa7d92ab51dfef3f'
     const username = 'test'
 
-    setUser({user_id, username})
+    setUser({userId, username})
     navigate('/dashboard')
   }
 
