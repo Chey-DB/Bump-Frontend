@@ -20,7 +20,7 @@ const NewEventButton = ({ date }) => {
   }
 
   return (
-    <nav className="navbar">
+    <nav className="navbar-button">
       <div className="button-group">
         <button
           className="new-event-btn"
