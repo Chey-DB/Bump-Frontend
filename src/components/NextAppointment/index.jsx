@@ -13,7 +13,7 @@ const NextAppointment = () => {
           setAppointment(nextAppointment);
         })
         .catch(error => {
-          console.error('Error retrieving appointments:', error);
+          console.log('Error retrieving appointments:', error);
         });
     }, []);
   
