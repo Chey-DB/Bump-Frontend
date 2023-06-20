@@ -7,7 +7,7 @@ import {
 
 const initialState = {
     id: "",
-    eventName: "",
+    title: "",
     date: "",
     time: "",
     description: "",
