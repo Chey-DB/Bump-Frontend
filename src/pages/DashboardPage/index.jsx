@@ -21,7 +21,8 @@ const DashboardPage = () => {
         if (userData) {
           setSettings({
             dueDate: userData.dueDate,
-            currentWeek: userData.currentWeek
+            currentWeek: userData.currentWeek,
+            name: userData.name
           });
         } else {
           console.error('User settings not found.');
@@ -56,7 +57,7 @@ const DashboardPage = () => {
       <div className="container">
         {/* <Checklist /> */}
         <div>
-          <Greeting />
+          <Greeting name={settings?.name} />
         </div>
         <div>
           <NextAppointment />
