@@ -38,15 +38,15 @@ const Day = ({ day: { visible, dayOfMonth, date } }) => {
       }}
     >
       {dayOfMonth}
-      {/* <div>
+      <div>
         {todaysEvents.map((el, index) => (
           // eslint-disable-next-line react/no-unknown-property
           <span key={index} el={el}>
             {" "}
-            <i className={`fas fa-star ${el.participants}`}></i>
+            <i className={`fas fa-star ${el.eventName}`}></i>
           </span>
         ))}
-      </div> */}
+      </div>
     </button>
   );
 };
