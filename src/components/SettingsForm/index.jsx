@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './styles.css'; // Import the styles.css file
+import { useNavigate } from 'react-router';
+import { useAuth } from '../../Context';
 
 const SettingsForm = ({ onFormSubmit }) => {
+  const { user, setUser } = useAuth();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     addressLine1: '',
@@ -19,10 +23,13 @@ const SettingsForm = ({ onFormSubmit }) => {
     event.preventDefault();
 
     try {
-      await axios.post('http://localhost:3000/settings', formData);
-
-      onFormSubmit(formData);
-
+      const response = await axios.post('http://localhost:3000/settings', formData, { withCredentials: true });
+      // onFormSubmit(formData);
+      if (response.data) {
+        navigate('/dashboard')
+      } else {
+        console.log('Register failed')
+      }
       // Reset form data
       setFormData({
         name: '',
@@ -73,7 +80,7 @@ const SettingsForm = ({ onFormSubmit }) => {
           </label>
           <label>
             City:
-            <input type="text" name="county" value={formData.county} onChange={handleChange} />
+            <input type="text" name="city" value={formData.city} onChange={handleChange} />
           </label>
           <label>
             Postcode:
@@ -101,7 +108,7 @@ const SettingsForm = ({ onFormSubmit }) => {
             About:
             <textarea name="about" value={formData.about} onChange={handleChange}></textarea>
           </label>
-          <button onClick={"/dashboard"} type="submit">Submit</button>
+          <button onClick={handleSubmit} type="submit">Submit</button>
         </form>
       </div>
     </div>
