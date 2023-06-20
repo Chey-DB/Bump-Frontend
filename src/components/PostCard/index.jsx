@@ -67,6 +67,8 @@ const PostCard = ({
         {allComments.map((c) => (
           <p>{c}</p>
         ))}
+        <input type="text" value="write your comment here"></input>
+        <button type="submit">Send</button>
       </>
     );
   };

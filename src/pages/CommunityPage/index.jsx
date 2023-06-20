@@ -13,6 +13,8 @@ const CommunityPage = () => {
   const [context, setContext] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [isQuestion, setIsQuestion] = useState(false);
+  const [state, setState] = new useState(post);
+  const [postType, setpostType] = useState("");
 
   useEffect(() => {
     const getPosts = async () => {
@@ -21,6 +23,7 @@ const CommunityPage = () => {
         //add token to header
         const data = await res.json();
         setPost(data);
+        setState(data);
       } catch (error) {
         console.log({ error: error.message });
       }
@@ -33,6 +36,19 @@ const CommunityPage = () => {
     const imgUrl = await createImgUrl();
     console.log(addPost(imgUrl));
     setShow(false);
+  }
+  async function filterPost(e) {
+    var updatedPost = [...post];
+
+    updatedPost = updatedPost.filter((x) => {
+      if (e.target.value === "") {
+        console.log(post);
+        return post;
+      }
+
+      return x.title.toLowerCase().includes(e.target.value.toLowerCase());
+    });
+    setState(updatedPost);
   }
 
   async function createImgUrl() {
@@ -59,21 +75,33 @@ const CommunityPage = () => {
   }
 
   function displayPosts() {
+    const changeType = (e) => {
+      setpostType(e.value);
+      return postType;
+    };
     return (
       <>
         <div className="All-Post">
           AllPosts
           <div className="header">
             <ul className="post-nav-list">
-              <li className="post-navbar">All</li>
+              {/* <li className="post-navbar">All</li>
               <li className="post-navbar">Posts</li>
-              <li className="post-navbar">Questions</li>
-              <li className="post-navbar">search</li>
+              <li className="post-navbar">Questions</li> */}
+              <button>All</button>
+              <button>Post</button>
+              <button>Question</button>
+              <input
+                type="text"
+                id="search-posts"
+                onChange={filterPost}
+              ></input>
               {newPostPopup()}
             </ul>
           </div>
         </div>
-        {post.map((p) => (
+        {console.log(postType)}
+        {state.map((p) => (
           <PostCard
             key={p._id}
             id={p._id}
