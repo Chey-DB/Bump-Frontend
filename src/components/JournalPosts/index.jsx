@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import moment from 'moment'
+
 import { useAuth } from '../../Context'
+import { DateCalendarIcon } from '..'
+
+import './JournalPosts.css'
 
 const JournalPosts = () => {
   const [journalEntries, setJournalEntries] = useState()
@@ -25,18 +30,21 @@ const JournalPosts = () => {
     <div className='jn-post-wrapper'>
       {journalEntries &&
         journalEntries.map((entry, index) => {
-          const createdDate = new Date(entry.createdOn);
-          const formattedDate = `${createdDate.getDate()}/${createdDate.getMonth()}/${createdDate.getFullYear()}`
-          const formattedTime = createdDate.toLocaleString('en-US', {
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: false,
-          });
+          const createdDate = moment(entry.createdOn);
+          const formattedDate = createdDate.format("MMMM YYYY");
+          const formattedTime = createdDate.format("HH:mm");
+          const dayOfWeek = createdDate.format("dddd");
+          const dayOfMonth = createdDate.format("D");
 
           return (
             <div className='jn-post-holder' key={index}>
-              <h3>{entry.title}</h3>
-              <h3>{formattedDate}</h3>
+              <div className='jnp-title-section'>
+                <DateCalendarIcon dayOfMonth={dayOfMonth} dayOfWeek={dayOfWeek}/>
+                <div>
+                  <h2>{entry.title}</h2>
+                  <h3>{formattedDate}</h3>
+                </div>
+              </div>
               <h3>{formattedTime}</h3>
               <p>{entry.content}</p>
               <h3>Mood:</h3>

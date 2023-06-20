@@ -8,26 +8,6 @@
   border-radius: 0 0 0.75rem 0.75rem;
   /* width: 40vw; */
 }
-/* modal position */
-#modal-in-journal {
-  bottom: -20vw;
-  top: auto;
-}
-
-@media screen and (max-height: 950px) {
-  #modal-in-journal {
-    bottom: -11vw; 
-    top: auto;
-  }
-}
-@media screen and (max-width: 1665px) {
-  #modal-in-journal {
-    bottom: -12vw;
-    top: auto;
-  }
-}
-
-
 
 /* standard */
 

@@ -16,11 +16,6 @@
   /* transform: translate(-39%); */
 }
 
-#move-down-modal{
-  bottom: -30vw;
-  top:auto;
-}
-
 .modal-content{
   width: 50vw;
   align-self: center;
