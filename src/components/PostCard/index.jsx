@@ -1,7 +1,6 @@
 import React from "react";
 import "../../App";
 import "./styles.css";
-import CloudinaryUploadWidget from "../PostForm/CloudinaryUploadWidget";
 const PostCard = ({
   id,
   user_id,
