@@ -1,8 +1,21 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../Context'
 
 import './styles.css'
 
 const HomePage = () => {
+  const { setUser } = useAuth()
+  const navigate = useNavigate()
+
+  const handleTestLogin = () => {
+    const user_id = '6488473bfa7d92ab51dfef3f'
+    const username = 'test'
+
+    setUser({user_id, username})
+    navigate('/dashboard')
+  }
+
   return (
     <>
     <div className='container'>
@@ -13,7 +26,7 @@ const HomePage = () => {
       <br />
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio, quaerat cumque et id sapiente accusantium commodi earum cupiditate exercitationem impedit veritatis natus pariatur repellendus odit nostrum at aut aspernatur. Perferendis!</p>
       <div className='button-div'>
-        <button>Press Me</button>
+        <button onClick={handleTestLogin}>Press Me</button>
       </div>
     </div>
     </>
