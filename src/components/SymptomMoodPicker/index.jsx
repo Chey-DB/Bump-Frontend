@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateNewEntry, resetMoodAndSymptoms } from '../../Features/entry/newEntrySlice';
+import { updateNewEntry, resetMoodAndSymptoms } from '../../Features/newEntrySlice';
 import { Checkbox, GlobalModal } from '..';
 import './SymptomMoodPicker.css';
 
@@ -9,7 +9,13 @@ const SymptomMoodPicker = () => {
   const dispatch = useDispatch();
   const newEntry = useSelector((state) => state.newEntry);
 
-  
+  useEffect(() => {
+    if (show) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+  }, [show]);
 
   const handleSymptomChange = (e) => {
     if (!e || !e.target) {
@@ -45,7 +51,7 @@ const SymptomMoodPicker = () => {
 
   return (
     <>
-      <button onClick={() => {setShow(true), dispatch(resetMoodAndSymptoms())}}>Add Symptoms and Moods</button>
+      <button onClick={() => {setShow(true), dispatch(resetMoodAndSymptoms())}}> + Symptoms and Moods</button>
       <GlobalModal show={show} onClose={() => setShow(false)} title="Select Moods and Symptoms" footer={<button onClick={handleAdd}>Add</button>}>
         <h3>Symptoms</h3>
         <div className="scroll symptoms-holder">

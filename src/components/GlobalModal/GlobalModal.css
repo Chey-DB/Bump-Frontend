@@ -1,15 +1,21 @@
 .modal{
-  position: fixed;
+  position:fixed;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   width: 100vw;
-  height: 100vh;
+  min-height: 125vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  z-index: 2;
+}
+
+#move-down-modal{
+  bottom: -57vw;
+  top:auto;
 }
 
 .modal-content{
@@ -17,6 +23,7 @@
   align-self: center;
   background-color: #fff;
   text-align: center;
+  transform: translateY(-2rem);
 }
 
 .modal-header, .modal-footer{

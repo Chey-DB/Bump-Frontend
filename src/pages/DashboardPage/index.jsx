@@ -1,4 +1,3 @@
-
 import React from 'react'
 import './styles.css'
 import MotivationalQuote from '../../components/MotivationalQuote'
@@ -13,7 +12,7 @@ const DashboardPage = () => {
 
   const user = {
     dueDate: new Date("2023-12-31"),
-    currentWeek: 18,
+    currentWeek: 35,
   };
 
   const logout = async () => {
@@ -45,9 +44,7 @@ const DashboardPage = () => {
       <div>
         <ProgressBar dueDate={user.dueDate} currentWeek={user.currentWeek} />
       </div>
-      <div>
         <InformationCard />
-      </div>
     </div>
     </>
   );

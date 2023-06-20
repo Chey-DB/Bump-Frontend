@@ -3,12 +3,13 @@ import React from 'react'
 import './GlobalModal.css'
 
 const GlobalModal = props => {
-  if (!props.show){
+
+  if (!props.show) {
     return null
   }
 
   return (
-    <div className='modal' onClick={props.onClose}>
+    <div className='modal' onClick={props.onClose} id={props.hasId}>
       <div className="modal-content" onClick={e => e.stopPropagation()}>
         <div className="modal-header">
           <h3 className='modal-title'>{props.title}</h3>
