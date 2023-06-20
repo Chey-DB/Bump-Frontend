@@ -19,13 +19,9 @@ const SettingsForm = ({ onFormSubmit }) => {
     event.preventDefault();
 
     try {
-      // Make POST request to google-users endpoint
       await axios.post('http://localhost:3000/google-users', formData);
 
-      // Make POST request to local-users endpoint
       await axios.post('http://localhost:3000/local-users', formData);
-
-      // Invoke the onFormSubmit callback with the form data
       onFormSubmit(formData);
 
       // Reset form data
@@ -86,7 +82,7 @@ const SettingsForm = ({ onFormSubmit }) => {
           </label>
           <label>
             Current Week of Pregnancy:
-            <input type="date" name="currentWeek" value={formData.currentWeek} onChange={handleChange} />
+            <input type="number" name="currentWeek" value={formData.currentWeek} onChange={handleChange} />
           </label>
           <label>
             Due Date of Pregnancy:
