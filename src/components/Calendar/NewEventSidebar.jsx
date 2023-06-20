@@ -19,20 +19,14 @@ const NewEventSidebar = () => {
 
   const handleNewEvent = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:3000/calendar', {      
+    const response = axios.post('http://localhost:3000/calendar', {      
       date,
       time,
       title,
       description
            
     }, { withCredentials: true })
-      .then(response => {
-        setUser({ date : response.data.date, time: response.data.time, title: response.data.title, description: response.data.description})
-      })
-      .catch(error => {
-        console.log(error)
-      }
-    )
+    setUser({ date : response.date, time: response.time, title: response.title, description: response.description})
   }
 
 
