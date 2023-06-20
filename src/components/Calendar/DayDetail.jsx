@@ -35,7 +35,7 @@ const DayDetail = () => {
       }}
     >
       <button
-        className="sidebar__close-btn"
+        className="sidebar__close-btn_toggled"
         onClick={() => {
           dispatch(toggleDetailSidebarObj(false));
           dispatch(toggleNewEventSidebarObj(false));
