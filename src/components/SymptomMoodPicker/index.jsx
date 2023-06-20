@@ -51,14 +51,14 @@ const SymptomMoodPicker = () => {
 
   return (
     <>
-      <button onClick={() => {setShow(true), dispatch(resetMoodAndSymptoms())}}> + Symptoms and Moods</button>
-      <GlobalModal show={show} onClose={() => setShow(false)} title="Select Moods and Symptoms" footer={<button onClick={handleAdd}>Add</button>}>
+      <button type='button' onClick={() => {setShow(true), dispatch(resetMoodAndSymptoms())}}> + Symptoms and Moods</button>
+      <GlobalModal show={show} onClose={() => setShow(false)} title="Select Moods and Symptoms" hasId={"modal-in-journal"} footer={<button onClick={handleAdd}>Add</button>}>
         <h3>Symptoms</h3>
         <div className="scroll symptoms-holder">
           <Checkbox
-            checkboxIcon='symptoms-mood-icons/inflammation.png'
+            checkboxIcon='symptoms-mood-icons/sore-breast.png'
             checkboxTitle='Sore Breasts'
-            CheckboxId='sore-breasts'
+            CheckboxId='sore-breast'
             handleChange={handleSymptomChange}
           />
           <Checkbox
@@ -68,49 +68,49 @@ const SymptomMoodPicker = () => {
             handleChange={handleSymptomChange}
           />
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/fatigue.png'
             checkboxTitle='Fatigue'
             CheckboxId='fatigue'
             handleChange={handleSymptomChange}
           />
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/cravings.png'
             checkboxTitle='Cravings'
             CheckboxId='cravings'
             handleChange={handleSymptomChange}
           />
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/mood-swings.png'
             checkboxTitle='Mood Swings'
             CheckboxId='mood-swings'
             handleChange={handleSymptomChange}
           />
           <Checkbox
-            checkboxIcon=''
-            checkboxTitle='Headaches'
-            CheckboxId='headaches'
+            checkboxIcon='symptoms-mood-icons/headache.png'
+            checkboxTitle='Headache'
+            CheckboxId='headache'
             handleChange={handleSymptomChange}
           />
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/constipation.png'
             checkboxTitle='Constipation'
             CheckboxId='constipation'
             handleChange={handleSymptomChange}
           />
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/dizziness.png'
             checkboxTitle='Dizziness'
             CheckboxId='dizziness'
             handleChange={handleSymptomChange}
           />
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/discharge.png'
             checkboxTitle='Discharge'
             CheckboxId='discharge'
             handleChange={handleSymptomChange}
           />
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/backache.png'
             checkboxTitle='Backache'
             CheckboxId='backache'
             handleChange={handleSymptomChange}
@@ -120,61 +120,61 @@ const SymptomMoodPicker = () => {
         <h3>Moods</h3>
         <div className="scroll moods-holder">
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/happy.png'
             checkboxTitle='Happy'
             CheckboxId='happy'
             handleChange={handleMoodChange}
           />
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/sad.png'
             checkboxTitle='Sad'
             CheckboxId='sad'
             handleChange={handleMoodChange}
           />
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/excited.png'
             checkboxTitle='Excited'
             CheckboxId='excited'
             handleChange={handleMoodChange}
           />
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/angry.png'
             checkboxTitle='Angry'
             CheckboxId='angry'
             handleChange={handleMoodChange}
           />
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/anxious.png'
             checkboxTitle='Anxious'
             CheckboxId='anxious'
             handleChange={handleMoodChange}
           />
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/content.png'
             checkboxTitle='Content'
             CheckboxId='content'
             handleChange={handleMoodChange}
           />
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/stressed.png'
             checkboxTitle='Stressed'
             CheckboxId='stressed'
             handleChange={handleMoodChange}
           />
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/calm.png'
             checkboxTitle='Calm'
             CheckboxId='calm'
             handleChange={handleMoodChange}
           />
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/frustrated.png'
             checkboxTitle='Frustrated'
             CheckboxId='frustrated'
             handleChange={handleMoodChange}
           />
           <Checkbox
-            checkboxIcon=''
+            checkboxIcon='symptoms-mood-icons/energetic.png'
             checkboxTitle='Energetic'
             CheckboxId='energetic'
             handleChange={handleMoodChange}

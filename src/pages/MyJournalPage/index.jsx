@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './styles.css'
-import { JournalForm } from '../../components'
+import { JournalForm, JournalPosts } from '../../components'
 
 import './styles.css'
 const MyJournalPage = () => {
@@ -10,6 +10,10 @@ const MyJournalPage = () => {
     <>
       <div className='container'>
         <JournalForm />
+        <div>
+          <h2>My Journal Entries</h2>
+          <JournalPosts />
+        </div>
       </div>
     </>
   )
