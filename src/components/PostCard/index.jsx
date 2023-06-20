@@ -3,7 +3,7 @@ import "../../App";
 import "./styles.css";
 import CloudinaryUploadWidget from "../PostForm/CloudinaryUploadWidget";
 const PostCard = ({
-  _id,
+  id,
   user_id,
   title,
   content,
