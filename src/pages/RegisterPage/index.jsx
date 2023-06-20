@@ -22,6 +22,7 @@ const RegisterPage = () => {
       .then(response => {
         setUser({ username: response.data.username, id: response.data.id })
         console.log(response)
+        console.log(user.id)
         // if (response.data) {
           navigate('/dashboard')
         // } else {
