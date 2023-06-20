@@ -30,7 +30,7 @@ const SMIconDisplay = () => {
           {
             moods.map((mood, index) => (
               <div key={index} className='SM-icon-holder'>
-                <img key={index} src={`symptoms-mood-icons/${mood}.png`} className='jn-display-icons'></img>
+                <img src={`symptoms-mood-icons/${mood}.png`} className='jn-display-icons'></img>
                 <p className='hide-icon-name'>{mood}</p>
               </div>
               ))
