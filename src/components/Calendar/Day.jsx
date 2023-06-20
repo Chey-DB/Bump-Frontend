@@ -43,7 +43,7 @@ const Day = ({ day: { visible, dayOfMonth, date } }) => {
           // eslint-disable-next-line react/no-unknown-property
           <span key={index} el={el}>
             {" "}
-            <i className={`fas fa-star ${el.eventName}`}></i>
+            <i className={`fas fa-star ${el.description}`}></i>
           </span>
         ))}
       </div>

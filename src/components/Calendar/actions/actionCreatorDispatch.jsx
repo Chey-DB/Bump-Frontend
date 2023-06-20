@@ -121,7 +121,7 @@ import {
   
   
   // Add event
-  export const addEventDispatch = (id, eventName, date, time, description, state) => (dispatch) => {
+  export const addEventDispatch = (id, title, date, time, description, state) => (dispatch) => {
   
     console.log(localStorage.getItem("events"))
     // const localStorageElement = JSON.parse(localStorage.getItem("events")).find(el => el.id === id);
@@ -138,7 +138,7 @@ import {
         id: id,
         date: date,
         time: time,
-        eventName: eventName,
+        title: title,
         description: description
       }
       const localStorageArr = JSON.parse(localStorage.getItem("events")).filter(e => e.id !== id);
@@ -148,7 +148,7 @@ import {
         id: uuidv4(),
         date: date,
         time: time,
-        eventName: eventName,
+        title: title,
         description: description
       }
   
