@@ -16,6 +16,7 @@ export default class CloudinaryUploadWidget extends Component {
       {
         cloudName: cloudName,
         uploadPreset: uploadPreset,
+        multiple: false,
       },
       (error, result) => {
         //no error and succesfully upload the image

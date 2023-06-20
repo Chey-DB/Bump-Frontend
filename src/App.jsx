@@ -1,19 +1,16 @@
 import { Routes, Route } from "react-router-dom";
+
 import ProtectedRoute from "./Route";
 import { useAuth } from "./Context";
 
-
-import * as Pages from './pages'
+import * as Pages from "./pages";
 // import Header from './components/Header'
-import LoggedNav from './components/LoggedNav'
+import LoggedNav from "./components/LoggedNav";
 
-import "./App.css"
+import "./App.css";
 
 function App() {
-  const userObject = useAuth()
-
   return (
-    
       <Routes>
         <Route index element={<Pages.HomePage />} />
         <Route path="/register" element={<Pages.RegisterPage />} />
@@ -34,4 +31,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
