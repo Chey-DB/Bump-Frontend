@@ -1,51 +1,72 @@
-import React from 'react'
-import './styles.css'
-import MotivationalQuote from '../../components/MotivationalQuote'
-import ProgressBar from '../../components/ProgressBar'
-import { Greeting, InformationCard, NextAppointment } from '../../components'
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-
+import React, { useEffect, useState } from 'react';
+import './styles.css';
+import MotivationalQuote from '../../components/MotivationalQuote';
+import ProgressBar from '../../components/ProgressBar';
+import { Greeting, InformationCard, NextAppointment, SettingsForm } from '../../components';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../Context';
 
 const DashboardPage = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
+  const [settings, setSettings] = useState(null);
 
-  const user = {
-    dueDate: new Date("2023-12-31"),
-    currentWeek: 35,
+  useEffect(() => {
+    const fetchSettingsData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3000/settings/${user.userId}`, { withCredentials: true });
+        console.log(response.data)
+        const userData = response.data;
+        if (userData) {
+          setSettings({
+            dueDate: userData.dueDate,
+            currentWeek: userData.currentWeek
+          });
+        } else {
+          console.error('User settings not found.');
+        }
+      } catch (error) {
+        console.error('An error occurred while fetching user settings:', error);
+      }
+    };
+
+    fetchSettingsData();
+  }, [user.userId]);
+
+  const handleFormSubmit = (formData) => {
+    setSettings(formData);
   };
 
   const logout = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/auth/logout");
+      const response = await axios.get('http://localhost:3000/auth/logout');
       if (response.status === 200) {
-        navigate("/login");
+        navigate('/login');
       } else {
         console.error(`Error: Received status code ${response.status}`);
       }
     } catch (err) {
-      console.error("An error occurred while trying to log out:", err);
+      console.error('An error occurred while trying to log out:', err);
     }
   };
 
   return (
     <>
-    <div className='container'>
-      {/* <Checklist /> */}
-      <div>
-        <Greeting/>
-      </div>
-      <div>
-        <NextAppointment />
-      </div>
-      <div >
-        <MotivationalQuote />
-      </div>
-      <div>
-        <ProgressBar dueDate={user.dueDate} currentWeek={user.currentWeek} />
-      </div>
+      <div className="container">
+        {/* <Checklist /> */}
+        <div>
+          <Greeting />
+        </div>
+        <div>
+          <NextAppointment />
+        </div>
+        <div>
+          <MotivationalQuote />
+        </div>
+        {settings && <ProgressBar dueDate={settings.dueDate} currentWeek={settings.currentWeek} />}
         <InformationCard />
-    </div>
+      </div>
     </>
   );
 };
