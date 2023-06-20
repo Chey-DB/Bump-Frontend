@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./Context";
+// import { AuthProvider } from "./Context";
 import ProtectedRoute from "./Route";
 
 import * as Pages from "./pages";
@@ -10,7 +10,6 @@ import "./App.css";
 
 function App() {
   return (
-    <AuthProvider>
       <Routes>
         <Route index element={<Pages.HomePage />} />
         <Route path="/register" element={<Pages.RegisterPage />} />
@@ -28,7 +27,6 @@ function App() {
           </Route>
         </Route>
       </Routes>
-    </AuthProvider>
   );
 }
 
