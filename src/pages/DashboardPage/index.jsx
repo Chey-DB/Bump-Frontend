@@ -2,9 +2,10 @@ import React from 'react'
 import './styles.css'
 import MotivationalQuote from '../../components/MotivationalQuote'
 import ProgressBar from '../../components/ProgressBar'
-import { Greeting, InformationCard, NextAppointment } from '../../components'
+import { Greeting, InformationCard, NextAppointment, SettingsForm } from '../../components'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 
 
 const DashboardPage = () => {

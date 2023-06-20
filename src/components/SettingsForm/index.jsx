@@ -7,7 +7,7 @@ const SettingsForm = ({ onFormSubmit }) => {
     name: '',
     addressLine1: '',
     addressLine2: '',
-    county: '',
+    city: '',
     postcode: '',
     currentWeek: '',
     dueDate: '',
@@ -19,9 +19,8 @@ const SettingsForm = ({ onFormSubmit }) => {
     event.preventDefault();
 
     try {
-      await axios.post('http://localhost:3000/google-users', formData);
+      await axios.post('http://localhost:3000/settings', formData);
 
-      await axios.post('http://localhost:3000/local-users', formData);
       onFormSubmit(formData);
 
       // Reset form data
@@ -29,7 +28,7 @@ const SettingsForm = ({ onFormSubmit }) => {
         name: '',
         addressLine1: '',
         addressLine2: '',
-        county: '',
+        city: '',
         postcode: '',
         currentWeek: '',
         dueDate: '',
@@ -73,7 +72,7 @@ const SettingsForm = ({ onFormSubmit }) => {
             <input type="text" name="addressLine2" value={formData.addressLine2} onChange={handleChange} />
           </label>
           <label>
-            County:
+            City:
             <input type="text" name="county" value={formData.county} onChange={handleChange} />
           </label>
           <label>
