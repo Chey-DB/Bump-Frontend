@@ -67,14 +67,7 @@ const NewEventSidebar = () => {
         top: window.scrollY
       }}
     >
-      <button
-        className="sidebar__close-btn"
-        onClick={() => {
-          dispatch(toggleNewEventSidebarObj(false))
-        }}
-      >
-        <i className="fas fa-times-circle"></i>
-      </button>
+      
       <p className="new-event-sidebar__title">Add a new event</p>
       <label htmlFor="new-event-sidebar__description">Event Name</label>
       <EditField
@@ -131,6 +124,14 @@ const NewEventSidebar = () => {
         onSubmit={handleNewEvent}
       >
         Add Event
+      </button>
+      <button
+        className="sidebar__close-btn"
+        onClick={() => {
+          dispatch(toggleNewEventSidebarObj(false))
+        }}
+      >
+        <i className="fas fa-times-circle"></i>
       </button>
     </div>
   );
