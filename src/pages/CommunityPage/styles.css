@@ -12,14 +12,14 @@ ul {
 .post-navbar:hover {
   background-color: #89d6b6;
 }
-.modal {
+/* .modal {
   font-size: 20px;
   background-color: goldenrod;
 
   display: flex;
   justify-content: center;
   flex-direction: column;
-}
+} */
 .modal > .header {
   width: 100%;
   border-bottom: 1px solid gray;
