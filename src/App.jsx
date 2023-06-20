@@ -20,6 +20,7 @@ function App() {
         <Route path="/register" element={<Pages.RegisterPage />} />
         <Route path="/login" element={<Pages.LoginPage />} />
         <Route path="/loading" element={<Pages.LoadingPage />} />
+        <Route path="/settings" element={<Pages.SettingsPage />} />
         <Route path="/" element={<ProtectedRoute redirectTo="/" />}>
           <Route path="/" element={<LoggedNav />}>
             <Route path="/dashboard" element={<Pages.DashboardPage />} />
@@ -27,7 +28,7 @@ function App() {
             <Route path="/my-journal" element={<Pages.MyJournalPage />} />
             <Route path="/community" element={<Pages.CommunityPage />} />
             <Route path="/faqs" element={<Pages.FAQsPage />} />
-            <Route path="/settings" element={<Pages.SettingsPage />} />
+            
             <Route path="/user" element={<Pages.UserPage />} />
           </Route>
         </Route>
