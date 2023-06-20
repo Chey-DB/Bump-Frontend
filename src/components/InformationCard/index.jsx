@@ -35,7 +35,6 @@ const InformationCard = () => {
 
   return (
     <>
-      {/* <GlobalModal show={show} onClose={() => setShow(false)} hasId={'move-down-modal'}></GlobalModal> */}
       <div className="cards-container" style={{ position: "relative" }}>
         <div className="information-card-container">
           <div className="information-card">
