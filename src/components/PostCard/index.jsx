@@ -1,7 +1,6 @@
 import React from "react";
 import "../../App";
 import "./styles.css";
-import CloudinaryUploadWidget from "../PostForm/CloudinaryUploadWidget";
 const PostCard = ({
   id,
   user_id,
@@ -68,6 +67,8 @@ const PostCard = ({
         {allComments.map((c) => (
           <p>{c}</p>
         ))}
+        <input type="text" value="write your comment here"></input>
+        <button type="submit">Send</button>
       </>
     );
   };
