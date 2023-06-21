@@ -111,7 +111,7 @@ const PostCard = ({
       <>
         {comments.map((c) => (
           <p>
-            {c[0]} --gap that only works on 2d array-- {c[1]}
+            <b>{c[0]}</b> : {c[1]}
           </p>
         ))}
         <input
