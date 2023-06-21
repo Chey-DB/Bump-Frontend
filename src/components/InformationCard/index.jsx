@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./styles.css";
 import babyGirl from "./baby-girl.png";
 import woman from "./woman.png";
+import qm from './question-mark.png'
 import GlobalModal from "../GlobalModal";
 import axios from "axios";
 
@@ -42,8 +43,8 @@ const InformationCard = () => {
         <div className="information-card-container">
           <div className="information-card">
             <div className="information-card-top">
-              <h4>Your Baby:</h4>
-              <p>Text above the image</p>
+              <h4 className="text-above-image">Your Baby:</h4>
+              {/* <p>Text above the image</p> */}
             </div>
             <div className="information-card-bottom">
               <div className="image-container">
@@ -68,8 +69,8 @@ const InformationCard = () => {
           </div>
           <div className="information-card">
             <div className="information-card-top">
-              <h4>You:</h4>
-              <p>Text above the image</p>
+              <h4 className="text-above-image">You:</h4>
+              {/* <p>Text above the image</p> */}
             </div>
             <div className="information-card-bottom">
               <div className="image-container">
@@ -94,13 +95,13 @@ const InformationCard = () => {
           </div>
           <div className="information-card">
             <div className="information-card-top">
-              <h4>To Consider</h4>
-              <p>Text above the image</p>
+              <h4 className="text-above-image">To Consider:</h4>
+              {/* <p>Text above the image</p> */}
             </div>
             <div className="information-card-bottom">
               <div className="image-container">
                 <img
-                  src={babyGirl}
+                  src={qm}
                   alt="Card 3"
                   className="information-card-image"
                 />

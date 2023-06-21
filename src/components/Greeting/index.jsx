@@ -13,7 +13,7 @@ const Greeting = ({ name }) => {
     greeting = `Good Evening`;
   }
 
-  return <h1>{greeting}, {name} </h1>;
+  return <h1>{name ? `${greeting}, ${name}` : greeting}</h1>;
 };
 
 export default Greeting;
