@@ -4,6 +4,7 @@ import { Image, CloudinaryContext } from "cloudinary-react";
 import "./styles.css";
 
 import GlobalModal from "../../components/GlobalModal";
+import { useAuth } from "../../Context";
 //create image function to get a url for the image once its amde
 
 const CommunityPage = () => {
@@ -14,6 +15,7 @@ const CommunityPage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isQuestion, setIsQuestion] = useState(false);
   const [state, setState] = new useState(post);
+  const { user } = useAuth();
 
   useEffect(() => {
     const getPosts = async () => {
@@ -97,19 +99,22 @@ const CommunityPage = () => {
     return (
       <>
         <div className="All-Post">
-          AllPosts
-          <div className="header">
-            <ul className="post-nav-list">
-              <button onClick={showAll}>All</button>
-              <button onClick={showAllPosts}>Post</button>
-              <button onClick={showAllQuestions}>Question</button>
-              <input
-                type="text"
-                id="search-posts"
-                onChange={filterPost}
-              ></input>
-              {newPostPopup()}
-            </ul>
+          <h4 className="filter-and-search">Filter and Search Through Community Posts</h4>
+          <div className="container-search-filter">
+            <div className="header">
+              <ul className="post-nav-list">
+                <button onClick={showAll}>All</button>
+                <button onClick={showAllPosts}>Post</button>
+                <button onClick={showAllQuestions}>Question</button>
+                <input
+                  type="text"
+                  id="search-posts"
+                  placeholder="Search Posts..."
+                  onChange={filterPost}
+                ></input>
+                {newPostPopup()}
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -143,7 +148,7 @@ const CommunityPage = () => {
           onClose={() => setShow(false)}
         >
           <form onSubmit={handleSubmit}>
-            <label className="label-title">title: </label>
+            <label className="label-title">Title: </label>
             <input
               type="text"
               id="input-title"
@@ -151,7 +156,7 @@ const CommunityPage = () => {
               required
             ></input>
             <br />
-            <label className="label-content">content: </label>
+            <label className="label-content">Content: </label>
             <input
               type="text"
               id="input-content"
@@ -159,24 +164,29 @@ const CommunityPage = () => {
               required
             ></input>
             <br />
-            <label className="label-question">question: </label>
-            <div class="question-checkbox">
-              <input
-                type="checkbox"
-                className="sc-gJwTLC ikxBAC"
-                onChange={(e) => setIsQuestion(!isQuestion)}
+            <label className="label-question">Question: </label>
+            <div className="question-checkbox">
+              <label className="label-question">question: </label>
+              <div className="question-checkbox">
+                <input
+                  type="checkbox"
+                  className="sc-gJwTLC ikxBAC"
+                  onChange={(e) => setIsQuestion(!isQuestion)}
+                ></input>
+              </div>
+              <br />
+              <label className="label-image">Add image: </label>
+              <input className="input-image"
+                type="file"
+                id="input-image"
+                accept=".jpg,.png"
+                onChange={(e) => setSelectedFile(e.target.files[0])}
               ></input>
+              <div className="submit-post">
+                <button type="submit"> submit </button>
+              </div>
+              <br />
             </div>
-            <br />
-            <label className="label-image">image: </label>
-            <input
-              type="file"
-              id="input-image"
-              accept=".jpg,.png"
-              onChange={(e) => setSelectedFile(e.target.files[0])}
-            ></input>
-            <button type="submit"> submit </button>
-            <br />
           </form>
         </GlobalModal>
       </>
@@ -184,13 +194,14 @@ const CommunityPage = () => {
   }
   async function addPost(imgUrl) {
     const options = {
-      user_id: "cghange this when possible",
+      user_id: user.userId,
       title: title,
       content: context,
       image: imgUrl,
       comments: [],
       question: isQuestion,
     };
+
     try {
       //post method
       const res = await fetch("http://localhost:3000/posts", {
@@ -200,9 +211,13 @@ const CommunityPage = () => {
           "Content-Type": "application/json",
         },
       });
+      console.log("returnd data now");
       const data = await res.json();
+
+      console.log("returnd data: ", data);
       setPost((xData) => [...xData, data]);
     } catch (error) {
+      console.log("opsie");
       console.log(error);
     }
     return <>{console.log("done")}</>;
@@ -211,8 +226,11 @@ const CommunityPage = () => {
   return (
     <>
       <div className="container">
-        <div>displaying posts: {displayPosts()}</div>
+        <div>Displaying posts: {displayPosts()}</div>
+        <div className="All-post"></div>
+
       </div>
+
     </>
   );
 };
