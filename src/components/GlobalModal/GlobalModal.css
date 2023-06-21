@@ -1,5 +1,5 @@
-.modal{
-  position:fixed;
+.modal {
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
@@ -16,7 +16,16 @@
   /* transform: translate(-39%); */
 }
 
+<<<<<<< HEAD
 .modal-content{
+=======
+#move-down-modal {
+  bottom: -30vw;
+  top: auto;
+}
+
+.modal-content {
+>>>>>>> cbf72c955b53e435657f76427ef3526537414d09
   width: 50vw;
   align-self: center;
   background-color: #fff;
@@ -24,13 +33,14 @@
   /* transform: translateY(3rem); */
 }
 
-.modal-header, .modal-footer{
+.modal-header,
+.modal-footer {
   padding: 1rem;
 }
-.modal-footer{
+.modal-footer {
   text-align: right;
 }
-.modal-body{
+.modal-body {
   padding: 1rem;
   border-top: 1px solid rgb(220, 220, 220);
   border-bottom: 1px solid rgb(220, 220, 220);

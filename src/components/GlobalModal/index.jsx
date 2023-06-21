@@ -17,7 +17,11 @@ const GlobalModal = props => {
     const modalWidth = modalRef.current.offsetWidth;
     const modalHeight = modalRef.current.offsetHeight; //get the hight and width of modal
 
+<<<<<<< HEAD
     const scrollY = window.scrollY; //get position of scroll (how many pixels have been scrolled)
+=======
+    const scrollY = window.scrollY || window.pageYOffset;
+>>>>>>> cbf72c955b53e435657f76427ef3526537414d09
 
     const top = scrollY + (viewportHeight - modalHeight) / 2;
     const left = (viewportWidth - modalWidth) / 2; //values for setting top and left 
