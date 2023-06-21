@@ -99,7 +99,7 @@ const CommunityPage = () => {
     return (
       <>
         <div className="All-Post">
-          <h4 className="filter-and-search">Filter and Search Through Community Posts</h4>
+          <h4 className="filter-and-search">Filter and Search Through Community Posts and Questions</h4>
           <div className="container-search-filter">
             <div className="header">
               <ul className="post-nav-list">

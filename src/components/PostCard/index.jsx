@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../App";
 import "./styles.css";
 import { useAuth } from "../../Context";
+import comment from './chat.png'
 const PostCard = ({
   id,
   user_id,
@@ -39,15 +40,16 @@ const PostCard = ({
           <div className="user-data">
             <button className="profile-button">profile</button>
             {/* <div>user_id: {user_id}</div> */}
-
-            <div>Time created: {formatTimeElapsed()}</div>
+            <div className="p-date">Time created: {formatTimeElapsed()}</div>
           </div>
           <div className="title -content">
             <div className="title">title: {title}</div>
             <div className="content">content: {content}</div>
+          <img src={image} className="the-image"></img>
           </div>
-          <img src={image} className="img"></img>
-          <div className="comment">Comments: {eachComment(comments)}</div>
+          <div className="comment">
+            <p className="comments-header" ></p>Comments: 
+            {eachComment(comments)}</div>
         </div>
       );
     } else if (image === "" && !question) {
@@ -62,7 +64,9 @@ const PostCard = ({
             <div className="p-title">Title: {title}</div>
             <div className="content">Content: {content}</div>
           </div>
-          <div className="comment">Comments: {eachComment(comments)}</div>
+          <div className="comment">
+            <p className="comments-header" > Comments: </p>
+            {eachComment(comments)}</div>
         </div>
       );
     }
@@ -81,7 +85,9 @@ const PostCard = ({
             <div className="title">Title: {title}</div>
             <div className="content">Content: {content}</div>
           </div>
-          <div className="comment">Comments: {eachComment(comments)}</div>
+          <div className="comment">
+            <p className="comments-header">Comments:</p>
+            {eachComment(comments)}</div>
         </div>
       );
     }
@@ -112,8 +118,8 @@ const PostCard = ({
     return (
       <>
         {comments.map((c) => (
-          <p>
-            <b>{c[0]}</b> : {c[1]}
+          <p className="each-comment">
+            <b> <img className="comment-icon" src={comment} alt="commentIcon" />{c[0]}</b> : {c[1]}
           </p>
         ))}
         <input
