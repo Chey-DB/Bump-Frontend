@@ -38,7 +38,7 @@ const PostCard = ({
       return (
         <div className="card">
           <div className="user-data">
-            <button className="profile-button">profile</button>
+            <button className="profile-button">Profile</button>
             {/* <div>user_id: {user_id}</div> */}
             <div className="p-date">Time created: {formatTimeElapsed()}</div>
           </div>
@@ -56,7 +56,7 @@ const PostCard = ({
       return (
         <div className="card">
           <div className="user-data">
-            <button className="profile-button">profile</button>
+            <button className="profile-button">Profile</button>
             {/* <div>user_id: {user_id}</div> */}
             <div>Time created: {formatTimeElapsed()}</div>
           </div>
@@ -77,7 +77,7 @@ const PostCard = ({
       return (
         <div className="card">
           <div className="user-data">
-            <button className="profile-button">profile</button>
+            <button className="profile-button">Profile</button>
             {/* <div className="q-name">user_id: {user_id}</div> */}
             <div className="q-date">Time created: {formatTimeElapsed()}</div>
           </div>
