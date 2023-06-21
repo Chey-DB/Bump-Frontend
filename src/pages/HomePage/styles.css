@@ -1,6 +1,9 @@
 #home-page-container{
   padding: 20px;
 }
+
+/* top section */
+
 .hero-banner {
   position: relative;
   width: 100%;
@@ -10,7 +13,7 @@
   background-size: cover;
   background-position: top;
   overflow: hidden;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
 }
 
 .hp-logo-box{
@@ -90,18 +93,9 @@
   color: #eee;
 }
 
-.white{
-  background-color: #eee;
-  color: #454545;
-}
-
-.btn{
+.hp-info-btn{
   font-family: 'Quicksand', sans-serif;
   font-weight: 700;
-}
-
-.hp-info-btn{
-  /* text-transform: uppercase; */
   padding: 15px 40px;
   display: inline-block;
   margin: 0 0.5rem;
@@ -121,20 +115,49 @@
 }
 
 #signin-btn{
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 700;
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  color: #eee;
-  cursor: pointer;
 }
 
 #discover-link{
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 700;
   display: inline-block;
   transform: translateY(20px);
+  margin-top: 1rem;
+}
+
+.hp-link,
+.hp-link:visited{
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
   color: #eee;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hp-link:hover{
+  font-size: 1.2rem;
+}
+.hp-link:active{
+  font-size: 1rem;
+}
+
+/* mid section */
+
+.hp-mid-section{
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+  /* background-color: #ffffff; */
+}
+
+/* end section */
+
+.hp-end-section{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: linear-gradient(to right bottom, #806fca, #a194d5);
+  clip-path: polygon(0 20%, 100% 0, 100% 80%, 0% 100%);
+
 }

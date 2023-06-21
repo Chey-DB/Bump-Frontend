@@ -31,7 +31,7 @@ const HomePage = () => {
           <div className='hp-logo-box'>
             <img src="Bump-logo.png" alt="" id='hp-logo' />
           </div>
-          <a type='button' id='signin-btn'>Login</a>
+          <Link to='/login' id='signin-btn' className='hp-link'>Login</Link>
 
           <div className='hp-text-box'>
             <h1 className='hp-heading'>
@@ -40,11 +40,18 @@ const HomePage = () => {
             </h1>
             <div>
               <Link to='/register'>
-                <button onClick={handleTestLogin} className='btn green hp-info-btn'>Join the Community</button>
+                <button onClick={handleTestLogin} className='green hp-info-btn'>Join the Community</button>
               </Link>
             </div>
-            <a id='discover-link'>Discover More</a>
+            <a id='discover-link' className='hp-link'>Discover More</a>
           </div>
+        </div>
+
+        <div className="hp-mid-section">
+
+        </div>
+        <div className='hp-end-section'>
+
         </div>
       </div>
     </>
