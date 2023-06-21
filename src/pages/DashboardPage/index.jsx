@@ -42,9 +42,10 @@ const DashboardPage = () => {
   const logout = async () => {
     try {
       const response = await axios.get('http://localhost:3000/auth/logout', { withCredentials: true });
+      console.log(response)
       if (response.status === 200) {
         setUser({})
-        navigate('/login');
+        navigate('/');
       } else {
         console.error(`Error: Received status code ${response.status}`);
       }
