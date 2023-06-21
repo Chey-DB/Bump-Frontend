@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../Context'
 
 import './styles.css'
 
 const HomePage = () => {
-  const { setUser } = useAuth()
+
+  const { user, setUser } = useAuth()
   const navigate = useNavigate()
+
+  useEffect(() => {
+    if (user) {
+      navigate('/dashboard')
+    }
+  }, [])
 
   const handleTestLogin = () => {
     const userId = '6488473bfa7d92ab51dfef3f'
