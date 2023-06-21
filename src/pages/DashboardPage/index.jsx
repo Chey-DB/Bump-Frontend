@@ -9,7 +9,7 @@ import { useAuth } from '../../Context';
 
 const DashboardPage = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, setUser } = useAuth();
   const [settings, setSettings] = useState(null);
 
   useEffect(() => {
@@ -41,8 +41,9 @@ const DashboardPage = () => {
 
   const logout = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/auth/logout');
+      const response = await axios.get('http://localhost:3000/auth/logout', { withCredentials: true });
       if (response.status === 200) {
+        setUser({})
         navigate('/login');
       } else {
         console.error(`Error: Received status code ${response.status}`);
@@ -54,6 +55,7 @@ const DashboardPage = () => {
 
   return (
     <>
+    <button onClick={logout}>Logout</button>
       <div className="container">
         {/* <Checklist /> */}
         <div>
