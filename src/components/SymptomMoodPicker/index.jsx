@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateNewEntry, resetMoodAndSymptoms } from '../../Features/newEntrySlice';
 import { Checkbox, GlobalModal } from '..';
@@ -8,6 +8,7 @@ const SymptomMoodPicker = () => {
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const newEntry = useSelector((state) => state.newEntry);
+  const modalButtonRef = useRef(null);
 
   useEffect(() => {
     if (show) {
@@ -46,19 +47,18 @@ const SymptomMoodPicker = () => {
     handleMoodChange();
     handleSymptomChange();
     setShow(false);
-    // console.log(newEntry);
   };
 
   return (
     <>
-      <button type='button' onClick={() => {setShow(true), dispatch(resetMoodAndSymptoms())}}> + Symptoms and Moods</button>
-      <GlobalModal show={show} onClose={() => setShow(false)} title="Select Moods and Symptoms" hasId={"modal-in-journal"} footer={<button onClick={handleAdd}>Add</button>}>
+      <button type='button' ref={modalButtonRef} onClick={() => {setShow(true), dispatch(resetMoodAndSymptoms())}}> + Symptoms and Moods</button>
+      <GlobalModal buttonRef={modalButtonRef} show={show} onClose={() => setShow(false)} title="Select Moods and Symptoms" footer={<button onClick={handleAdd}>Add</button>}>
         <h3>Symptoms</h3>
         <div className="scroll symptoms-holder">
           <Checkbox
-            checkboxIcon='symptoms-mood-icons/sore-breast.png'
+            checkboxIcon='symptoms-mood-icons/sore-breasts.png'
             checkboxTitle='Sore Breasts'
-            CheckboxId='sore-breast'
+            CheckboxId='sore-breasts'
             handleChange={handleSymptomChange}
           />
           <Checkbox

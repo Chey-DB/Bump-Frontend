@@ -4,26 +4,24 @@
   right: 0;
   top: 0;
   bottom: 0;
+  overflow:auto;
+  height:100vh;
   background-color: rgba(0, 0, 0, 0.5);
   width: 100vw;
-  min-height: 125vh;
+  /* min-height: 125vh; */
   display: flex;
   justify-content: center;
   flex-direction: column;
-  z-index: 2;
+  z-index: 1000;
+  /* transform: translate(-39%); */
 }
 
-#move-down-modal {
-  bottom: -30vw;
-  top: auto;
-}
-
-.modal-content {
+.modal-content{
   width: 50vw;
   align-self: center;
   background-color: #fff;
   text-align: center;
-  transform: translateY(-2rem);
+  /* transform: translateY(3rem); */
 }
 
 .modal-header,
