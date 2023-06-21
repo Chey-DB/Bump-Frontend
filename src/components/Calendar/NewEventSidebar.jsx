@@ -5,30 +5,33 @@ import { changeServiceField, toggleNewEventSidebarObj } from "./actions/actionCr
 import EditField from "./EditField";
 import axios from 'axios';
 
+import {useAuth} from '../../Context/index'
+
 const NewEventSidebar = () => {
 
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [description, setDescription] = useState("");
-  const [user, setUser] = useState([]);
+  const {user} = useAuth()
 
   const calendarContext = useSelector(state => state.calendarState);
   const eventContext = useSelector(state => state.eventState);
   const dispatch = useDispatch();
 
   const handleNewEvent = (e) => {
+    console.log(title, date, time, description)
     e.preventDefault()
-    const response = axios.post('http://localhost:3000/calendar', {      
+    const response = axios.post('http://localhost:3000/calendar', {
       date,
       time,
       title,
       description
            
     }, { withCredentials: true })
-    setUser({ date : response.date, time: response.time, title: response.title, description: response.description})
-  }
 
+    console.log(response)
+  }
 
   const {
     newEventSidebarToggled,
@@ -101,28 +104,10 @@ const NewEventSidebar = () => {
         className="new-event-sidebar__description" 
       />
 
-      <button
+      <button 
+        type="submit"
         className="new-event-sidebar__add-btn"
-        onClick={() => {
-          if (eventContext.title === "" || eventContext.date === "") {
-            return alert("Fill both of event-name and date fields.");
-          } else {
-            dispatch(
-              addEventDispatch(
-                eventContext.id,
-                eventContext.title,
-                eventContext.date,
-                eventContext.time,
-                eventContext.description,
-                calendarContext
-              )
-            );
-            clearInputs();
-          }
-          dispatch(toggleNewEventSidebarObj(false))
-        }}
-        onSubmit={handleNewEvent}
-      >
+        onClick={handleNewEvent}>
         Add Event
       </button>
       <button
@@ -138,3 +123,22 @@ const NewEventSidebar = () => {
 };
 
 export default NewEventSidebar;
+
+// onClick={() => {
+//   if (eventContext.title === "" || eventContext.date === "") {
+//     return alert("Fill both of event-name and date fields.");
+//   } else {
+//     dispatch(
+//       addEventDispatch(
+//         eventContext.id,
+//         eventContext.title,
+//         eventContext.date,
+//         eventContext.time,
+//         eventContext.description,
+//         calendarContext
+//       )
+//     );
+//     clearInputs();
+//   }
+//   dispatch(toggleNewEventSidebarObj(false))
+// }}

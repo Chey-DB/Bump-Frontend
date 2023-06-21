@@ -1,0 +1,34 @@
+#home-page-container{
+  padding: 30px;
+}
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background-image: linear-gradient(to right bottom, #62539e9b, #a194d598), url('pregnancy-woman-bkg.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-position: top;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%);
+}
+
+.hp-logo-box{
+  position: absolute;
+}
+
+#hp-logo{
+  width: 100px;
+}
+
+.hp-heading{
+  color: #eee;
+  text-transform: uppercase;
+}
+
+.hp-heading-main{
+
+}
+.hp-heading-sub{
+  
+}
