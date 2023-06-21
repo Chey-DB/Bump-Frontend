@@ -1,7 +1,7 @@
 import React, { useState} from 'react';
 import './styles.css';
 
-const Greeting = () => {
+const Greeting = ({ name }) => {
   const currentHour = new Date().getHours();
   let greeting;
 
@@ -13,7 +13,7 @@ const Greeting = () => {
     greeting = `Good Evening`;
   }
 
-  return <h1>{greeting}</h1>;
+  return <h1>{greeting}, {name} </h1>;
 };
 
 export default Greeting;
