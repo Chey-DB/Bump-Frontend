@@ -4,6 +4,8 @@ import { Navigate, Outlet } from "react-router-dom";
 
 export default function ProtectedRoute({ redirectTo }) {
     const {user} = useAuth();
+    console.log("ProtectedRoute")
+    console.log(user)
 
     return user ? <Outlet /> : <Navigate to={redirectTo} />;
 }
