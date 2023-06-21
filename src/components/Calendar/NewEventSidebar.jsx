@@ -19,20 +19,14 @@ const NewEventSidebar = () => {
 
   const handleNewEvent = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:3000/calendar', {      
+    const response = axios.post('http://localhost:3000/calendar', {      
       date,
       time,
       title,
       description
            
     }, { withCredentials: true })
-      .then(response => {
-        setUser({ date : response.data.date, time: response.data.time, title: response.data.title, description: response.data.description})
-      })
-      .catch(error => {
-        console.log(error)
-      }
-    )
+    setUser({ date : response.date, time: response.time, title: response.title, description: response.description})
   }
 
 
@@ -73,14 +67,7 @@ const NewEventSidebar = () => {
         top: window.scrollY
       }}
     >
-      <button
-        className="sidebar__close-btn"
-        onClick={() => {
-          dispatch(toggleNewEventSidebarObj(false))
-        }}
-      >
-        <i className="fas fa-times-circle"></i>
-      </button>
+      
       <p className="new-event-sidebar__title">Add a new event</p>
       <label htmlFor="new-event-sidebar__description">Event Name</label>
       <EditField
@@ -137,6 +124,14 @@ const NewEventSidebar = () => {
         onSubmit={handleNewEvent}
       >
         Add Event
+      </button>
+      <button
+        className="sidebar__close-btn"
+        onClick={() => {
+          dispatch(toggleNewEventSidebarObj(false))
+        }}
+      >
+        <i className="fas fa-times-circle"></i>
       </button>
     </div>
   );
