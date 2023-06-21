@@ -76,12 +76,13 @@ a#pfp-link{
 .nav-links {
   color: white;
   text-decoration: none;
-  font-weight:900;
+  font-weight:700;
   font-size: 1.4rem;
   height: 100%;
   display: block;
   width: 8rem;
   border-bottom: 3px solid transparent;
+  font-family: 'Sansita', sans-serif;
 }
 
 .fa-code {
