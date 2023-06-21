@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../App";
 import "./styles.css";
+
 const PostCard = ({
   id,
   user_id,
@@ -14,54 +15,76 @@ const PostCard = ({
 }) => {
   const [newComment, setNewComment] = useState("");
 
+  const formatTimeElapsed = () => {
+    const currentTime = new Date();
+    const creationTime = new Date(createdAt);
+    const timeDifference = currentTime - creationTime;
+    const hoursElapsed = Math.floor(timeDifference / (1000 * 60 * 60));
+
+    if (hoursElapsed === 0) {
+      return "Less than an hour ago";
+    } else if (hoursElapsed === 1) {
+      return "1 hour ago";
+    } else {
+      return `${hoursElapsed} hours ago`;
+    }
+  };
+
   const post = () => {
-    if (image != "" && question == false) {
+    if (image !== "" && !question) {
       return (
         <div className="card">
           <div className="user-data">
-            <button>profile</button>
-            <div>user_id: {user_id}</div>
+            <button className="profile-button">profile</button>
+            {/* <div>user_id: {user_id}</div> */}
 
-            <div>createdAt: {createdAt}</div>
+            <div>Time created: {formatTimeElapsed()}</div>
           </div>
-          <div className="title">title: {title}</div>
+          <div className="title -content">
+            <div className="title">title: {title}</div>
+            <div className="content">content: {content}</div>
+          </div>
           <img src={image} className="img"></img>
-          <div className="content">content: {content}</div>
-          <div className="comment">comments: {eachComment(comments)}</div>
+          <div className="comment">Comments: {eachComment(comments)}</div>
         </div>
       );
-    } else if (image === "" && question == false) {
+    } else if (image === "" && !question) {
       return (
         <div className="card">
           <div className="user-data">
-            <button>profile</button>
-            <div>user_id: {user_id}</div>
-            <div className="p-title">title: {title}</div>
-            <div>createdAt: {createdAt}</div>
+            <button className="profile-button">profile</button>
+            {/* <div>user_id: {user_id}</div> */}
+            <div>Time created: {formatTimeElapsed()}</div>
           </div>
-          <div className="content">content: {content}</div>
-          <div className="comment">comments: {eachComment(comments)}</div>
+          <div className="title-content">
+            <div className="p-title">Title: {title}</div>
+            <div className="content">Content: {content}</div>
+          </div>
+          <div className="comment">Comments: {eachComment(comments)}</div>
         </div>
       );
     }
   };
 
   const questions = () => {
-    if (question == true) {
+    if (question) {
       return (
         <div className="card">
           <div className="user-data">
-            <button>profile</button>
-            <div className="q-name">user_id: {user_id}</div>
-            <div className="title">title: {title}</div>
-            <div className="q-date">createdAt: {createdAt}</div>
+            <button className="profile-button">profile</button>
+            {/* <div className="q-name">user_id: {user_id}</div> */}
+            <div className="q-date">Time created: {formatTimeElapsed()}</div>
           </div>
-          <div className="content">content: {content}</div>
-          <div className="comment">comments: {eachComment(comments)}</div>
+          <div className="title-content">
+            <div className="title">Title: {title}</div>
+            <div className="content">Content: {content}</div>
+          </div>
+          <div className="comment">Comments: {eachComment(comments)}</div>
         </div>
       );
     }
   };
+
   async function handleSubmit() {
     console.log("handling the submit");
     const options = {
