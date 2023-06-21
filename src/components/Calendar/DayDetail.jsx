@@ -1,16 +1,20 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { useSelector, useDispatch } from 'react-redux';
 
 import { deleteEventDispatch } from "../Calendar/actions/actionCreatorDispatch";
 import NewEventButton from "./NewEventButton";
 import { editEventSidebarObj, setDayDetailObj, toggleDetailSidebarObj, toggleNewEventSidebarObj } from "../Calendar/actions/actionCreatorObj";
 import moment from 'moment';
+import axios from 'axios';
+import {useAuth} from '../../Context/index'
 
 
 const DayDetail = () => {
   
   const calendarContext = useSelector(state => state.calendarState);
   const dispatch = useDispatch();
+  const {user} = useAuth();
+  const [events, setEvents] = useState([]);
 
   const {
     detailSidebarToggled,
@@ -22,6 +26,19 @@ const DayDetail = () => {
   const fullEvent = (el) => {
     el.classList.toggle('active')
   }
+
+  useEffect(() => {
+  const handleEvents = async() => {
+    try {
+      const response = await axios.get(`http://localhost:3000/calendar/user/${user.userId}`, { withCredentials: true })
+      setEvents(response.data);
+      console.log(response.data)
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+  handleEvents();
+  }, [])
 
   return (
     <div
@@ -45,10 +62,10 @@ const DayDetail = () => {
       </button>
       <p className="detail-sidebar__date">{`${moment.months(currentMonth - 1)} ${dayDetail.today}, ${currentYear}`}</p>
       <ul className="detail-sidebar__events">
-        {dayDetail.events.map(event => (
+        {events.map(event => (
           <li
           className="event-item"
-          onClick={(e) => fullEvent(e.target)}
+          onClick={handleEvents}
           key={event.id + event.name}>
             {event.title}
 

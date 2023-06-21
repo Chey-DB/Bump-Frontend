@@ -38,6 +38,8 @@ const NewEventSidebar = () => {
   } = calendarContext;
 
 
+
+
   const clearInputs = () => {
     setTitle("");
     setDate("");
@@ -107,7 +109,27 @@ const NewEventSidebar = () => {
       <button 
         type="submit"
         className="new-event-sidebar__add-btn"
-        onClick={handleNewEvent}
+        onSubmit={() => {
+        dispatch(toggleNewEventSidebarObj(false))}}
+        onClick={() => {
+            if (eventContext.title === "" || eventContext.date === "") {
+              return alert("Fill both of event-name and date fields.");
+            } else {
+              {handleNewEvent()},
+              dispatch(
+                addEventDispatch(
+                  eventContext.id,
+                  eventContext.title,
+                  eventContext.date,
+                  eventContext.time,
+                  eventContext.description,
+                  calendarContext
+                )
+              );
+              clearInputs();
+            }
+            dispatch(toggleNewEventSidebarObj(false))
+          }}
       >
         Add Event
       </button>
