@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './styles.css';
+import { response } from 'msw';
 
 const NextAppointment = () => {
     const [appointment, setAppointment] = useState(null);
   
     useEffect(() => {
-      fetch('http://localhost:3000/calendar/:id')
+      fetch('http://localhost:3000/calendar')
         .then(response => response.json())
         .then(data => {
           // Assuming the appointments are sorted by start time
