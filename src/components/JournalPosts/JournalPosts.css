@@ -1,11 +1,14 @@
 .jn-post-holder{
-  border: 1px solid black;
-  padding: 2rem 1rem;
+  border: 1px solid rgb(190, 190, 190);
+  padding: 1rem 1rem;
   margin: 2rem auto;
   width: clamp(30vw, 1000px, 70vw);
+  position: relative;
 }
 .jnp-title-section{
   display: flex;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgb(190, 190, 190);
 }
 
 .jnp-title-section > div {
@@ -18,10 +21,45 @@
 .jnp-title-section > div > h3 {
   text-align: left;
   margin: 0;
-  color: black;
+  color: rgb(80, 80, 80);
   text-decoration: none;
   font-weight: 200;
 }
 .jnp-title-section > div > h2 {
   font-size: 2.5rem;
+}
+
+.jnp-info-holder{
+  text-align: left;
+  align-self: center;
+}
+
+.jnp-datetime > p {
+  text-align: left;
+  display: inline-block;
+  margin: 1rem 0.5rem 0 0;
+}
+
+.jn-post-holder > p{
+  padding: 1rem 0;
+  border-bottom: 1px solid rgb(190, 190, 190);
+}
+
+.jnp-SM-holder{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  gap: 3rem;
+}
+
+.jnp-symtom-display{
+  padding-right: 3rem;
+  border-right: 1px solid rgb(190, 190, 190);
+}
+
+.jnp-delete-button{
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
 }

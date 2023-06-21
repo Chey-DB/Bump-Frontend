@@ -40,7 +40,7 @@ const HomePage = () => {
             </h1>
             <div>
               <Link to='/register'>
-                <button onClick={handleTestLogin} className='green hp-info-btn'>Join the Community</button>
+                <button className='green hp-info-btn'>Join the Community</button>
               </Link>
             </div>
             <a id='discover-link' className='hp-link'>Discover More</a>
