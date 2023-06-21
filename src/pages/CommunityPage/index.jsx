@@ -14,7 +14,6 @@ const CommunityPage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isQuestion, setIsQuestion] = useState(false);
   const [state, setState] = new useState(post);
-  const [postType, setpostType] = useState("");
 
   useEffect(() => {
     const getPosts = async () => {
@@ -73,24 +72,37 @@ const CommunityPage = () => {
       console.log(error);
     }
   }
+  async function showAllQuestions() {
+    var updatedPost = [...post];
+    updatedPost = updatedPost.filter((x) => {
+      return x.question == true;
+    });
+
+    setState(updatedPost);
+  }
+  async function showAllPosts() {
+    var updatedPost = [...post];
+    updatedPost = updatedPost.filter((x) => {
+      return x.question == false;
+    });
+
+    setState(updatedPost);
+  }
+  async function showAll() {
+    var updatedPost = [...post];
+    setState(updatedPost);
+  }
 
   function displayPosts() {
-    const changeType = (e) => {
-      setpostType(e.value);
-      return postType;
-    };
     return (
       <>
         <div className="All-Post">
           AllPosts
           <div className="header">
             <ul className="post-nav-list">
-              {/* <li className="post-navbar">All</li>
-              <li className="post-navbar">Posts</li>
-              <li className="post-navbar">Questions</li> */}
-              <button>All</button>
-              <button>Post</button>
-              <button>Question</button>
+              <button onClick={showAll}>All</button>
+              <button onClick={showAllPosts}>Post</button>
+              <button onClick={showAllQuestions}>Question</button>
               <input
                 type="text"
                 id="search-posts"
@@ -100,7 +112,7 @@ const CommunityPage = () => {
             </ul>
           </div>
         </div>
-        {console.log(postType)}
+
         {state.map((p) => (
           <PostCard
             key={p._id}
