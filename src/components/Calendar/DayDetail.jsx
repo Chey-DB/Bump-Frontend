@@ -74,7 +74,7 @@ const DayDetail = () => {
             >
               <i className="fas fa-edit"></i>
             </button>
-            <p className="event-date"><span className="text-bold">Date: </span>{event.date}</p>
+            {/* <p className="event-date"><span className="text-bold">Date: </span>{event.date}</p> */}
             <p className="event-time"><span className="text-bold">Time: </span>{event.time}</p>
             <p className="event-title"><span className="text-bold">Event Name: </span> {event.title}</p>
             <p className="event-description"><span className="text-bold">Description: </span>{event.description}</p>
@@ -82,7 +82,7 @@ const DayDetail = () => {
         ))}
       </ul>
 
-      <NewEventButton date={dayDetail.today} />
+      <NewEventButton date={event.today} />
     </div>
   );
 };
