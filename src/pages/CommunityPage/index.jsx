@@ -160,7 +160,7 @@ const CommunityPage = () => {
             ></input>
             <br />
             <label className="label-question">question: </label>
-            <div class="question-checkbox">
+            <div className="question-checkbox">
               <input
                 type="checkbox"
                 className="sc-gJwTLC ikxBAC"
