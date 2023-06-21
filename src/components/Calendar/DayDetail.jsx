@@ -13,8 +13,8 @@ const DayDetail = () => {
   
   const calendarContext = useSelector(state => state.calendarState);
   const dispatch = useDispatch();
-  const {user} = useAuth();
-  const [events, setEvents] = useState([]);
+  // const {user} = useAuth();
+  // const [events, setEvents] = useState([]);
 
   const {
     detailSidebarToggled,
@@ -27,18 +27,18 @@ const DayDetail = () => {
     el.classList.toggle('active')
   }
 
-  useEffect(() => {
-  const handleEvents = async() => {
-    try {
-      const response = await axios.get(`http://localhost:3000/calendar/user/${user.userId}`, { withCredentials: true })
-      setEvents(response.data);
-      console.log(response.data)
-    } catch (error) {
-      console.log(error.message)
-    }
-  }
-  handleEvents();
-  }, [])
+  // useEffect(() => {
+  // const handleEvents = async() => {
+  //   try {
+  //     const response = await axios.get(`http://localhost:3000/calendar/user/${user.userId}`, { withCredentials: true })
+  //     setEvents(response.data);
+  //     console.log(response.data)
+  //   } catch (error) {
+  //     console.log(error.message)
+  //   }
+  // }
+  // handleEvents();
+  // }, [])
 
   return (
     <div
@@ -62,13 +62,12 @@ const DayDetail = () => {
       </button>
       <p className="detail-sidebar__date">{`${moment.months(currentMonth - 1)} ${dayDetail.today}, ${currentYear}`}</p>
       <ul className="detail-sidebar__events">
-        {events.map(event => (
+        {dayDetail.events.map(event => (
           <li
           className="event-item"
-          onClick={handleEvents}
+          onClick={(e) => fullEvent(e.target)}
           key={event.id + event.name}>
             {event.title}
-
             <button
               className="delete-event-btn"
               onClick={() => {
