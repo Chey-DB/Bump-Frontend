@@ -1,5 +1,5 @@
 #home-page-container{
-  padding: 30px;
+  padding: 20px;
 }
 .hero-banner {
   position: relative;
@@ -15,10 +15,23 @@
 
 .hp-logo-box{
   position: absolute;
+  top: 0.5rem;
+  left: 1rem;
 }
 
 #hp-logo{
   width: 100px;
+  border-radius: 100px;
+
+  border: 1px solid rgb(109, 109, 109);
+}
+
+.hp-text-box{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .hp-heading{
@@ -27,8 +40,15 @@
 }
 
 .hp-heading-main{
-
+  display: block;
+  font-size: 4rem;
+  font-weight: 400;
+  letter-spacing: 35px;
 }
+
 .hp-heading-sub{
-  
+  display: block;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 15px;
 }

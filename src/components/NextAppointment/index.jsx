@@ -11,23 +11,20 @@ const NextAppointment = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-
     const getData = async () => {
       try {
         const response = await axios.get(`http://localhost:3000/calendar/user/${user.userId}`, { withCredentials: true })
-        // console.log(response)
         setData(response.data)
 
       } catch (error) {
         console.log(error.message)
       }
     }
-    getData()
 
+    getData()
   }, []);
 
   useEffect(() => {
-    console.log(data)
     const getUpcommingDate = () => {
       const now = new Date();
 
@@ -45,8 +42,9 @@ const NextAppointment = () => {
 
       setAppointment(nextAppointment)
     }
-
-    getUpcommingDate()
+    if(data.length > 0){
+      getUpcommingDate()
+    }
   }, [data])
 
 
