@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../App";
 import "./styles.css";
+import { useAuth } from "../../Context";
 const PostCard = ({
   id,
   user_id,
@@ -13,7 +14,7 @@ const PostCard = ({
   updatedAt,
 }) => {
   const [newComment, setNewComment] = useState("");
-
+  const { user } = useAuth();
   const post = () => {
     if (image != "" && question == false) {
       return (
@@ -66,11 +67,11 @@ const PostCard = ({
     console.log("handling the submit");
     const options = {
       _id: id,
-      username: "palceholder for person logged in",
+      username: user.username,
       comment: newComment,
     };
     try {
-      const res = await fetch("http://localhost:3000/posts", {
+      const res = await fetch("http://localhost:3000/posts/comments", {
         method: "POST",
         body: JSON.stringify(options),
         headers: {
