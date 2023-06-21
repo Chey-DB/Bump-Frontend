@@ -8,7 +8,7 @@ import moment from 'moment';
 
 
 const DayDetail = () => {
-
+  
   const calendarContext = useSelector(state => state.calendarState);
   const dispatch = useDispatch();
 
@@ -18,21 +18,21 @@ const DayDetail = () => {
     currentMonth,
     currentYear,
   } = calendarContext;
-
+  
   const fullEvent = (el) => {
     el.classList.toggle('active')
   }
 
   return (
     <div
-      className={
-        detailSidebarToggled
-          ? "detail-sidebar toggled box-shadow"
-          : "detail-sidebar"
-      }
-      style={{
-        top: window.scrollY
-      }}
+    className={
+      detailSidebarToggled
+      ? "detail-sidebar toggled box-shadow"
+      : "detail-sidebar"
+    }
+    style={{
+      top: window.scrollY
+    }}
     >
       <button
         className="sidebar__close-btn_toggled"
@@ -40,16 +40,16 @@ const DayDetail = () => {
           dispatch(toggleDetailSidebarObj(false));
           dispatch(toggleNewEventSidebarObj(false));
         }}
-      >
+        >
         <i className="fas fa-times-circle"></i>
       </button>
       <p className="detail-sidebar__date">{`${moment.months(currentMonth - 1)} ${dayDetail.today}, ${currentYear}`}</p>
       <ul className="detail-sidebar__events">
         {dayDetail.events.map(event => (
           <li
-            className="event-item"
-            onClick={(e) => fullEvent(e.target)}
-            key={event.id + event.name}>
+          className="event-item"
+          onClick={(e) => fullEvent(e.target)}
+          key={event.id + event.name}>
             {event.title}
 
             <button
@@ -59,9 +59,9 @@ const DayDetail = () => {
                 dispatch(setDayDetailObj(
                   dayDetail.today,
                   dayDetail.events.filter(e => e.id !== event.id)
-                ));
-              }}
-            >
+                  ));
+                }}
+                >
               <i className="fas fa-trash"></i>
             </button>
             <button
@@ -71,7 +71,7 @@ const DayDetail = () => {
                 dispatch(toggleDetailSidebarObj(false))
                 dispatch(editEventSidebarObj(event))
               }}
-            >
+              >
               <i className="fas fa-edit"></i>
             </button>
             {/* <p className="event-date"><span className="text-bold">Date: </span>{event.date}</p> */}

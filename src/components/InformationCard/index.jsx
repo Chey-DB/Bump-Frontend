@@ -23,7 +23,7 @@ const InformationCard = () => {
         { headers: { "subscription-key": "9286783e6cba427d83f51dfb70be451f" } }
       );
       const response = info.data.mainEntityOfPage[0].hasPart[0].text;
-      console.log(response);
+      // console.log(response);
       setResponse(response);
     };
     getInfo();
