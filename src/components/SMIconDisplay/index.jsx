@@ -14,14 +14,15 @@ const SMIconDisplay = () => {
     <>
       <div className='symptom-mood-icon-wp'>
         <div className="SM-icon-wrapper">
-          {
-            symptoms.map((symptom, index) => (
+          {symptoms.map((symptom, index) => {
+            const symptomDisplay = symptom.replace(/-/g, ' ');
+            return (
               <div key={index} className='SM-icon-holder'>
-                <img src={`symptoms-mood-icons/${symptom}.png`} className='jn-display-icons'></img>
-                <p className='hide-icon-name'>{symptom}</p>
+                <img src={`symptoms-mood-icons/${symptom}.png`} className='jn-display-icons' alt={symptom}></img>
+                <p className='hide-icon-name'>{symptomDisplay}</p>
               </div>
-            ))
-          }
+            );
+          })}
         </div>
         <div className='sm-divider'>
 
@@ -33,8 +34,8 @@ const SMIconDisplay = () => {
                 <img src={`symptoms-mood-icons/${mood}.png`} className='jn-display-icons'></img>
                 <p className='hide-icon-name'>{mood}</p>
               </div>
-              ))
-            }
+            ))
+          }
         </div>
       </div>
     </>

@@ -3,32 +3,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addEventDispatch } from "./actions/actionCreatorDispatch"
 import { changeServiceField, toggleNewEventSidebarObj } from "./actions/actionCreatorObj";
 import EditField from "./EditField";
-import axios from 'axios';
 
 const NewEventSidebar = () => {
 
-  const [title, setTitle] = useState("");
+  const [eventName, setEventName] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [description, setDescription] = useState("");
-  const [user, setUser] = useState([]);
 
   const calendarContext = useSelector(state => state.calendarState);
   const eventContext = useSelector(state => state.eventState);
   const dispatch = useDispatch();
-
-  const handleNewEvent = (e) => {
-    e.preventDefault()
-    const response = axios.post('http://localhost:3000/calendar', {      
-      date,
-      time,
-      title,
-      description
-           
-    }, { withCredentials: true })
-    setUser({ date : response.date, time: response.time, title: response.title, description: response.description})
-  }
-
 
   const {
     newEventSidebarToggled,
@@ -36,7 +21,7 @@ const NewEventSidebar = () => {
 
 
   const clearInputs = () => {
-    setTitle("");
+    setEventName("");
     setDate("");
     setTime("");
     setDescription("");
@@ -46,7 +31,7 @@ const NewEventSidebar = () => {
 
     const { name, value } = evt.target;
 
-    if (name === 'title') setTitle(value)
+    if (name === 'eventName') setEventName(value)
     if (name === 'date') setDate(value)
     if (name === 'time') setTime(value)
     if (name === 'description') setDescription(value)
@@ -67,13 +52,20 @@ const NewEventSidebar = () => {
         top: window.scrollY
       }}
     >
-      
+      <button
+        className="sidebar__close-btn"
+        onClick={() => {
+          dispatch(toggleNewEventSidebarObj(false))
+        }}
+      >
+        <i className="fas fa-times-circle"></i>
+      </button>
       <p className="new-event-sidebar__title">Add a new event</p>
       <label htmlFor="new-event-sidebar__description">Event Name</label>
       <EditField
         onEdited={handleChange}
-        value={sendValue(eventContext.title, title)}
-        type="text" name="title"
+        value={sendValue(eventContext.eventName, eventName)}
+        type="text" name="eventName"
         className="new-event-sidebar__description"
       />
 
@@ -89,8 +81,9 @@ const NewEventSidebar = () => {
       <EditField
         onEdited={handleChange}
         value={sendValue(eventContext.time, time)}
-        type="time" name="time"
+        type="select" name="time"
         className="new-event-sidebar__type"
+        options={['', '00:00', '01:00','02:00','03:00','04:00','05:00', '06:00','07:00','08:00', '09:00','10:00','11:00', '12:00','13:00','14:00', '15:00','16:00','17:00', '18:00','19:00','20:00', '21:00','22:00','23:00']}
       />
 
 
@@ -104,13 +97,13 @@ const NewEventSidebar = () => {
       <button
         className="new-event-sidebar__add-btn"
         onClick={() => {
-          if (eventContext.title === "" || eventContext.date === "") {
+          if (eventContext.eventName === "" || eventContext.date === "") {
             return alert("Fill both of event-name and date fields.");
           } else {
             dispatch(
               addEventDispatch(
                 eventContext.id,
-                eventContext.title,
+                eventContext.eventName,
                 eventContext.date,
                 eventContext.time,
                 eventContext.description,
@@ -121,17 +114,8 @@ const NewEventSidebar = () => {
           }
           dispatch(toggleNewEventSidebarObj(false))
         }}
-        onSubmit={handleNewEvent}
       >
         Add Event
-      </button>
-      <button
-        className="sidebar__close-btn"
-        onClick={() => {
-          dispatch(toggleNewEventSidebarObj(false))
-        }}
-      >
-        <i className="fas fa-times-circle"></i>
       </button>
     </div>
   );
