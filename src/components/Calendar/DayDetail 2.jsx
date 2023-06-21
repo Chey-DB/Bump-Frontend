@@ -35,7 +35,7 @@ const DayDetail = () => {
       }}
     >
       <button
-        className="sidebar__close-btn_toggled"
+        className="sidebar__close-btn"
         onClick={() => {
           dispatch(toggleDetailSidebarObj(false));
           dispatch(toggleNewEventSidebarObj(false));
@@ -50,7 +50,7 @@ const DayDetail = () => {
             className="event-item"
             onClick={(e) => fullEvent(e.target)}
             key={event.id + event.name}>
-            {event.title}
+            {event.eventName}
 
             <button
               className="delete-event-btn"
@@ -76,7 +76,7 @@ const DayDetail = () => {
             </button>
             <p className="event-date"><span className="text-bold">Date: </span>{event.date}</p>
             <p className="event-time"><span className="text-bold">Time: </span>{event.time}</p>
-            <p className="event-title"><span className="text-bold">Event Name: </span> {event.title}</p>
+            <p className="event-eventName"><span className="text-bold">Event Name: </span> {event.eventName}</p>
             <p className="event-description"><span className="text-bold">Description: </span>{event.description}</p>
           </li>
         ))}

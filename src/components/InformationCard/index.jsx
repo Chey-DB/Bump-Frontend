@@ -12,6 +12,7 @@ const InformationCard = () => {
   const [response, setResponse] = useState("");
   const [week, setWeek] = useState("1-2-3-weeks");
   const [trim, setTrim] = useState("1-to-12");
+  
   const modalButtonRef = useRef(null);
 
   useEffect(() => {
