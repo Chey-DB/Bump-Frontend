@@ -47,7 +47,7 @@ const NextAppointment = () => {
     }
 
     getUpcommingDate()
-  }, [data])
+  }, [])
 
 
 

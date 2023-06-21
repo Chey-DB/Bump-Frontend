@@ -107,14 +107,17 @@ const NewEventSidebar = () => {
       <button 
         type="submit"
         className="new-event-sidebar__add-btn"
-        onClick={handleNewEvent}>
+        onClick={handleNewEvent}
+      >
         Add Event
       </button>
       <button
         className="sidebar__close-btn"
         onClick={() => {
           dispatch(toggleNewEventSidebarObj(false))
-        }}
+        }
+      }
+        
       >
         <i className="fas fa-times-circle"></i>
       </button>
