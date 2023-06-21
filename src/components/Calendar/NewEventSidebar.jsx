@@ -123,22 +123,3 @@ const NewEventSidebar = () => {
 };
 
 export default NewEventSidebar;
-
-// onClick={() => {
-//   if (eventContext.title === "" || eventContext.date === "") {
-//     return alert("Fill both of event-name and date fields.");
-//   } else {
-//     dispatch(
-//       addEventDispatch(
-//         eventContext.id,
-//         eventContext.title,
-//         eventContext.date,
-//         eventContext.time,
-//         eventContext.description,
-//         calendarContext
-//       )
-//     );
-//     clearInputs();
-//   }
-//   dispatch(toggleNewEventSidebarObj(false))
-// }}

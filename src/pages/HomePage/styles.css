@@ -37,13 +37,30 @@
 .hp-heading{
   color: #eee;
   text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 5rem;
 }
 
-.hp-heading-main{
+.hp-heading-main {
   display: block;
   font-size: 4rem;
   font-weight: 400;
   letter-spacing: 35px;
+  animation: moveInLeft 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  0%{
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  80%{
+    transform: translateX(10px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0px);
+  }
 }
 
 .hp-heading-sub{
@@ -51,4 +68,73 @@
   font-size: 2rem;
   font-weight: 400;
   letter-spacing: 15px;
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInRight {
+  0%{
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  80%{
+    transform: translateX(-10px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.green{
+  background-image: linear-gradient(to right bottom, #1e483792, #89d6b6d6);
+  color: #eee;
+}
+
+.white{
+  background-color: #eee;
+  color: #454545;
+}
+
+.btn{
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+}
+
+.hp-info-btn{
+  /* text-transform: uppercase; */
+  padding: 15px 40px;
+  display: inline-block;
+  margin: 0 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 100px;
+  border: 0;
+  transition: all 0.2s ease;
+}
+
+.hp-info-btn:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.hp-info-btn:active{
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#signin-btn{
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: #eee;
+  cursor: pointer;
+}
+
+#discover-link{
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  display: inline-block;
+  transform: translateY(20px);
+  color: #eee;
+  cursor: pointer;
 }
