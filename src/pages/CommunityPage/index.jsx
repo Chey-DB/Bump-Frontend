@@ -4,6 +4,7 @@ import { Image, CloudinaryContext } from "cloudinary-react";
 import "./styles.css";
 
 import GlobalModal from "../../components/GlobalModal";
+import { useAuth } from "../../Context";
 //create image function to get a url for the image once its amde
 
 const CommunityPage = () => {
@@ -14,6 +15,7 @@ const CommunityPage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isQuestion, setIsQuestion] = useState(false);
   const [state, setState] = new useState(post);
+  const { user } = useAuth();
 
   useEffect(() => {
     const getPosts = async () => {
@@ -164,6 +166,8 @@ const CommunityPage = () => {
             <br />
             <label className="label-question">Question: </label>
             <div class="question-checkbox">
+            <label className="label-question">question: </label>
+            <div className="question-checkbox">
               <input
                 type="checkbox"
                 className="sc-gJwTLC ikxBAC"
@@ -189,13 +193,14 @@ const CommunityPage = () => {
   }
   async function addPost(imgUrl) {
     const options = {
-      user_id: "cghange this when possible",
+      user_id: user.userId,
       title: title,
       content: context,
       image: imgUrl,
       comments: [],
       question: isQuestion,
     };
+
     try {
       //post method
       const res = await fetch("http://localhost:3000/posts", {
@@ -205,9 +210,13 @@ const CommunityPage = () => {
           "Content-Type": "application/json",
         },
       });
+      console.log("returnd data now");
       const data = await res.json();
+
+      console.log("returnd data: ", data);
       setPost((xData) => [...xData, data]);
     } catch (error) {
+      console.log("opsie");
       console.log(error);
     }
     return <>{console.log("done")}</>;

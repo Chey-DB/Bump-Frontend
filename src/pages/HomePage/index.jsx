@@ -26,18 +26,22 @@ const HomePage = () => {
   return (
     <>
       <div id='home-page-container'>
+
         <div className='hero-banner'>
           <div className='hp-logo-box'>
-            <img src="Bump-logo.png" alt="" id='hp-logo'/>
+            <img src="Bump-logo.png" alt="" id='hp-logo' />
           </div>
-          <h1 className='hp-heading'>
-            <span className='hp-heading-main'>Bump</span>
-            <span className='hp-heading-sub'>Path to Parenthood</span>
-          </h1>
+
+          <div className='hp-text-box'>
+            <h1 className='hp-heading'>
+              <span className='hp-heading-main'>Bump</span>
+              <span className='hp-heading-sub'>Path to Parenthood</span>
+            </h1>
+          </div>
+
+        <button onClick={handleTestLogin} id='hp-info-btn'>Press Me</button>
+
         </div>
-        {/* <div className='container'>
-        </div> */}
-      <button onClick={handleTestLogin}>Press Me</button>
       </div>
     </>
   )
