@@ -79,7 +79,7 @@ const InformationCard = ({ currentWeek }) => {
         <div className="information-card-container">
           <div className="information-card">
             <div className="information-card-top">
-              <h4 className="text-above-image">Your Baby:</h4>
+              <h4 className="text-above-image">Baby at {currentWeek} Weeks</h4>
               {/* <p>Text above the image</p> */}
             </div>
             <div className="information-card-bottom">
@@ -95,7 +95,7 @@ const InformationCard = ({ currentWeek }) => {
                 onClose={() => setShow1(false)}
                 hasId={"move-down-modal"}
                 buttonRef={modalButtonRef}
-                title={<h2>You at {currentWeek} weeks</h2>}
+                title={<h2>Baby at {currentWeek} weeks</h2>}
               >
                 <div dangerouslySetInnerHTML={{ __html: response1 }}></div>
               </GlobalModal>
@@ -106,7 +106,7 @@ const InformationCard = ({ currentWeek }) => {
           </div>
           <div className="information-card">
             <div className="information-card-top">
-              <h4 className="text-above-image">You:</h4>
+              <h4 className="text-above-image">You at {currentWeek} Weeks</h4>
               {/* <p>Text above the image</p> */}
             </div>
             <div className="information-card-bottom">
@@ -122,7 +122,7 @@ const InformationCard = ({ currentWeek }) => {
                 onClose={() => setShow2(false)}
                 hasId={"move-down-modal"}
                 buttonRef={modalButtonRef}
-                title={<h2>Baby at {currentWeek} weeks</h2>}
+                title={<h2>You at {currentWeek} weeks</h2>}
               >
                 <div dangerouslySetInnerHTML={{ __html: response2 }}></div>
               </GlobalModal>
@@ -133,7 +133,7 @@ const InformationCard = ({ currentWeek }) => {
           </div>
           <div className="information-card">
             <div className="information-card-top">
-              <h4 className="text-above-image">To Consider:</h4>
+              <h4 className="text-above-image">Things to think about</h4>
               {/* <p>Text above the image</p> */}
             </div>
             <div className="information-card-bottom">
