@@ -48,7 +48,6 @@ const NextAppointment = () => {
   }, [data])
 
 
-
   return (
     <div className="next-appointment-wrapper">
       {appointment ? (

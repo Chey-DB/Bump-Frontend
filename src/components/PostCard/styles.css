@@ -1,5 +1,5 @@
 .All-Post {
-  background-color: #a194d5;
+  background-color: rgb(233, 233, 233, 0.5);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -12,14 +12,14 @@
 
 .card {
   position: relative;
-  max-width: 40rem;
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 36px;
-  border: var(--purple) 10px solid;
+  border: var(--purple) 5px solid;
   box-shadow: 8.0px 16.0px 16.0px hsla(267, 50%, 51%, 0.25);
+  width: 60%;
 }
 
 .user-data {
@@ -69,15 +69,18 @@
 .comment {
   background-color: rgb(255, 255, 255);
   padding: 10%;
-  margin: 1%;
+  margin: 2%;
+  margin-left: 1% ;
   text-align: right;
   border: 2px solid #000000;
   border-radius: 12px;
 }
 
-.img {
-  width: 50%;
-  float: right;
+.the-image {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  
 }
 
 .quote-mark {
@@ -128,4 +131,41 @@
   height: 50px;
   width: 50px;
   border-radius: 12px ;
+}
+
+.each-comment{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1%;
+  border: 0.5px solid #bdbdbd;
+  padding: 5px;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.comment-icon{
+  width: 40px;
+  position: relative;
+  top: 10px;
+  left: -10px;
+}
+
+.comments-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.p-date {
+  height: 3rem;
+    background-color: #89D6B6;
+    display: flex;
+    justify-content: right;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid black;
 }

@@ -99,7 +99,7 @@ const CommunityPage = () => {
     return (
       <>
         <div className="All-Post">
-          <h4 className="filter-and-search">Filter and Search Through Community Posts</h4>
+          <h4 className="filter-and-search">Filter and Search Through Community Posts and Questions</h4>
           <div className="container-search-filter">
             <div className="header">
               <ul className="post-nav-list">
@@ -164,7 +164,7 @@ const CommunityPage = () => {
               required
             ></input>
             <br />
-            <label className="label-question">question: </label>
+            <label className="label-question">Question: </label>
             <div className="question-checkbox">
               <input
                 type="checkbox"
@@ -180,7 +180,9 @@ const CommunityPage = () => {
               accept=".jpg,.png"
               onChange={(e) => setSelectedFile(e.target.files[0])}
             ></input>
-            <button type="submit"> submit </button>
+            <div className="submit-post">
+              <button type="submit"> Submit </button>
+            </div>
             <br />
           </form>
         </GlobalModal>
