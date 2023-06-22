@@ -17,18 +17,18 @@ const CommunityPage = () => {
   const [state, setState] = new useState(post);
   const { user } = useAuth();
 
+  const getPosts = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/posts");
+      //add token to header
+      const data = await res.json();
+      setPost(data.reverse());
+      setState(data);
+    } catch (error) {
+      console.log({ error: error.message });
+    }
+  };
   useEffect(() => {
-    const getPosts = async () => {
-      try {
-        const res = await fetch("http://localhost:3000/posts");
-        //add token to header
-        const data = await res.json();
-        setPost(data);
-        setState(data);
-      } catch (error) {
-        console.log({ error: error.message });
-      }
-    };
     getPosts();
   }, []);
 
@@ -141,7 +141,7 @@ const CommunityPage = () => {
           setContext={setContext}
           isQuestion={isQuestion}
           setIsQuestion={setIsQuestion}
-          setSelectedFile={selectedFile} />
+          setSelectedFile={setSelectedFile} />
         <div>
           {state.map((p) => (
             <PostCard
