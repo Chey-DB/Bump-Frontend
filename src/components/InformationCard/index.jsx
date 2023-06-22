@@ -5,6 +5,7 @@ import woman from "./woman.png";
 import qm from './question-mark.png'
 import GlobalModal from "../GlobalModal";
 import axios from "axios";
+NHS_SUBSCRIPTION_KEY  = process.env.REACT_APP_NHS_SUBSCRIPTION_KEY;
 
 const InformationCard = () => {
   const [show1, setShow1] = useState(false);
@@ -20,7 +21,7 @@ const InformationCard = () => {
     const getInfo = async () => {
       const info = await axios.get(
         `https://api.nhs.uk/pregnancy/week-by-week/${trim}/${week}/`,
-        { headers: { "subscription-key": "9286783e6cba427d83f51dfb70be451f" } }
+        { headers: { "subscription-key": NHS_SUBSCRIPTION_KEY } }
       );
       const response = info.data.mainEntityOfPage[0].hasPart[0].text;
       // console.log(response);
