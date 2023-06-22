@@ -6,5 +6,5 @@ export default function ProtectedRoute({ redirectTo }) {
     const { user } = useAuth();
     
 
-    return user ? <Outlet /> : <Navigate to={redirectTo} />;
+    return user.userId ? <Outlet /> : <Navigate to={redirectTo} />;
 }
