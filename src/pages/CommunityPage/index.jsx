@@ -166,11 +166,26 @@ const CommunityPage = () => {
             <br />
             <label className="label-question">Question: </label>
             <div className="question-checkbox">
-              <input
-                type="checkbox"
-                className="sc-gJwTLC ikxBAC"
-                onChange={(e) => setIsQuestion(!isQuestion)}
+              <label className="label-question">question: </label>
+              <div className="question-checkbox">
+                <input
+                  type="checkbox"
+                  className="sc-gJwTLC ikxBAC"
+                  onChange={(e) => setIsQuestion(!isQuestion)}
+                ></input>
+              </div>
+              <br />
+              <label className="label-image">Add image: </label>
+              <input className="input-image"
+                type="file"
+                id="input-image"
+                accept=".jpg,.png"
+                onChange={(e) => setSelectedFile(e.target.files[0])}
               ></input>
+              <div className="submit-post">
+                <button type="submit"> submit </button>
+              </div>
+              <br />
             </div>
             <br />
             <label className="label-image">image: </label>
@@ -225,9 +240,9 @@ const CommunityPage = () => {
       <div className="container">
         <div>Displaying posts: {displayPosts()}</div>
         <div className="All-post"></div>
-        
+
       </div>
-    
+
     </>
   );
 };
