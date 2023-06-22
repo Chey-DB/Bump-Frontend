@@ -7,7 +7,7 @@
   margin-top: 4rem;
   border-radius: 10px;
   box-shadow: 5px 10px 8px #888888;
-  background-color: #A194D5;
+  background-color: rgb(161, 148, 213, 0.75);
 }
 
 .information-card-container {
@@ -43,7 +43,7 @@
   background-color: #89D6B6;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  padding: 10px;
+  padding: 30px;
   height: 50%;
   display: flex;
   flex-direction: column;
@@ -74,7 +74,7 @@
   background-color: white;
   border: 0.5px solid #afafaf;
   position: relative;
-  top: -40%;
+  top: -55%;
 }
 
 .button-link {
