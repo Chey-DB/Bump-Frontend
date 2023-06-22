@@ -77,3 +77,44 @@ h3{
 p{
     line-height: 2rem;
 }
+
+label{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.primary-btn{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    padding: 15px 40px;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    border-radius: 100px;
+    border: 0;
+    transition: all 0.2s ease;
+  }
+  
+  .primary-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  .primary-btn:active{
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .primary-btn-green{
+    background-image: linear-gradient(to right bottom, #7cc8aa, #89d6b6);
+    color: rgb(255, 255, 255);
+  }
+
+  .red-btn{
+    background-image: linear-gradient(to right bottom, #f1323292, #ff0000d6);
+  }
+
+  .submit-btn{
+    transition: all 0.2s ease;
+  }
+  .submit-btn:hover{
+    background-image: linear-gradient(to right bottom, #7cc8aa, #89d6b6);
+    color: white;
+  }

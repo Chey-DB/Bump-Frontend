@@ -7,7 +7,7 @@
   margin-top: 4rem;
   border-radius: 10px;
   box-shadow: 5px 10px 8px #888888;
-  background-color: #A194D5;
+  background-color: rgb(161, 148, 213, 0.75);
 }
 
 .information-card-container {
@@ -40,10 +40,10 @@
 }
 
 .information-card-top {
-  background-color: #89D6B6;
+  background-image: linear-gradient(to right bottom, #7cc8aa, #89d6b6);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  padding: 10px;
+  padding: 30px;
   height: 50%;
   display: flex;
   flex-direction: column;
@@ -74,12 +74,15 @@
   background-color: white;
   border: 0.5px solid #afafaf;
   position: relative;
-  top: -40%;
+  top: -55%;
+}
+
+#info-card-btn{
+  padding: 0.4rem 0.5rem;
 }
 
 .button-link {
   text-decoration: none;
-  background-color: #89D6B6;
   color: #fff;
   padding: 5px 10px;
   border-radius: 23px;
@@ -88,9 +91,9 @@
   top: -40%;
 }
 
-.button-link:hover {
+/* .button-link:hover {
   background-color: #89D6B6;
-}
+} */
 
 .text-above-image{
   position: relative;
