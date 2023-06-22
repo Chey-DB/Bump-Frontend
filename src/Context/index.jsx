@@ -11,8 +11,8 @@ export const AuthProvider = ({ children }) => {
       .get("http://localhost:3000/auth/checkUser", {
         withCredentials: true,
       })
-      .then((response) => {
-        const userId = response.data._id;
+      .then((response) => {       
+        const userId = response.data._id
         const username = response.data.username;
         if (response.data) {
           setUser({ userId, username });
@@ -28,5 +28,7 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+
 
 export const useAuth = () => useContext(AuthContext);
