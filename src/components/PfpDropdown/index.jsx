@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './PfpDropdown.css';
 import { useAuth } from '../../Context';
+
 const PfpDropdown = ({ settingToggle }) => {
   const navigate = useNavigate();
   const { user, setUser } = useAuth();
