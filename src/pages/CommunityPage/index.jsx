@@ -99,7 +99,7 @@ const CommunityPage = () => {
     return (
       <>
         <div className="All-Post">
-          <h4 className="filter-and-search">Filter and Search Through Community Posts</h4>
+          <h4 className="filter-and-search">Filter and Search Through Community Posts and Questions</h4>
           <div className="container-search-filter">
             <div className="header">
               <ul className="post-nav-list">
@@ -148,7 +148,7 @@ const CommunityPage = () => {
           onClose={() => setShow(false)}
         >
           <form onSubmit={handleSubmit}>
-            <label className="label-title">Title: </label>
+            <label className="label-title">title: </label>
             <input
               type="text"
               id="input-title"
@@ -156,7 +156,7 @@ const CommunityPage = () => {
               required
             ></input>
             <br />
-            <label className="label-content">Content: </label>
+            <label className="label-content">content: </label>
             <input
               type="text"
               id="input-content"
@@ -187,6 +187,21 @@ const CommunityPage = () => {
               </div>
               <br />
             </div>
+<<<<<<< HEAD
+=======
+            <br />
+            <label className="label-image">image: </label>
+            <input
+              type="file"
+              id="input-image"
+              accept=".jpg,.png"
+              onChange={(e) => setSelectedFile(e.target.files[0])}
+            ></input>
+            <div className="submit-post">
+              <button type="submit"> Submit </button>
+            </div>
+            <br />
+>>>>>>> staging
           </form>
         </GlobalModal>
       </>
