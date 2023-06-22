@@ -1,0 +1,30 @@
+.containerFaqs{
+        display: flex;
+        width: 1450px;
+        justify-content: center;
+    }
+/* 
+#accordion {
+    background-color: #F5F5F5;
+    color: #333;
+    cursor: pointer;
+    padding: 18px;
+    width: 500%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+    transition: 0.4s;
+    } */
+      /* .accordion:hover {
+        background-color: #ddd;
+      }
+      .accordion.active {
+        background-color: #ccc;
+      }
+      .panel {
+        padding: 0 18px;
+        background-color: white;
+        display: none;
+        overflow: hidden;
+      } */

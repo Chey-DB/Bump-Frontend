@@ -20,7 +20,7 @@ const MotivationalQuote = () => {
       }
     }
 
-    fetch('http://localhost:3000/quotes') // Replace with your API endpoint
+    fetch('http://localhost:3000/quotes') 
       .then(response => response.json())
       .then(data => {
         const quotesWithoutNumbers = data[0].quotesWithoutNumbers;

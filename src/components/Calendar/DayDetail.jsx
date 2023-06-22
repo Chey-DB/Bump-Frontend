@@ -67,7 +67,7 @@ const DayDetail = () => {
           className="event-item"
           onClick={(e) => fullEvent(e.target)}
           key={event.id + event.name}>
-            {event.title}
+            {/* {event.title} */}
             <button
               className="delete-event-btn"
               onClick={() => {

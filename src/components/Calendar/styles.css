@@ -2,12 +2,6 @@
   margin: 0;
   padding: 0;
 }
-  
-body {
-  background-size: cover;
-    background: url(../img/background.jpg) no-repeat center center fixed 
-}
-
 
 button {
   cursor: pointer;
@@ -82,33 +76,23 @@ li {
   font-family: "Merienda", cursive;
 }
 
-.navbar-button .button-group button {
-  background-color: var(--green);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  border: 5px;
-  /* border-radius: 5rem; */
-  font-size: 1.2rem;
-  padding: 0.4rem;
-  color: #ececec;
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-  margin-right: 1rem;
-}
 
-.navbar-button .button-group button:last-child {
+
+/* .navbar-button .button-group button:last-child {
   margin-right: 100px;
 }
 
 .navbar-button .button-group button:hover {
   background-color: #ececec;
   color: var(--purple);
-}
+} */
 
 .calendar {
   margin: 0.5rem 0;
 }
 
 .calendar .title {
+  font-family: 'Sansita', sans-serif;
   color: #fff;
   background-color: var(--purple);
   border-bottom: 5px solid #ececec;
@@ -213,6 +197,8 @@ li {
 .calendar .calendar-table .thead,
 .calendar .calendar-table .thead-sm,
 .calendar .calendar-table .tbody {
+font-family: 'Quicksand', sans-serif;
+
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[7];
@@ -433,6 +419,7 @@ li {
 }
 
 .calendar .new-event-sidebar .new-event-sidebar__title {
+  font-family: 'Sansita', sans-serif;
   font-size: 2rem;
   font-weight: bold;
   margin: 1rem 0 2rem 0;
@@ -461,6 +448,7 @@ li {
 .calendar .new-event-sidebar .new-event-sidebar__type,
 .calendar .new-event-sidebar .new-event-sidebar__reminder,
 .calendar .new-event-sidebar .new-event-sidebar__add-btn {
+  font-family: 'Quicksand', sans-serif;
   width: 90%;
   font-size: 1.3rem;
   margin: 0.5rem 1rem;

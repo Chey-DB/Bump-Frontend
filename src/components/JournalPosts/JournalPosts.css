@@ -4,6 +4,7 @@
   margin: 2rem auto;
   width: clamp(30vw, 1000px, 70vw);
   position: relative;
+  backdrop-filter: blur(10px);
 }
 .jnp-title-section{
   display: flex;

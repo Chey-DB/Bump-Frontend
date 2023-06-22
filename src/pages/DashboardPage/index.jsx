@@ -55,7 +55,7 @@ const DashboardPage = () => {
     <button onClick={logout}>Logout</button>
         </div>
         <div>
-          <NextAppointment />
+          {/* <NextAppointment /> */}
         </div>
         <div>
           <MotivationalQuote />

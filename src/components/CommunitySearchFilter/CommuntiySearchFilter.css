@@ -1,0 +1,17 @@
+.filter-and-search-wrapper{
+  border-bottom: 1px solid black;
+  padding: 1rem 1rem 3rem;
+}
+.cm-search-filter-holder{
+  margin-top: 2.2rem;
+}
+.cm-search-filter-holder > div > a{
+  padding: 0.3rem 1rem;
+}
+
+.cm-search-filter-holder > input[type="text"] {
+  width: 10rem;
+  border-radius: 100px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+}
