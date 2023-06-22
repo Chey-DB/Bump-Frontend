@@ -16,8 +16,7 @@ const LoadingPage = () => {
         const username = response.data.username;
         if (response.data) {
           setUser({ userId, username });
-          navigate("/settings");
-          console.log(response.data);
+          navigate("/dashboard");
         } else {
           console.log("User is not logged in");
         }

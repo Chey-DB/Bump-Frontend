@@ -3,6 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
+},
+
   "scripts": {
     "dev": "vite",
     "build": "vite build",
