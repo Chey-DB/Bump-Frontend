@@ -16,7 +16,6 @@ const DashboardPage = () => {
     const fetchSettingsData = async () => {
       try {
         const response = await axios.get(`http://localhost:3000/settings/${user.userId}`, { withCredentials: true });
-        console.log(response.data)
         const userData = response.data;
         if (userData) {
           setSettings({
@@ -29,7 +28,6 @@ const DashboardPage = () => {
         console.error('An error occurred while fetching user settings:', error);
       }
     };
-
     fetchSettingsData();
   }, [user.userId]);
 

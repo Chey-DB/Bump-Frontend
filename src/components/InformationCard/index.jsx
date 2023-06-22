@@ -8,7 +8,7 @@ import axios from "axios";
 
 
 const InformationCard = ({ currentWeek }) => {
-  const NHS_SUBSCRIPTION_KEY = '9286783e6cba427d83f51dfb70be451f' || process.env.REACT_APP_NHS_SUBSCRIPTION_KEY;
+  const NHS_SUBSCRIPTION_KEY = "9286783e6cba427d83f51dfb70be451f"
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
@@ -63,7 +63,7 @@ const InformationCard = ({ currentWeek }) => {
     getYouInfo();
     getBabyInfo();
     getAdditionalInfo();
-  }, []);
+  }, [week, trim]);
 
   useEffect(() => {
     if (show1 || show2 || show3) {
