@@ -67,12 +67,14 @@ const CommunitySearchFilter = ({ showAll, showAllPosts, showAllQuestions, filter
     <div className="filter-and-search-wrapper">
       <h4>Filter and Search Through Community Posts and Questions</h4>
       <div className="cm-search-filter-holder">
-        <input
-          type="text"
-          id="search-posts"
-          placeholder="Search..."
-          onChange={filterPost}
-        ></input>
+       <div className='cm-search-holder'>
+          <input
+            type="text"
+            id="search-posts"
+            onChange={filterPost}
+          ></input>
+          <label htmlFor="search-posts">Search</label>
+       </div>
         <div>
           <a className='primary-btn primary-btn-green' onClick={showAll}>All</a>
           <a className='primary-btn primary-btn-green' onClick={showAllPosts}>Post</a>
