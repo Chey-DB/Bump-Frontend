@@ -23,7 +23,7 @@ const NewEventButton = ({ date }) => {
     <nav className="navbar-button">
       <div className="button-group">
         <button
-          className="new-event-btn"
+          className="primary-btn primary-btn-green"
           onClick={() => {
             dispatch(toggleNewEventSidebarObj(!newEventSidebarToggled));
             dispatch(toggleEventsSidebarObj(false));
