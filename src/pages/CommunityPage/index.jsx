@@ -148,7 +148,7 @@ const CommunityPage = () => {
           onClose={() => setShow(false)}
         >
           <form onSubmit={handleSubmit}>
-            <label className="label-title">Title: </label>
+            <label className="label-title">title: </label>
             <input
               type="text"
               id="input-title"
@@ -156,7 +156,7 @@ const CommunityPage = () => {
               required
             ></input>
             <br />
-            <label className="label-content">Content: </label>
+            <label className="label-content">content: </label>
             <input
               type="text"
               id="input-content"
@@ -166,15 +166,30 @@ const CommunityPage = () => {
             <br />
             <label className="label-question">Question: </label>
             <div className="question-checkbox">
-              <input
-                type="checkbox"
-                className="sc-gJwTLC ikxBAC"
-                onChange={(e) => setIsQuestion(!isQuestion)}
+              <label className="label-question">question: </label>
+              <div className="question-checkbox">
+                <input
+                  type="checkbox"
+                  className="sc-gJwTLC ikxBAC"
+                  onChange={(e) => setIsQuestion(!isQuestion)}
+                ></input>
+              </div>
+              <br />
+              <label className="label-image">Add image: </label>
+              <input className="input-image"
+                type="file"
+                id="input-image"
+                accept=".jpg,.png"
+                onChange={(e) => setSelectedFile(e.target.files[0])}
               ></input>
+              <div className="submit-post">
+                <button type="submit"> submit </button>
+              </div>
+              <br />
             </div>
             <br />
-            <label className="label-image">Add image: </label>
-            <input className="input-image"
+            <label className="label-image">image: </label>
+            <input
               type="file"
               id="input-image"
               accept=".jpg,.png"
@@ -225,9 +240,9 @@ const CommunityPage = () => {
       <div className="container">
         <div>Displaying posts: {displayPosts()}</div>
         <div className="All-post"></div>
-        
+
       </div>
-    
+
     </>
   );
 };

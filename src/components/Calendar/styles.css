@@ -386,10 +386,6 @@ li {
   transition: height 1s;
 }
 
-.active {
-  height: 60px;
-}
-
 .event-date {
   margin-top: 20px;
 }
