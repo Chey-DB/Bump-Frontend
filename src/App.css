@@ -109,6 +109,7 @@ label{
 
   .red-btn{
     background-image: linear-gradient(to right bottom, #f1323292, #ff0000d6);
+    color: white;
   }
 
   .submit-btn{

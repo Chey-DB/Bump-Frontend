@@ -2,6 +2,9 @@
   text-align: center;
   border: 1px solid #afafaf;
   padding: 30px;
+  background-color: white;
+  box-shadow: 8.0px 16.0px 16.0px hsla(0, 0%, 0%, 0.25);
+
 }
 
 .progress-bar {
