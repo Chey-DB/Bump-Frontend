@@ -109,7 +109,7 @@ a#pfp-link{
 } */
 
 .nav-item .active {
-  background-color: var(--green);
+  background-image: linear-gradient(to right bottom, #7cc8aa, #89d6b6d6);
   /* style 1 */
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   /* style 2 */
@@ -165,7 +165,7 @@ a#pfp-link{
   .nav-item .active {
     color: white;
     border: none;
-    background-color:var(--green); 
+    background-image: linear-gradient(to right bottom, #7cc8aa92, #89d6b6d6); 
   }
   .nav-links {
     padding: 1.5rem;
@@ -184,3 +184,5 @@ a#pfp-link{
     color: #222222;
   }
 }
+
+

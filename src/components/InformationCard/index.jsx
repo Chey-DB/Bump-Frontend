@@ -62,7 +62,7 @@ const InformationCard = () => {
               >
                   <div dangerouslySetInnerHTML={{ __html: response }}></div>
                 </GlobalModal>
-              <button ref={modalButtonRef} className="button-link" onClick={() => setShow1(true)}>
+              <button ref={modalButtonRef} className="button-link primary-btn primary-btn-green" id="info-card-btn"onClick={() => setShow1(true)}>
                 Read More
               </button>
             </div>
@@ -88,7 +88,7 @@ const InformationCard = () => {
               >
                 <div dangerouslySetInnerHTML={{ __html: response }}></div>
               </GlobalModal>
-              <button ref={modalButtonRef} className="button-link" onClick={() => setShow2(true)}>
+              <button ref={modalButtonRef} className="button-link primary-btn primary-btn-green" id="info-card-btn" onClick={() => setShow2(true)}>
                 Read More
               </button>
             </div>
@@ -114,7 +114,7 @@ const InformationCard = () => {
               >
                   <div dangerouslySetInnerHTML={{ __html: response }}></div>
               </GlobalModal>
-              <button ref={modalButtonRef} className="button-link" onClick={() => setShow3(true)}>
+              <button ref={modalButtonRef} className="button-link primary-btn primary-btn-green" id="info-card-btn" onClick={() => setShow3(true)}>
                 Read More
               </button>
             </div>
