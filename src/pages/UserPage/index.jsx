@@ -3,20 +3,24 @@ import { SettingsForm, UserInformation, LoggedNav } from "../../components";
 import "./styles.css";
 import GlobalModal from "../../components/GlobalModal";
 let profilePicture = localStorage.getItem("profilePicture");
+import { useAuth } from "../../Context";
 
 const UserPage = () => {
   const [userData, setUserData] = useState(null);
   const [show, setShow] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
+
   const handleFormSubmit = (data) => {
     setUserData(data);
   };
+  const { user } = useAuth();
   async function createImgUrl() {
     const formData = new FormData();
     formData.append("file", selectedFile);
     formData.append("cloud_name", "dzbvvdev4");
     formData.append("upload_preset", "bumpPosts");
     console.log("creating image");
+    console.log(user.userId);
     try {
       //post method
       const res = await fetch(
@@ -33,10 +37,64 @@ const UserPage = () => {
       console.log(error);
     }
   }
+
+  async function updatePFP(profilePicture) {
+    const data = {
+      profilePic: profilePicture,
+    };
+    try {
+      //post method
+
+      const resLocal = await fetch(
+        `http://localhost:3000/local-users/${user.userId}`
+      );
+      const localData = await resLocal.json();
+      //return a url
+      if (!localData) {
+        const resGoogle = await fetch(
+          `http://localhost:3000/google-users/${user.userId}`
+        );
+        const googleData = await resGoogle.json();
+        if (googleData) {
+          const googlePFP = await fetch(
+            `http://localhost:3000/google-users/${user.userId}`,
+            {
+              method: "PATCH",
+              body: JSON.stringify(data),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          const patchGoogle = await googlePFP.json();
+          return patchGoogle.profilePic;
+        }
+      } else {
+        const localPFP = await fetch(
+          `http://localhost:3000/google-users/${user.userId}`,
+          {
+            method: "PATCH",
+            body: JSON.stringify(data),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const patchLocal = await localPFP.json();
+        return patchLocal.profilePic;
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
   async function changePic(e) {
     e.preventDefault();
     profilePicture = await createImgUrl();
+    profilePicture = await updatePFP(profilePicture);
+    console.log(profilePicture);
     setShow(false);
+    window.location.reload();
   }
   return (
     <div className="container">
