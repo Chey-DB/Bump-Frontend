@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, uesEffect } from "react";
 import { SettingsForm, UserInformation, LoggedNav } from "../../components";
 import "./styles.css";
 import GlobalModal from "../../components/GlobalModal";

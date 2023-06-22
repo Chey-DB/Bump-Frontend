@@ -86,6 +86,7 @@
   border-radius: 100px;
   margin: 0 0.5rem;
   font-size: 1rem;
+  color: white;
 }
 
 /* submit button */
@@ -122,7 +123,7 @@
 .symptom-mood-icon-wp{
   height: 5rem;
   width: 100%;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   display: flex;
   flex-direction: row;
   justify-content:center;

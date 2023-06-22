@@ -99,19 +99,22 @@ const CommunityPage = () => {
     return (
       <>
         <div className="All-Post">
-          AllPosts
-          <div className="header">
-            <ul className="post-nav-list">
-              <button onClick={showAll}>All</button>
-              <button onClick={showAllPosts}>Post</button>
-              <button onClick={showAllQuestions}>Question</button>
-              <input
-                type="text"
-                id="search-posts"
-                onChange={filterPost}
-              ></input>
-              {newPostPopup()}
-            </ul>
+          <h4 className="filter-and-search">Filter and Search Through Community Posts and Questions</h4>
+          <div className="container-search-filter">
+            <div className="header">
+              <ul className="post-nav-list">
+                <button onClick={showAll}>All</button>
+                <button onClick={showAllPosts}>Post</button>
+                <button onClick={showAllQuestions}>Question</button>
+                <input
+                  type="text"
+                  id="search-posts"
+                  placeholder="Search Posts..."
+                  onChange={filterPost}
+                ></input>
+                {newPostPopup()}
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -161,13 +164,28 @@ const CommunityPage = () => {
               required
             ></input>
             <br />
-            <label className="label-question">question: </label>
-            <div class="question-checkbox">
-              <input
-                type="checkbox"
-                className="sc-gJwTLC ikxBAC"
-                onChange={(e) => setIsQuestion(!isQuestion)}
+            <label className="label-question">Question: </label>
+            <div className="question-checkbox">
+              <label className="label-question">question: </label>
+              <div className="question-checkbox">
+                <input
+                  type="checkbox"
+                  className="sc-gJwTLC ikxBAC"
+                  onChange={(e) => setIsQuestion(!isQuestion)}
+                ></input>
+              </div>
+              <br />
+              <label className="label-image">Add image: </label>
+              <input className="input-image"
+                type="file"
+                id="input-image"
+                accept=".jpg,.png"
+                onChange={(e) => setSelectedFile(e.target.files[0])}
               ></input>
+              <div className="submit-post">
+                <button type="submit"> submit </button>
+              </div>
+              <br />
             </div>
             <br />
             <label className="label-image">image: </label>
@@ -177,7 +195,9 @@ const CommunityPage = () => {
               accept=".jpg,.png"
               onChange={(e) => setSelectedFile(e.target.files[0])}
             ></input>
-            <button type="submit"> submit </button>
+            <div className="submit-post">
+              <button type="submit"> Submit </button>
+            </div>
             <br />
           </form>
         </GlobalModal>
@@ -218,8 +238,11 @@ const CommunityPage = () => {
   return (
     <>
       <div className="container">
-        <div>displaying posts: {displayPosts()}</div>
+        <div>Displaying posts: {displayPosts()}</div>
+        <div className="All-post"></div>
+
       </div>
+
     </>
   );
 };

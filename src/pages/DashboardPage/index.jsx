@@ -24,8 +24,6 @@ const DashboardPage = () => {
             currentWeek: userData.currentWeek,
             name: userData.name
           });
-        } else {
-          console.error('User settings not found.');
         }
       } catch (error) {
         console.error('An error occurred while fetching user settings:', error);
@@ -56,11 +54,11 @@ const DashboardPage = () => {
 
   return (
     <>
-    <button onClick={logout}>Logout</button>
       <div className="container">
         {/* <Checklist /> */}
         <div>
           <Greeting name={settings?.name} />
+    <button onClick={logout}>Logout</button>
         </div>
         <div>
           <NextAppointment />

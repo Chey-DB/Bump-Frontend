@@ -1,16 +1,20 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { useSelector, useDispatch } from 'react-redux';
 
 import { deleteEventDispatch } from "../Calendar/actions/actionCreatorDispatch";
 import NewEventButton from "./NewEventButton";
 import { editEventSidebarObj, setDayDetailObj, toggleDetailSidebarObj, toggleNewEventSidebarObj } from "../Calendar/actions/actionCreatorObj";
 import moment from 'moment';
+import axios from 'axios';
+import {useAuth} from '../../Context/index'
 
 
 const DayDetail = () => {
-
+  
   const calendarContext = useSelector(state => state.calendarState);
   const dispatch = useDispatch();
+  // const {user} = useAuth();
+  // const [events, setEvents] = useState([]);
 
   const {
     detailSidebarToggled,
@@ -18,21 +22,34 @@ const DayDetail = () => {
     currentMonth,
     currentYear,
   } = calendarContext;
-
+  
   const fullEvent = (el) => {
     el.classList.toggle('active')
   }
 
+  // useEffect(() => {
+  // const handleEvents = async() => {
+  //   try {
+  //     const response = await axios.get(`http://localhost:3000/calendar/user/${user.userId}`, { withCredentials: true })
+  //     setEvents(response.data);
+  //     console.log(response.data)
+  //   } catch (error) {
+  //     console.log(error.message)
+  //   }
+  // }
+  // handleEvents();
+  // }, [])
+
   return (
     <div
-      className={
-        detailSidebarToggled
-          ? "detail-sidebar toggled box-shadow"
-          : "detail-sidebar"
-      }
-      style={{
-        top: window.scrollY
-      }}
+    className={
+      detailSidebarToggled
+      ? "detail-sidebar toggled box-shadow"
+      : "detail-sidebar"
+    }
+    style={{
+      top: window.scrollY
+    }}
     >
       <button
         className="sidebar__close-btn_toggled"
@@ -40,18 +57,17 @@ const DayDetail = () => {
           dispatch(toggleDetailSidebarObj(false));
           dispatch(toggleNewEventSidebarObj(false));
         }}
-      >
+        >
         <i className="fas fa-times-circle"></i>
       </button>
       <p className="detail-sidebar__date">{`${moment.months(currentMonth - 1)} ${dayDetail.today}, ${currentYear}`}</p>
       <ul className="detail-sidebar__events">
         {dayDetail.events.map(event => (
           <li
-            className="event-item"
-            onClick={(e) => fullEvent(e.target)}
-            key={event.id + event.name}>
+          className="event-item"
+          onClick={(e) => fullEvent(e.target)}
+          key={event.id + event.name}>
             {event.title}
-
             <button
               className="delete-event-btn"
               onClick={() => {
@@ -59,9 +75,9 @@ const DayDetail = () => {
                 dispatch(setDayDetailObj(
                   dayDetail.today,
                   dayDetail.events.filter(e => e.id !== event.id)
-                ));
-              }}
-            >
+                  ));
+                }}
+                >
               <i className="fas fa-trash"></i>
             </button>
             <button
@@ -71,7 +87,7 @@ const DayDetail = () => {
                 dispatch(toggleDetailSidebarObj(false))
                 dispatch(editEventSidebarObj(event))
               }}
-            >
+              >
               <i className="fas fa-edit"></i>
             </button>
             {/* <p className="event-date"><span className="text-bold">Date: </span>{event.date}</p> */}
