@@ -15,14 +15,6 @@ const HomePage = () => {
     }
   }, [user])
 
-  const handleTestLogin = () => {
-    const userId = '6488473bfa7d92ab51dfef3f'
-    const username = 'test'
-
-    setUser({ userId, username })
-    navigate('/dashboard')
-  }
-
   return (
     <>
       <div id='home-page-container'>

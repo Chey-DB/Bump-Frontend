@@ -26,7 +26,7 @@ const InformationCard = ({ currentWeek }) => {
     } else if (currentWeek <= 27) {
       setTrim("13-to-27");
     } else {
-      setTrim("28-to-40");
+      setTrim("28-to-40-plus");
     }
   }, [currentWeek]);
 
@@ -95,7 +95,7 @@ const InformationCard = ({ currentWeek }) => {
                 onClose={() => setShow1(false)}
                 hasId={"move-down-modal"}
                 buttonRef={modalButtonRef}
-                title={<h2>Baby at {currentWeek} weeks</h2>}
+                title={<>Baby at {currentWeek} weeks</>}
               >
                 <div dangerouslySetInnerHTML={{ __html: response1 }}></div>
               </GlobalModal>
@@ -122,7 +122,7 @@ const InformationCard = ({ currentWeek }) => {
                 onClose={() => setShow2(false)}
                 hasId={"move-down-modal"}
                 buttonRef={modalButtonRef}
-                title={<h2>You at {currentWeek} weeks</h2>}
+                title={<>You at {currentWeek} weeks</>}
               >
                 <div dangerouslySetInnerHTML={{ __html: response2 }}></div>
               </GlobalModal>
@@ -145,7 +145,7 @@ const InformationCard = ({ currentWeek }) => {
                 onClose={() => setShow3(false)}
                 hasId={"move-down-modal"}
                 buttonRef={modalButtonRef}
-                title={<h2>Things to think about</h2>}
+                title={<>Things to think about</>}
               >
                 <div dangerouslySetInnerHTML={{ __html: response3 }}></div>
               </GlobalModal>

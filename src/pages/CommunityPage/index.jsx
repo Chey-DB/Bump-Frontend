@@ -17,21 +17,27 @@ const CommunityPage = () => {
   const [state, setState] = new useState(post);
   const { user } = useAuth();
 
+  const getPosts = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/posts");
+      //add token to header
+      const data = await res.json();
+      setPost(data.reverse());
+      setState(data);
+    } catch (error) {
+      console.log({ error: error.message });
+    }
+  };
   useEffect(() => {
-    const getPosts = async () => {
-      try {
-        const res = await fetch("http://localhost:3000/posts");
-        //add token to header
-        const data = await res.json();
-        setPost(data);
-        setState(data);
-      } catch (error) {
-        console.log({ error: error.message });
-      }
-    };
     getPosts();
   }, []);
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const imgUrl = await createImgUrl();
+    console.log(addPost(imgUrl));
+    setShow(false);
+  }
   async function filterPost(e) {
     var updatedPost = [...post];
 
@@ -46,6 +52,28 @@ const CommunityPage = () => {
     setState(updatedPost);
   }
 
+  async function createImgUrl() {
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+    formData.append("cloud_name", "dzbvvdev4");
+    formData.append("upload_preset", "bumpPosts");
+    console.log("creating image");
+    try {
+      //post method
+      const res = await fetch(
+        "https://api.cloudinary.com/v1_1/dzbvvdev4/upload",
+        {
+          method: "post",
+          body: formData,
+        }
+      );
+      const data = await res.json();
+      //return a url
+      return data.secure_url;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   async function showAllQuestions() {
     var updatedPost = [...post];
     updatedPost = updatedPost.filter((x) => {
@@ -67,6 +95,37 @@ const CommunityPage = () => {
     setState(updatedPost);
   }
 
+  async function addPost(imgUrl) {
+    const options = {
+      user_id: user.userId,
+      title: title,
+      content: context,
+      image: imgUrl,
+      comments: [],
+      question: isQuestion,
+    };
+
+    try {
+      //post method
+      const res = await fetch("http://localhost:3000/posts", {
+        method: "POST",
+        body: JSON.stringify(options),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log("returnd data now");
+      const data = await res.json();
+
+      console.log("returnd data: ", data);
+      setPost((xData) => [...xData, data]);
+    } catch (error) {
+      console.log("opsie");
+      console.log(error);
+    }
+    return <>{console.log("done")}</>;
+  }
+
   return (
     <>
       <div className="container">
@@ -77,11 +136,12 @@ const CommunityPage = () => {
           filterPost={filterPost}
           show={show}
           setShow={setShow}
+          handleSubmit={handleSubmit}
           setTitle={setTitle}
           setContext={setContext}
           isQuestion={isQuestion}
           setIsQuestion={setIsQuestion}
-        />
+          setSelectedFile={setSelectedFile} />
         <div>
           {state.map((p) => (
             <PostCard
@@ -99,7 +159,9 @@ const CommunityPage = () => {
           ))}
         </div>
         {/* <div className="All-post"></div> */}
+
       </div>
+
     </>
   );
 };
