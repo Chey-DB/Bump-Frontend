@@ -19,3 +19,5 @@ export { default as JournalPosts } from "./JournalPosts";
 export { default as DateCalendarIcon } from "./DateCalendarIcon";
 export { default as PfpDropdown } from "./PfpDropdown";
 export { default as CommunitySearchFilter} from './CommunitySearchFilter';
+// eslint-disable-next-line react-refresh/only-export-components
+export { default as FAQ } from './FAQ';
