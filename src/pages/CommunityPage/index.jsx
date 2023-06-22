@@ -187,8 +187,6 @@ const CommunityPage = () => {
               </div>
               <br />
             </div>
-<<<<<<< HEAD
-=======
             <br />
             <label className="label-image">image: </label>
             <input
@@ -201,7 +199,6 @@ const CommunityPage = () => {
               <button type="submit"> Submit </button>
             </div>
             <br />
->>>>>>> staging
           </form>
         </GlobalModal>
       </>
