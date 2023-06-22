@@ -51,7 +51,7 @@ const SymptomMoodPicker = () => {
 
   return (
     <>
-      <button type='button' ref={modalButtonRef} onClick={() => {setShow(true), dispatch(resetMoodAndSymptoms())}}> + Symptoms and Moods</button>
+      <button className='primary-btn primary-btn-green' type='button' ref={modalButtonRef} onClick={() => {setShow(true), dispatch(resetMoodAndSymptoms())}}> + Symptoms and Moods</button>
       <GlobalModal buttonRef={modalButtonRef} show={show} onClose={() => setShow(false)} title="Select Moods and Symptoms" footer={<button onClick={handleAdd}>Add</button>}>
         <h3>Symptoms</h3>
         <div className="scroll symptoms-holder">
