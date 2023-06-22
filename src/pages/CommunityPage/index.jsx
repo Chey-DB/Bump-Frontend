@@ -3,7 +3,7 @@ import { PostCard } from "../../components";
 import { Image, CloudinaryContext } from "cloudinary-react";
 import "./styles.css";
 
-import GlobalModal from "../../components/GlobalModal";
+import { GlobalModal, CommunitySearchFilter } from "../../components";
 import { useAuth } from "../../Context";
 //create image function to get a url for the image once its amde
 
@@ -95,103 +95,6 @@ const CommunityPage = () => {
     setState(updatedPost);
   }
 
-  function displayPosts() {
-    return (
-      <>
-        <div className="All-Post">
-          <h4 className="filter-and-search">Filter and Search Through Community Posts and Questions</h4>
-          <div className="container-search-filter">
-            <div className="header">
-              <ul className="post-nav-list">
-                <button onClick={showAll}>All</button>
-                <button onClick={showAllPosts}>Post</button>
-                <button onClick={showAllQuestions}>Question</button>
-                <input
-                  type="text"
-                  id="search-posts"
-                  placeholder="Search..."
-                  onChange={filterPost}
-                ></input>
-                {newPostPopup()}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {state.map((p) => (
-          <PostCard
-            key={p._id}
-            id={p._id}
-            user_id={p.user_id}
-            title={p.title}
-            content={p.content}
-            image={p.image}
-            comments={p.comments}
-            question={p.question}
-            createdAt={p.createdAt}
-            updatedAt={p.updatedAt}
-          />
-        ))}
-      </>
-    );
-  }
-
-  function newPostPopup() {
-    return (
-      <>
-        <button className="new-Post" id="plus" onClick={() => setShow(true)}>
-          +
-        </button>
-        <GlobalModal
-          title="Create new post here"
-          show={show}
-          onClose={() => setShow(false)}
-        >
-          <form onSubmit={handleSubmit}>
-            <label className="label-title">Title: </label>
-            <input
-              type="text"
-              id="input-title"
-              onChange={(e) => setTitle(e.target.value)}
-              required
-            ></input>
-            <br />
-            <label className="label-content">Content: </label>
-            <input
-              type="text"
-              id="input-content"
-              onChange={(e) => setContext(e.target.value)}
-              required
-            ></input>
-            <br />
-            <label className="label-question">Question: </label>
-            <div className="question-checkbox">
-              <label className="label-question"></label>
-              <div className="question-checkbox">
-                <input
-                  type="checkbox"
-                  className="sc-gJwTLC ikxBAC"
-                  onChange={(e) => setIsQuestion(!isQuestion)}
-                ></input>
-              </div>
-              <br />
-              <label className="label-image">Add image: </label>
-              <input className="input-image"
-                type="file"
-                id="input-image"
-                accept=".jpg,.png"
-                onChange={(e) => setSelectedFile(e.target.files[0])}
-              ></input>
-              <div className="submit-post">
-                <button id="modal-submit" type="submit"> Submit </button>
-              </div>
-            </div>
-            <br />
-          </form>
-        </GlobalModal>
-      </>
-    );
-  }
   async function addPost(imgUrl) {
     const options = {
       user_id: user.userId,
@@ -226,8 +129,36 @@ const CommunityPage = () => {
   return (
     <>
       <div className="container">
-        <div>Displaying posts: {displayPosts()}</div>
-        <div className="All-post"></div>
+        <CommunitySearchFilter
+          showAll={showAll}
+          showAllPosts={showAllPosts}
+          showAllQuestions={showAllQuestions}
+          filterPost={filterPost}
+          show={show}
+          setShow={setShow}
+          handleSubmit={handleSubmit}
+          setTitle={setTitle}
+          setContext={setContext}
+          isQuestion={isQuestion}
+          setIsQuestion={setIsQuestion}
+          setSelectedFile={selectedFile} />
+        <div>
+          {state.map((p) => (
+            <PostCard
+              key={p._id}
+              id={p._id}
+              user_id={p.user_id}
+              title={p.title}
+              content={p.content}
+              image={p.image}
+              comments={p.comments}
+              question={p.question}
+              createdAt={p.createdAt}
+              updatedAt={p.updatedAt}
+            />
+          ))}
+        </div>
+        {/* <div className="All-post"></div> */}
 
       </div>
 
