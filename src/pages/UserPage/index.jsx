@@ -66,12 +66,16 @@ const UserPage = () => {
               },
             }
           );
-          const patchGoogle = await googlePFP.json();
+
+          const reGetGoogle = await fetch(
+            `http://localhost:3000/google-users/${user.userId}`
+          );
+          const patchGoogle = await reGetGoogle.json();
           return patchGoogle.profilePic;
         }
       } else {
         const localPFP = await fetch(
-          `http://localhost:3000/google-users/${user.userId}`,
+          `http://localhost:3000/local-users/${user.userId}`,
           {
             method: "PATCH",
             body: JSON.stringify(data),
@@ -80,7 +84,10 @@ const UserPage = () => {
             },
           }
         );
-        const patchLocal = await localPFP.json();
+        const reGetLocal = await fetch(
+          `http://localhost:3000/local-users/${user.userId}`
+        );
+        const patchLocal = await reGetLocal.json();
         return patchLocal.profilePic;
       }
     } catch (error) {
@@ -94,7 +101,7 @@ const UserPage = () => {
     profilePicture = await updatePFP(profilePicture);
     console.log(profilePicture);
     setShow(false);
-    window.location.reload();
+    window.location.replace("/dashboard");
   }
   return (
     <div className="container">
