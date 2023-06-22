@@ -8,7 +8,7 @@ import axios from "axios";
 
 
 const InformationCard = ({ currentWeek }) => {
-  const NHS_SUBSCRIPTION_KEY = '9286783e6cba427d83f51dfb70be451f' || process.env.REACT_APP_NHS_SUBSCRIPTION_KEY;
+  const NHS_SUBSCRIPTION_KEY = "9286783e6cba427d83f51dfb70be451f"
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
@@ -63,7 +63,7 @@ const InformationCard = ({ currentWeek }) => {
     getYouInfo();
     getBabyInfo();
     getAdditionalInfo();
-  }, []);
+  }, [week, trim]);
 
   useEffect(() => {
     if (show1 || show2 || show3) {
@@ -79,7 +79,7 @@ const InformationCard = ({ currentWeek }) => {
         <div className="information-card-container">
           <div className="information-card">
             <div className="information-card-top">
-              <h4 className="text-above-image">Your Baby:</h4>
+              <h4 className="text-above-image">Baby at {currentWeek} Weeks</h4>
               {/* <p>Text above the image</p> */}
             </div>
             <div className="information-card-bottom">
@@ -95,7 +95,7 @@ const InformationCard = ({ currentWeek }) => {
                 onClose={() => setShow1(false)}
                 hasId={"move-down-modal"}
                 buttonRef={modalButtonRef}
-                title={<h2>You at {currentWeek} weeks</h2>}
+                title={<h2>Baby at {currentWeek} weeks</h2>}
               >
                 <div dangerouslySetInnerHTML={{ __html: response1 }}></div>
               </GlobalModal>
@@ -106,7 +106,7 @@ const InformationCard = ({ currentWeek }) => {
           </div>
           <div className="information-card">
             <div className="information-card-top">
-              <h4 className="text-above-image">You:</h4>
+              <h4 className="text-above-image">You at {currentWeek} Weeks</h4>
               {/* <p>Text above the image</p> */}
             </div>
             <div className="information-card-bottom">
@@ -122,7 +122,7 @@ const InformationCard = ({ currentWeek }) => {
                 onClose={() => setShow2(false)}
                 hasId={"move-down-modal"}
                 buttonRef={modalButtonRef}
-                title={<h2>Baby at {currentWeek} weeks</h2>}
+                title={<h2>You at {currentWeek} weeks</h2>}
               >
                 <div dangerouslySetInnerHTML={{ __html: response2 }}></div>
               </GlobalModal>
@@ -133,7 +133,7 @@ const InformationCard = ({ currentWeek }) => {
           </div>
           <div className="information-card">
             <div className="information-card-top">
-              <h4 className="text-above-image">To Consider:</h4>
+              <h4 className="text-above-image">Things to think about</h4>
               {/* <p>Text above the image</p> */}
             </div>
             <div className="information-card-bottom">

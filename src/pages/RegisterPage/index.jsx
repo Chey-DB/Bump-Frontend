@@ -49,8 +49,6 @@ const RegisterPage = () => {
   const handleGoogleSignIn = () => {
     window.open('http://localhost:3000/auth/google', '_self');
   };
-
-  console.log(document.cookie);
   return (
     <div className='register-container'>
       <div className='register-logo'>

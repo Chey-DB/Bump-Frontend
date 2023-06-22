@@ -40,11 +40,13 @@ const PostCard = ({
           <div className="user-data">
             <button className="profile-button">Profile</button>
             {/* <div>user_id: {user_id}</div> */}
-            <div className="p-date">Time created: {formatTimeElapsed()}</div>
+            <div className="p-date">
+              <strong>Time created:</strong> {formatTimeElapsed()}
+            </div>
           </div>
           <div className="title -content">
-            <div className="title">title: {title}</div>
-            <div className="content">content: {content}</div>
+            <div className="title">Title: {title}</div>
+            <div className="content">Content: {content}</div>
             <img src={image} className="the-image"></img>
           </div>
           <div className="comment">
@@ -59,7 +61,9 @@ const PostCard = ({
           <div className="user-data">
             <button className="profile-button">Profile</button>
             {/* <div>user_id: {user_id}</div> */}
-            <div>Time created: {formatTimeElapsed()}</div>
+            <div>
+              <strong>Time created:</strong> {formatTimeElapsed()}
+            </div>
           </div>
           <div className="title-content">
             <div className="p-title">Title: {title}</div>
@@ -81,7 +85,9 @@ const PostCard = ({
           <div className="user-data">
             <button className="profile-button">Profile</button>
             {/* <div className="q-name">user_id: {user_id}</div> */}
-            <div className="q-date">Time created: {formatTimeElapsed()}</div>
+            <div className="q-date">
+              <strong>Time created:</strong> {formatTimeElapsed()}
+            </div>
           </div>
           <div className="title-content">
             <div className="title">Title: {title}</div>
@@ -131,10 +137,11 @@ const PostCard = ({
           </p>
         ))}
         <input
+          placeholder="Write a comment..."
           type="text"
           onChange={(e) => setNewComment(e.target.value)}
         ></input>
-        <button type="submit" onClick={handleSubmit}>
+        <button type="submit" className="primary-btn" onClick={handleSubmit}>
           Send
         </button>
       </>
