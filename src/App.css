@@ -103,6 +103,7 @@ label{
     border-radius: 100px;
     border: 0;
     transition: all 0.2s ease;
+    cursor: pointer;
   }
   
   .primary-btn:hover{
