@@ -7,7 +7,7 @@ import { useAuth } from '../../Context';
 
 const NextAppointment = () => {
   const [appointment, setAppointment] = useState(null);
-  const [data, setData] = useState([])
+  const [data, setData] = useState(["20/05/2023", "20/05/2021", "20/05/2022"])
   const { user } = useAuth();
 
   useEffect(() => {

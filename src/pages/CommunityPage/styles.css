@@ -1,4 +1,4 @@
-ul {
+/* ul {
   display: block;
   text-decoration: none;
   float: center;
@@ -152,7 +152,6 @@ ul {
   cursor: pointer;
   border: 1px solid #000000;
   transition: background-color 0.3s;
-  /* margin-top: 1.5rem; */
 
 }
 
@@ -197,4 +196,4 @@ ul {
   font-weight: bold;
   padding-left: 1rem;
   width: 25%;
-}
+} */
