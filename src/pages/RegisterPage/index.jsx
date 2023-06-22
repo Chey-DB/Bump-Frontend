@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 import './styles.css'
 import { useAuth } from '../../Context/'
@@ -49,8 +49,6 @@ const RegisterPage = () => {
   const handleGoogleSignIn = () => {
     window.open('http://localhost:3000/auth/google', '_self');
   };
-
-  console.log(document.cookie);
   return (
     <div className='register-container'>
       <div className='register-logo'>
@@ -63,7 +61,7 @@ const RegisterPage = () => {
       </button>
       <div className="register-divider-line">
         <hr className="register-left-line" />
-        <span className="register-or-text">Or with username and password</span>
+        <span className="register-or-text">Or With Username And Password</span>
         <hr className="register-right-line" />
       </div>
       <form action="POST" className="register-form">
@@ -71,6 +69,10 @@ const RegisterPage = () => {
         <input onChange={handleUsernameChange}type="text" name="username" id="register-username" placeholder="Username" className="register-input" />
         <label htmlFor="password" className="register-label">Password:</label>
         <input onChange={handlePasswordChange}type="password" name="password" id="register-password" placeholder="Password" className="register-input" />
+        <div>
+          <span>Already Got an account? </span>
+          <Link to="/login" className="register-signin-link">Sign In</Link>
+        </div>
         <button onClick={handleRegister} type="submit" className="register-submit-button">Register</button>
       </form>
     </div>

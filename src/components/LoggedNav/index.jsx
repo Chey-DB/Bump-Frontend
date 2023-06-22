@@ -10,6 +10,7 @@ const LoggedNav = () => {
   const [click, setClick] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [settingsToggle, setSettingsToggle] = useState(false);
+  const [settings, setSettings] = useState(null);
 
   const buttonPress = () => {
     setToggle(!toggle);

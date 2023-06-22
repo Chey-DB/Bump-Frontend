@@ -1,12 +1,84 @@
-import React from 'react'
+import React, { useState } from "react";
 
-import GlobalModal from '../GlobalModal';
+import GlobalModal from "../GlobalModal";
 
-import './CommuntiySearchFilter.css'
+import "./CommuntiySearchFilter.css";
+import { useAuth } from "../../Context";
 
-const CommunitySearchFilter = ({ showAll, showAllPosts, showAllQuestions, filterPost, show, setShow, handleSubmit, setTitle, setContext, isQuestion, setIsQuestion, setSelectedFile }) => {
-
+const CommunitySearchFilter = ({
+  showAll,
+  showAllPosts,
+  showAllQuestions,
+  filterPost,
+  show,
+  setShow,
+  isQuestion,
+  setIsQuestion,
+}) => {
+  const { user } = useAuth();
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [title, setTitle] = useState("");
+  const [context, setContext] = useState("");
   function newPostPopup() {
+    async function addPost(imgUrl) {
+      const options = {
+        user_id: user.userId,
+        title: title,
+        content: context,
+        image: imgUrl,
+        comments: [],
+        question: isQuestion,
+      };
+      console.log(options);
+      try {
+        //post method
+        const res = await fetch("http://localhost:3000/posts", {
+          method: "POST",
+          body: JSON.stringify(options),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        console.log("returnd data now");
+        const data = await res.json();
+
+        console.log("returnd data: ", data);
+      } catch (error) {
+        console.log("opsie");
+        console.log(error);
+      }
+      return <>{console.log("done")}</>;
+    }
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const imgUrl = await createImgUrl();
+      console.log(imgUrl);
+      console.log(addPost(imgUrl));
+      setShow(false);
+    }
+    async function createImgUrl() {
+      const formData = new FormData();
+      formData.append("file", selectedFile);
+      formData.append("cloud_name", "dzbvvdev4");
+      formData.append("upload_preset", "bumpPosts");
+      console.log("creating image");
+      try {
+        //post method
+        const res = await fetch(
+          "https://api.cloudinary.com/v1_1/dzbvvdev4/upload",
+          {
+            method: "post",
+            body: formData,
+          }
+        );
+        const data = await res.json();
+        //return a url
+        return data.secure_url;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
     return (
       <>
         <a className="primary-btn" id="plus" onClick={() => setShow(true)}>
@@ -46,14 +118,18 @@ const CommunitySearchFilter = ({ showAll, showAllPosts, showAllQuestions, filter
               </div>
               <br />
               <label className="label-image">Add image: </label>
-              <input className="input-image"
+              <input
+                className="input-image"
                 type="file"
                 id="input-image"
                 accept=".jpg,.png"
                 onChange={(e) => setSelectedFile(e.target.files[0])}
               ></input>
               <div className="submit-post">
-                <button id="modal-submit" type="submit"> Submit </button>
+                <button id="modal-submit" type="submit">
+                  {" "}
+                  Submit{" "}
+                </button>
               </div>
             </div>
             <br />
@@ -74,14 +150,23 @@ const CommunitySearchFilter = ({ showAll, showAllPosts, showAllQuestions, filter
           onChange={filterPost}
         ></input>
         <div>
-          <a className='primary-btn primary-btn-green' onClick={showAll}>All</a>
-          <a className='primary-btn primary-btn-green' onClick={showAllPosts}>Post</a>
-          <a className='primary-btn primary-btn-green' onClick={showAllQuestions}>Question</a>
+          <a className="primary-btn primary-btn-green" onClick={showAll}>
+            All
+          </a>
+          <a className="primary-btn primary-btn-green" onClick={showAllPosts}>
+            Post
+          </a>
+          <a
+            className="primary-btn primary-btn-green"
+            onClick={showAllQuestions}
+          >
+            Question
+          </a>
           {newPostPopup()}
         </div>
       </div>
-    </div >
-  )
-}
+    </div>
+  );
+};
 
-export default CommunitySearchFilter
+export default CommunitySearchFilter;

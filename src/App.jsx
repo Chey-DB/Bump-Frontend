@@ -1,15 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-
 import ProtectedRoute from "./Route";
-import { useAuth } from "./Context";
-
 import * as Pages from "./pages";
-// import Header from './components/Header'
 import LoggedNav from "./components/LoggedNav";
 
 import "./App.css";
 
 function App() {
+  
   return (
       <Routes>
         <Route index element={<Pages.HomePage />} />

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../App";
 import "./styles.css";
 import { useAuth } from "../../Context";
-import comment from './chat.png'
+import comment from "./chat.png";
 const PostCard = ({
   id,
   user_id,
@@ -15,7 +15,7 @@ const PostCard = ({
   updatedAt,
 }) => {
   const [newComment, setNewComment] = useState("");
-  
+
   const formatTimeElapsed = () => {
     const currentTime = new Date();
     const creationTime = new Date(createdAt);
@@ -32,7 +32,7 @@ const PostCard = ({
   };
 
   const { user } = useAuth();
-  
+
   const post = () => {
     if (image !== "" && !question) {
       return (
@@ -40,16 +40,19 @@ const PostCard = ({
           <div className="user-data">
             <button className="profile-button">Profile</button>
             {/* <div>user_id: {user_id}</div> */}
-            <div className="p-date">Time created: {formatTimeElapsed()}</div>
+            <div className="p-date">
+              <strong>Time created:</strong> {formatTimeElapsed()}
+            </div>
           </div>
           <div className="title -content">
-            <div className="title">title: {title}</div>
-            <div className="content">content: {content}</div>
-          <img src={image} className="the-image"></img>
+            <div className="title">Title: {title}</div>
+            <div className="content">Content: {content}</div>
+            <img src={image} className="the-image"></img>
           </div>
           <div className="comment">
-            <p className="comments-header" ></p>Comments: 
-            {eachComment(comments)}</div>
+            <p className="comments-header"></p>Comments:
+            {eachComment(comments)}
+          </div>
         </div>
       );
     } else if (image === "" && !question) {
@@ -58,15 +61,18 @@ const PostCard = ({
           <div className="user-data">
             <button className="profile-button">Profile</button>
             {/* <div>user_id: {user_id}</div> */}
-            <div>Time created: {formatTimeElapsed()}</div>
+            <div>
+              <strong>Time created:</strong> {formatTimeElapsed()}
+            </div>
           </div>
           <div className="title-content">
             <div className="p-title">Title: {title}</div>
             <div className="content">Content: {content}</div>
           </div>
           <div className="comment">
-            <p className="comments-header" > Comments: </p>
-            {eachComment(comments)}</div>
+            <p className="comments-header"> Comments: </p>
+            {eachComment(comments)}
+          </div>
         </div>
       );
     }
@@ -79,7 +85,9 @@ const PostCard = ({
           <div className="user-data">
             <button className="profile-button">Profile</button>
             {/* <div className="q-name">user_id: {user_id}</div> */}
-            <div className="q-date">Time created: {formatTimeElapsed()}</div>
+            <div className="q-date">
+              <strong>Time created:</strong> {formatTimeElapsed()}
+            </div>
           </div>
           <div className="title-content">
             <div className="title">Title: {title}</div>
@@ -87,7 +95,8 @@ const PostCard = ({
           </div>
           <div className="comment">
             <p className="comments-header">Comments:</p>
-            {eachComment(comments)}</div>
+            {eachComment(comments)}
+          </div>
         </div>
       );
     }
@@ -119,14 +128,20 @@ const PostCard = ({
       <>
         {comments.map((c) => (
           <p className="each-comment">
-            <b> <img className="comment-icon" src={comment} alt="commentIcon" />{c[0]}</b> : {c[1]}
+            <b>
+              {" "}
+              <img className="comment-icon" src={comment} alt="commentIcon" />
+              {c[0]}
+            </b>{" "}
+            : {c[1]}
           </p>
         ))}
         <input
+          placeholder="Write a comment..."
           type="text"
           onChange={(e) => setNewComment(e.target.value)}
         ></input>
-        <button type="submit" onClick={handleSubmit}>
+        <button type="submit" className="primary-btn" onClick={handleSubmit}>
           Send
         </button>
       </>
