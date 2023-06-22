@@ -2,6 +2,15 @@
 // import './styles.css'
 // // import Accordion from '../../components/Accordion'
 
+import React from 'react'
+
+const FAQsPage = () => {
+  return (
+    <div>FAQsPage</div>
+  )
+}
+
+export default FAQsPage
 // const FAQsPage = () => {
 //   const accordionButton = () => {
 //     // Get all accordion buttons

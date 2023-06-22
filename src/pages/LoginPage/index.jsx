@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../../Context/';
 import googleIcon from './google.png';
@@ -74,6 +74,10 @@ const LoginPage = () => {
           placeholder="Password"
           className="login-input"
         />
+        <div>
+          <span>Join The Community? </span>
+          <Link to="/register" className="register-signin-link">Register Here</Link>
+        </div>
         <button type="submit" className="login-submit-button">Log in</button>
       </form>
     </div>

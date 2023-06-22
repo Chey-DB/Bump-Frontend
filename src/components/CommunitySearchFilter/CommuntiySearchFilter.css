@@ -41,3 +41,9 @@
   transform: translate(-50%, -50%);
   background-color: white;
 }
+
+#modal-submit{
+  padding: 0.3rem 1rem;
+  margin-top: 2rem;
+  margin-bottom: ;
+}

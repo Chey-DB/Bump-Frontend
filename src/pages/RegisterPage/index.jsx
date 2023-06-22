@@ -61,7 +61,7 @@ const RegisterPage = () => {
       </button>
       <div className="register-divider-line">
         <hr className="register-left-line" />
-        <span className="register-or-text">Or With Username And Password</span>
+        <span className="register-or-text">Or with username and password</span>
         <hr className="register-right-line" />
       </div>
       <form action="POST" className="register-form">
