@@ -3,6 +3,9 @@ import { NavLink, Outlet } from "react-router-dom";
 import axios from "axios";
 
 import "./LoggedNav.css";
+import { Checklist, PfpDropdown } from "..";
+
+import "./LoggedNav.css";
 import Checklist from "../Checklist";
 import { useAuth } from "../../Context";
 const LoggedNav = () => {
@@ -10,8 +13,14 @@ const LoggedNav = () => {
   const [click, setClick] = useState(false);
   const [toggle, setToggle] = useState(false);
   const { user } = useAuth();
+  const [settingsToggle, setSettingsToggle] = useState(false);
+
   const buttonPress = () => {
     setToggle(!toggle);
+  };
+
+  const settingButtonPress = () => {
+    setSettingsToggle(!settingsToggle);
   };
 
   const handleClick = () => setClick(!click);
@@ -114,6 +123,13 @@ const LoggedNav = () => {
               alt="profile picture"
             />
           </NavLink>
+          <img
+            onClick={settingButtonPress}
+            id="pfp"
+            src={profilePicture ? profilePicture : "blank-profile-picture.webp"}
+            alt="profile picture"
+          />
+          <PfpDropdown settingToggle={settingsToggle} />
         </div>
       </nav>
       <Outlet />
