@@ -57,6 +57,8 @@ p {
 
 a{
     text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    
 }
 
 h1{
@@ -77,6 +79,12 @@ h3{
 p{
     line-height: 2rem;
 }
+
+li {
+    font-family: 'Quicksand', sans-serif;
+}
+
+
 
 label{
     font-family: 'Quicksand', sans-serif;
@@ -118,3 +126,5 @@ label{
     background-image: linear-gradient(to right bottom, #7cc8aa, #89d6b6);
     color: white;
   }
+
+  

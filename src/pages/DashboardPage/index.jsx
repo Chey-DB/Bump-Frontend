@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './styles.css';
 import MotivationalQuote from '../../components/MotivationalQuote';
 import ProgressBar from '../../components/ProgressBar';
-import { Greeting, InformationCard, NextAppointment, SettingsForm } from '../../components';
+import { Greeting, InformationCard, LoggedNav, NextAppointment, PfpDropdown } from '../../components';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../Context';
@@ -54,7 +54,8 @@ const DashboardPage = () => {
         {/* <Checklist /> */}
         <div>
           <Greeting name={settings?.name} />
-    <button onClick={logout}>Logout</button>
+          <PfpDropdown name={settings?.name} />
+          <button onClick={logout}>Logout</button>
         </div>
         <div>
           <NextAppointment />
@@ -64,6 +65,8 @@ const DashboardPage = () => {
         </div>
         {settings && <ProgressBar dueDate={settings.dueDate} currentWeek={settings.currentWeek} />}
          {settings && <InformationCard currentWeek={settings.currentWeek}/>} 
+         <div>
+         </div>
       </div>
     </>
   );
