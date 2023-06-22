@@ -1,11 +1,5 @@
-<<<<<<< HEAD
 import React from "react";
 import "./styles.css";
-=======
-import React from 'react'
-import './styles.css'
-// import Accordion from '../../components/Accordion'
->>>>>>> staging
 
 const FAQsPage = () => {
   const accordionButton = () => {

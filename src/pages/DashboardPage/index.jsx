@@ -53,7 +53,6 @@ const DashboardPage = () => {
         <div>
           <Greeting name={settings?.name} />
           <PfpDropdown name={settings?.name} />
-          <button onClick={logout}>Logout</button>
         </div>
         <div>
           {/* <NextAppointment /> */}
