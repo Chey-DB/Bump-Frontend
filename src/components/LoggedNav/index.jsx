@@ -3,15 +3,20 @@ import { NavLink, Outlet } from 'react-router-dom'
 import axios from 'axios'
 
 import './LoggedNav.css'
-import Checklist from '../Checklist'
+import {Checklist, PfpDropdown} from '..'
 
 const LoggedNav = () => {
   const [profilePicture, setProfilePicture] = useState('')
   const [click, setClick] = useState(false);
   const [toggle, setToggle] = useState(false);
+  const [settingsToggle, setSettingsToggle] = useState(false);
 
   const buttonPress = () => {
     setToggle(!toggle);
+  };
+
+  const settingButtonPress = () => {
+    setSettingsToggle(!settingsToggle);
   };
 
   const handleClick = () => setClick(!click);
@@ -73,7 +78,8 @@ const LoggedNav = () => {
           <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} style={{ transform: 'translateY(5px)' }}></i>
           </div>
-          <NavLink to="/user" id='pfp-link' onClick={handleClick}><img id='pfp' src={profilePicture ? profilePicture : "blank-profile-picture.webp"} alt="profile picture" /></NavLink>
+          <img onClick={settingButtonPress} id='pfp' src={profilePicture ? profilePicture : "blank-profile-picture.webp"} alt="profile picture" />
+          <PfpDropdown settingToggle={settingsToggle} />
         </div>
       </nav>
       <Outlet />
