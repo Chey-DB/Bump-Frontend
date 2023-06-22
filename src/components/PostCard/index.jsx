@@ -43,8 +43,8 @@ const PostCard = ({
             <div className="p-date">Time created: {formatTimeElapsed()}</div>
           </div>
           <div className="title -content">
-            <div className="title">title: {title}</div>
-            <div className="content">content: {content}</div>
+            <div className="title">Title: {title}</div>
+            <div className="content">Content: {content}</div>
           <img src={image} className="the-image"></img>
           </div>
           <div className="comment">
