@@ -42,6 +42,10 @@ p {
     font-family: 'Quicksand', sans-serif;
 }
 
+li {
+    font-family: 'Quicksand', sans-serif;
+}
+
 .container {
     text-align: center;
     max-width: 100vw;
