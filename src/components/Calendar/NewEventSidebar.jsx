@@ -142,6 +142,9 @@ const NewEventSidebar = () => {
   );
 };
 
+<<<<<<< HEAD
+export default NewEventSidebar;
+=======
 export default NewEventSidebar;
 
 // onClick={() => {
@@ -162,3 +165,4 @@ export default NewEventSidebar;
 //   }
 //   dispatch(toggleNewEventSidebarObj(false))
 // }}
+>>>>>>> staging

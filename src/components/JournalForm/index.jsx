@@ -8,7 +8,7 @@ import { SymptomMoodPicker, SMIconDisplay } from '..';
 import { useAuth } from '../../Context';
 import './JournalForm.css';
 
-const JournalForm = () => {
+const JournalForm = ({addJournalEntry}) => {
   const dispatch = useDispatch();
   const newEntry = useSelector((state) => state.newEntry);
   const {user} = useAuth()
@@ -31,6 +31,7 @@ const JournalForm = () => {
 
     try {
       const response = await axios.post(`http://localhost:3000/journals`, newEntry);
+      addJournalEntry(newEntry)
       console.log(response)
     } catch (err) {
       console.log(err)
@@ -64,9 +65,9 @@ const JournalForm = () => {
         <SMIconDisplay />
         <div className='symptom-mood-wrapper fm-group'>
           <SymptomMoodPicker />
-          <button type='button' onClick={() => dispatch(resetMoodAndSymptoms())}>Remove</button>
+          <button className='primary-btn primary-btn-green red-btn' type='button' onClick={() => dispatch(resetMoodAndSymptoms())} style={{marginTop:'10px'}}>Remove</button>
         </div>
-        <button type="submit">Submit</button>
+        <button className='primary-btn submit-btn' type="submit">Submit</button>
       </form>
     </div>
   );

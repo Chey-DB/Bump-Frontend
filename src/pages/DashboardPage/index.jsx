@@ -56,11 +56,11 @@ const DashboardPage = () => {
 
   return (
     <>
-    <button onClick={logout}>Logout</button>
       <div className="container">
         {/* <Checklist /> */}
         <div>
           <Greeting name={settings?.name} />
+    <button onClick={logout}>Logout</button>
         </div>
         <div>
           <NextAppointment />
