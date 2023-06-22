@@ -109,7 +109,7 @@ const CommunityPage = () => {
                 <input
                   type="text"
                   id="search-posts"
-                  placeholder="Search Posts..."
+                  placeholder="Search..."
                   onChange={filterPost}
                 ></input>
                 {newPostPopup()}
@@ -139,7 +139,7 @@ const CommunityPage = () => {
   function newPostPopup() {
     return (
       <>
-        <button className="new-Post" onClick={() => setShow(true)}>
+        <button className="new-Post" id="plus" onClick={() => setShow(true)}>
           +
         </button>
         <GlobalModal
@@ -148,7 +148,7 @@ const CommunityPage = () => {
           onClose={() => setShow(false)}
         >
           <form onSubmit={handleSubmit}>
-            <label className="label-title">title: </label>
+            <label className="label-title">Title: </label>
             <input
               type="text"
               id="input-title"
@@ -156,7 +156,7 @@ const CommunityPage = () => {
               required
             ></input>
             <br />
-            <label className="label-content">content: </label>
+            <label className="label-content">Content: </label>
             <input
               type="text"
               id="input-content"
@@ -166,7 +166,7 @@ const CommunityPage = () => {
             <br />
             <label className="label-question">Question: </label>
             <div className="question-checkbox">
-              <label className="label-question">question: </label>
+              <label className="label-question"></label>
               <div className="question-checkbox">
                 <input
                   type="checkbox"
@@ -183,20 +183,8 @@ const CommunityPage = () => {
                 onChange={(e) => setSelectedFile(e.target.files[0])}
               ></input>
               <div className="submit-post">
-                <button type="submit"> submit </button>
+                <button id="modal-submit" type="submit"> Submit </button>
               </div>
-              <br />
-            </div>
-            <br />
-            <label className="label-image">image: </label>
-            <input
-              type="file"
-              id="input-image"
-              accept=".jpg,.png"
-              onChange={(e) => setSelectedFile(e.target.files[0])}
-            ></input>
-            <div className="submit-post">
-              <button type="submit"> Submit </button>
             </div>
             <br />
           </form>

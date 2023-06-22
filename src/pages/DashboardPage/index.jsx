@@ -24,8 +24,6 @@ const DashboardPage = () => {
             currentWeek: userData.currentWeek,
             name: userData.name
           });
-        } else {
-          console.error('User settings not found.');
         }
       } catch (error) {
         console.error('An error occurred while fetching user settings:', error);
@@ -34,10 +32,6 @@ const DashboardPage = () => {
 
     fetchSettingsData();
   }, [user.userId]);
-
-  const handleFormSubmit = (formData) => {
-    setSettings(formData);
-  };
 
   const logout = async () => {
     try {
@@ -69,7 +63,7 @@ const DashboardPage = () => {
           <MotivationalQuote />
         </div>
         {settings && <ProgressBar dueDate={settings.dueDate} currentWeek={settings.currentWeek} />}
-        <InformationCard />
+         {settings && <InformationCard currentWeek={settings.currentWeek}/>} 
       </div>
     </>
   );
