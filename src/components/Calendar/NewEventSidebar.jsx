@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addEventDispatch } from "./actions/actionCreatorDispatch"
 import { changeServiceField, toggleNewEventSidebarObj } from "./actions/actionCreatorObj";
 import EditField from "./EditField";
-import axios from 'axios';
+// import axios from 'axios';
 
-import {useAuth} from '../../Context/index'
+// import {useAuth} from '../../Context/index'
 
 const NewEventSidebar = () => {
 
@@ -13,29 +13,31 @@ const NewEventSidebar = () => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [description, setDescription] = useState("");
-  const {user} = useAuth()
+  // const {user} = useAuth()
 
   const calendarContext = useSelector(state => state.calendarState);
   const eventContext = useSelector(state => state.eventState);
   const dispatch = useDispatch();
 
-  const handleNewEvent = (e) => {
-    console.log(title, date, time, description)
-    e.preventDefault()
-    const response = axios.post('http://localhost:3000/calendar', {
-      date,
-      time,
-      title,
-      description
+  // const handleNewEvent = (e) => {
+  //   console.log(title, date, time, description)
+  //   e.preventDefault()
+  //   const response = axios.post('http://localhost:3000/calendar', {
+  //     date,
+  //     time,
+  //     title,
+  //     description
            
-    }, { withCredentials: true })
+  //   }, { withCredentials: true })
 
-    console.log(response)
-  }
+  //   console.log(response)
+  // }
 
   const {
     newEventSidebarToggled,
   } = calendarContext;
+
+
 
 
   const clearInputs = () => {
@@ -105,16 +107,34 @@ const NewEventSidebar = () => {
       />
 
       <button 
-        type="submit"
         className="new-event-sidebar__add-btn"
-        onClick={handleNewEvent}>
+        onClick={() => {
+            if (eventContext.title === "" || eventContext.date === "") {
+              return alert("Fill both of event-name and date fields.");
+            } else {
+              dispatch(
+                addEventDispatch(
+                  eventContext.id,
+                  eventContext.title,
+                  eventContext.date,
+                  eventContext.time,
+                  eventContext.description,
+                  calendarContext
+                )
+              );
+              clearInputs();
+            }
+            dispatch(toggleNewEventSidebarObj(false))
+          }}
+      >
         Add Event
       </button>
       <button
         className="sidebar__close-btn"
         onClick={() => {
           dispatch(toggleNewEventSidebarObj(false))
-        }}
+        }
+      }
       >
         <i className="fas fa-times-circle"></i>
       </button>

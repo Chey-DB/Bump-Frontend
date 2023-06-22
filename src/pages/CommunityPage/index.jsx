@@ -148,7 +148,7 @@ const CommunityPage = () => {
           onClose={() => setShow(false)}
         >
           <form onSubmit={handleSubmit}>
-            <label className="label-title">Title: </label>
+            <label className="label-title">title: </label>
             <input
               type="text"
               id="input-title"
@@ -156,7 +156,7 @@ const CommunityPage = () => {
               required
             ></input>
             <br />
-            <label className="label-content">Content: </label>
+            <label className="label-content">content: </label>
             <input
               type="text"
               id="input-content"
@@ -173,8 +173,8 @@ const CommunityPage = () => {
               ></input>
             </div>
             <br />
-            <label className="label-image">Add image: </label>
-            <input className="input-image"
+            <label className="label-image">image: </label>
+            <input
               type="file"
               id="input-image"
               accept=".jpg,.png"
