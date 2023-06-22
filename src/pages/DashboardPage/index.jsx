@@ -24,8 +24,6 @@ const DashboardPage = () => {
             currentWeek: userData.currentWeek,
             name: userData.name
           });
-        } else {
-          console.error('User settings not found.');
         }
       } catch (error) {
         console.error('An error occurred while fetching user settings:', error);
@@ -38,9 +36,10 @@ const DashboardPage = () => {
   const logout = async () => {
     try {
       const response = await axios.get('http://localhost:3000/auth/logout', { withCredentials: true });
+      console.log(response)
       if (response.status === 200) {
         setUser({})
-        navigate('/login');
+        navigate('/');
       } else {
         console.error(`Error: Received status code ${response.status}`);
       }
@@ -51,11 +50,11 @@ const DashboardPage = () => {
 
   return (
     <>
-    <button onClick={logout}>Logout</button>
       <div className="container">
         {/* <Checklist /> */}
         <div>
           <Greeting name={settings?.name} />
+    <button onClick={logout}>Logout</button>
         </div>
         <div>
           <NextAppointment />

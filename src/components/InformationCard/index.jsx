@@ -2,8 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import "./styles.css";
 import babyGirl from "./baby-girl.png";
 import woman from "./woman.png";
+import qm from "./question-mark.png";
 import GlobalModal from "../GlobalModal";
 import axios from "axios";
+NHS_SUBSCRIPTION_KEY = process.env.REACT_APP_NHS_SUBSCRIPTION_KEY;
 
 const InformationCard = ({ currentWeek }) => {
   const [show1, setShow1] = useState(false);
@@ -32,7 +34,7 @@ const InformationCard = ({ currentWeek }) => {
   const getYouInfo = async () => {
     const info = await axios.get(
       `https://api.nhs.uk/pregnancy/week-by-week/${trim}/${week}/`,
-      { headers: { "subscription-key": "9286783e6cba427d83f51dfb70be451f" } }
+      { headers: { "subscription-key": NHS_SUBSCRIPTION_KEY } }
     );
     const response = info.data.mainEntityOfPage[0].hasPart[0].text;
     setResponse1(response);
@@ -41,7 +43,7 @@ const InformationCard = ({ currentWeek }) => {
   const getBabyInfo = async () => {
     const info = await axios.get(
       `https://api.nhs.uk/pregnancy/week-by-week/${trim}/${week}/`,
-      { headers: { "subscription-key": "9286783e6cba427d83f51dfb70be451f" } }
+      { headers: { "subscription-key": NHS_SUBSCRIPTION_KEY } }
     );
     const response = info.data.mainEntityOfPage[1].mainEntityOfPage[0].text;
     setResponse2(response);
@@ -50,7 +52,7 @@ const InformationCard = ({ currentWeek }) => {
   const getAdditionalInfo = async () => {
     const info = await axios.get(
       `https://api.nhs.uk/pregnancy/week-by-week/${trim}/${week}/`,
-      { headers: { "subscription-key": "9286783e6cba427d83f51dfb70be451f" } }
+      { headers: { "subscription-key": NHS_SUBSCRIPTION_KEY } }
     );
     const response = info.data.mainEntityOfPage[2].mainEntityOfPage[0].text;
     setResponse3(response);
@@ -76,8 +78,8 @@ const InformationCard = ({ currentWeek }) => {
         <div className="information-card-container">
           <div className="information-card">
             <div className="information-card-top">
-              <h4>Your Baby:</h4>
-              <p>Text above the image</p>
+              <h4 className="text-above-image">Your Baby:</h4>
+              {/* <p>Text above the image</p> */}
             </div>
             <div className="information-card-bottom">
               <div className="image-container">
@@ -107,8 +109,8 @@ const InformationCard = ({ currentWeek }) => {
           </div>
           <div className="information-card">
             <div className="information-card-top">
-              <h4>You:</h4>
-              <p>Text above the image</p>
+              <h4 className="text-above-image">You:</h4>
+              {/* <p>Text above the image</p> */}
             </div>
             <div className="information-card-bottom">
               <div className="image-container">
@@ -138,16 +140,12 @@ const InformationCard = ({ currentWeek }) => {
           </div>
           <div className="information-card">
             <div className="information-card-top">
-              <h4>To Consider</h4>
-              <p>Text above the image</p>
+              <h4 className="text-above-image">To Consider:</h4>
+              {/* <p>Text above the image</p> */}
             </div>
             <div className="information-card-bottom">
               <div className="image-container">
-                <img
-                  src={babyGirl}
-                  alt="Card 3"
-                  className="information-card-image"
-                />
+                <img src={qm} alt="Card 3" className="information-card-image" />
               </div>
               <GlobalModal
                 show={show3}

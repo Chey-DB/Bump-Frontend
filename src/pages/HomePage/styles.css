@@ -1,0 +1,163 @@
+#home-page-container{
+  padding: 20px;
+}
+
+/* top section */
+
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background-image: linear-gradient(to right bottom, #4c3e879b, #a194d598), url('pregnancy-woman-bkg.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-position: top;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+}
+
+.hp-logo-box{
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+}
+
+#hp-logo{
+  width: 100px;
+  border-radius: 100px;
+
+  border: 1px solid rgb(109, 109, 109);
+}
+
+.hp-text-box{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hp-heading{
+  color: #eee;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 5rem;
+}
+
+.hp-heading-main {
+  display: block;
+  font-size: 4rem;
+  font-weight: 400;
+  letter-spacing: 35px;
+  animation: moveInLeft 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  0%{
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  80%{
+    transform: translateX(10px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.hp-heading-sub{
+  display: block;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 15px;
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInRight {
+  0%{
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  80%{
+    transform: translateX(-10px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.green{
+  background-image: linear-gradient(to right bottom, #1e483792, #89d6b6d6);
+  color: #eee;
+}
+
+.hp-info-btn{
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  padding: 15px 40px;
+  display: inline-block;
+  margin: 0 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 100px;
+  border: 0;
+  transition: all 0.2s ease;
+}
+
+.hp-info-btn:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.hp-info-btn:active{
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#signin-btn{
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+#discover-link{
+  display: inline-block;
+  transform: translateY(20px);
+  margin-top: 1rem;
+}
+
+.hp-link,
+.hp-link:visited{
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  color: #eee;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hp-link:hover{
+  font-size: 1.2rem;
+}
+.hp-link:active{
+  font-size: 1rem;
+}
+
+/* mid section */
+
+.hp-mid-section{
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+  /* background-color: #ffffff; */
+}
+
+/* end section */
+
+.hp-end-section{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: linear-gradient(to right bottom, #806fca, #a194d5);
+  clip-path: polygon(0 20%, 100% 0, 100% 80%, 0% 100%);
+
+}

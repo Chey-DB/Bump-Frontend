@@ -20,14 +20,18 @@ const MotivationalQuote = () => {
       }
     }
 
-    fetch('https://type.fit/api/quotes')
+    fetch('http://localhost:3000/quotes') // Replace with your API endpoint
       .then(response => response.json())
       .then(data => {
-        const randomQuote = Math.floor(Math.random() * data.length);
-        setQuote(data[randomQuote].text);
+        const quotesWithoutNumbers = data[0].quotesWithoutNumbers;
+        const randomQuote = Math.floor(Math.random() * quotesWithoutNumbers.length);
+        setQuote(quotesWithoutNumbers[randomQuote]);
         setLastUpdated(new Date().toLocaleDateString());
-        localStorage.setItem('motivationalQuote', data[randomQuote].text);
+        localStorage.setItem('motivationalQuote', quotesWithoutNumbers[randomQuote]);
         localStorage.setItem('motivationalQuoteDate', new Date().toLocaleDateString());
+      })
+      .catch(error => {
+        console.error('Error:', error);
       });
   }, []);
 

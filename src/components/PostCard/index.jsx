@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../../App";
 import "./styles.css";
+import { useAuth } from "../../Context";
+import comment from './chat.png'
 const PostCard = ({
   id,
   user_id,
@@ -13,64 +15,93 @@ const PostCard = ({
   updatedAt,
 }) => {
   const [newComment, setNewComment] = useState("");
+  
+  const formatTimeElapsed = () => {
+    const currentTime = new Date();
+    const creationTime = new Date(createdAt);
+    const timeDifference = currentTime - creationTime;
+    const hoursElapsed = Math.floor(timeDifference / (1000 * 60 * 60));
 
+    if (hoursElapsed === 0) {
+      return "Less than an hour ago";
+    } else if (hoursElapsed === 1) {
+      return "1 hour ago";
+    } else {
+      return `${hoursElapsed} hours ago`;
+    }
+  };
+
+  const { user } = useAuth();
+  
   const post = () => {
-    if (image != "" && question == false) {
+    if (image !== "" && !question) {
       return (
         <div className="card">
           <div className="user-data">
-            <button>profile</button>
-            <div>user_id: {user_id}</div>
-
-            <div>createdAt: {createdAt}</div>
+            <button className="profile-button">Profile</button>
+            {/* <div>user_id: {user_id}</div> */}
+            <div className="p-date">Time created: {formatTimeElapsed()}</div>
           </div>
-          <div className="title">title: {title}</div>
-          <img src={image} className="img"></img>
-          <div className="content">content: {content}</div>
-          <div className="comment">comments: {eachComment(comments)}</div>
+          <div className="title -content">
+            <div className="title">title: {title}</div>
+            <div className="content">content: {content}</div>
+          <img src={image} className="the-image"></img>
+          </div>
+          <div className="comment">
+            <p className="comments-header" ></p>Comments: 
+            {eachComment(comments)}</div>
         </div>
       );
-    } else if (image === "" && question == false) {
+    } else if (image === "" && !question) {
       return (
         <div className="card">
           <div className="user-data">
-            <button>profile</button>
-            <div>user_id: {user_id}</div>
-            <div className="p-title">title: {title}</div>
-            <div>createdAt: {createdAt}</div>
+            <button className="profile-button">Profile</button>
+            {/* <div>user_id: {user_id}</div> */}
+            <div>Time created: {formatTimeElapsed()}</div>
           </div>
-          <div className="content">content: {content}</div>
-          <div className="comment">comments: {eachComment(comments)}</div>
+          <div className="title-content">
+            <div className="p-title">Title: {title}</div>
+            <div className="content">Content: {content}</div>
+          </div>
+          <div className="comment">
+            <p className="comments-header" > Comments: </p>
+            {eachComment(comments)}</div>
         </div>
       );
     }
   };
 
   const questions = () => {
-    if (question == true) {
+    if (question) {
       return (
         <div className="card">
           <div className="user-data">
-            <button>profile</button>
-            <div className="q-name">user_id: {user_id}</div>
-            <div className="title">title: {title}</div>
-            <div className="q-date">createdAt: {createdAt}</div>
+            <button className="profile-button">Profile</button>
+            {/* <div className="q-name">user_id: {user_id}</div> */}
+            <div className="q-date">Time created: {formatTimeElapsed()}</div>
           </div>
-          <div className="content">content: {content}</div>
-          <div className="comment">comments: {eachComment(comments)}</div>
+          <div className="title-content">
+            <div className="title">Title: {title}</div>
+            <div className="content">Content: {content}</div>
+          </div>
+          <div className="comment">
+            <p className="comments-header">Comments:</p>
+            {eachComment(comments)}</div>
         </div>
       );
     }
   };
+
   async function handleSubmit() {
     console.log("handling the submit");
     const options = {
       _id: id,
-      username: "palceholder for person logged in",
+      username: user.username,
       comment: newComment,
     };
     try {
-      const res = await fetch("http://localhost:3000/posts", {
+      const res = await fetch("http://localhost:3000/posts/comments", {
         method: "POST",
         body: JSON.stringify(options),
         headers: {
@@ -87,8 +118,8 @@ const PostCard = ({
     return (
       <>
         {comments.map((c) => (
-          <p>
-            {c[0]} --gap that only works on 2d array-- {c[1]}
+          <p className="each-comment">
+            <b> <img className="comment-icon" src={comment} alt="commentIcon" />{c[0]}</b> : {c[1]}
           </p>
         ))}
         <input

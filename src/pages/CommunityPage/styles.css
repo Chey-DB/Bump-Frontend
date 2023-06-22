@@ -133,3 +133,59 @@ ul {
 .question-checkbox .ikxBAC:checked:hover {
   background-color: #535db3;
 }
+
+.post-nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+}
+
+.post-nav-list button {
+  background-color: #89D6B6;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  border: 1px solid #000000;
+}
+
+.post-nav-list input[type="text"] {
+  padding: 0.5rem;
+  border: 1px solid #a194d5;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+}
+
+.post-nav-list input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 3px #a194d5;
+}
+
+.filter-and-search{
+  margin-top: 15px;
+}
+
+.container-search-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-top: -1rem;
+}
+
+.input-image{
+  display: flex;
+  margin-top: 20px;
+  margin-left: 37% ;
+}
+
+.submit-post{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
