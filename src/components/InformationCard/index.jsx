@@ -2,32 +2,66 @@ import React, { useState, useEffect, useRef } from "react";
 import "./styles.css";
 import babyGirl from "./baby-girl.png";
 import woman from "./woman.png";
-import qm from './question-mark.png'
+import qm from "./question-mark.png";
 import GlobalModal from "../GlobalModal";
 import axios from "axios";
-NHS_SUBSCRIPTION_KEY  = process.env.REACT_APP_NHS_SUBSCRIPTION_KEY;
+NHS_SUBSCRIPTION_KEY = process.env.REACT_APP_NHS_SUBSCRIPTION_KEY;
 
-const InformationCard = () => {
+const InformationCard = ({ currentWeek }) => {
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
-  const [response, setResponse] = useState("");
+  const [response1, setResponse1] = useState("");
+  const [response2, setResponse2] = useState("");
+  const [response3, setResponse3] = useState("");
   const [week, setWeek] = useState("1-2-3-weeks");
   const [trim, setTrim] = useState("1-to-12");
-  
-  const modalButtonRef = useRef(null);
 
   useEffect(() => {
-    const getInfo = async () => {
-      const info = await axios.get(
-        `https://api.nhs.uk/pregnancy/week-by-week/${trim}/${week}/`,
-        { headers: { "subscription-key": NHS_SUBSCRIPTION_KEY } }
-      );
-      const response = info.data.mainEntityOfPage[0].hasPart[0].text;
-      // console.log(response);
-      setResponse(response);
-    };
-    getInfo();
+    setWeek(`${currentWeek}-weeks`);
+
+    if (currentWeek <= 12) {
+      setTrim("1-to-12");
+    } else if (currentWeek <= 27) {
+      setTrim("13-to-27");
+    } else {
+      setTrim("28-to-40");
+    }
+  }, [currentWeek]);
+
+  const modalButtonRef = useRef(null);
+
+  const getYouInfo = async () => {
+    const info = await axios.get(
+      `https://api.nhs.uk/pregnancy/week-by-week/${trim}/${week}/`,
+      { headers: { "subscription-key": NHS_SUBSCRIPTION_KEY } }
+    );
+    const response = info.data.mainEntityOfPage[0].hasPart[0].text;
+    setResponse1(response);
+  };
+
+  const getBabyInfo = async () => {
+    const info = await axios.get(
+      `https://api.nhs.uk/pregnancy/week-by-week/${trim}/${week}/`,
+      { headers: { "subscription-key": NHS_SUBSCRIPTION_KEY } }
+    );
+    const response = info.data.mainEntityOfPage[1].mainEntityOfPage[0].text;
+    setResponse2(response);
+  };
+
+  const getAdditionalInfo = async () => {
+    const info = await axios.get(
+      `https://api.nhs.uk/pregnancy/week-by-week/${trim}/${week}/`,
+      { headers: { "subscription-key": NHS_SUBSCRIPTION_KEY } }
+    );
+    const response = info.data.mainEntityOfPage[2].mainEntityOfPage[0].text;
+    setResponse3(response);
+  };
+
+  useEffect(() => {
+    getYouInfo();
+    getBabyInfo();
+    getAdditionalInfo();
   }, []);
 
   useEffect(() => {
@@ -60,10 +94,15 @@ const InformationCard = () => {
                 onClose={() => setShow1(false)}
                 hasId={"move-down-modal"}
                 buttonRef={modalButtonRef}
+                title={<h2>You at {currentWeek} weeks</h2>}
               >
-                  <div dangerouslySetInnerHTML={{ __html: response }}></div>
-                </GlobalModal>
-              <button ref={modalButtonRef} className="button-link" onClick={() => setShow1(true)}>
+                <div dangerouslySetInnerHTML={{ __html: response1 }}></div>
+              </GlobalModal>
+              <button
+                ref={modalButtonRef}
+                className="button-link"
+                onClick={() => setShow1(true)}
+              >
                 Read More
               </button>
             </div>
@@ -86,10 +125,15 @@ const InformationCard = () => {
                 onClose={() => setShow2(false)}
                 hasId={"move-down-modal"}
                 buttonRef={modalButtonRef}
+                title={<h2>Baby at {currentWeek} weeks</h2>}
               >
-                <div dangerouslySetInnerHTML={{ __html: response }}></div>
+                <div dangerouslySetInnerHTML={{ __html: response2 }}></div>
               </GlobalModal>
-              <button ref={modalButtonRef} className="button-link" onClick={() => setShow2(true)}>
+              <button
+                ref={modalButtonRef}
+                className="button-link"
+                onClick={() => setShow2(true)}
+              >
                 Read More
               </button>
             </div>
@@ -101,21 +145,22 @@ const InformationCard = () => {
             </div>
             <div className="information-card-bottom">
               <div className="image-container">
-                <img
-                  src={qm}
-                  alt="Card 3"
-                  className="information-card-image"
-                />
+                <img src={qm} alt="Card 3" className="information-card-image" />
               </div>
               <GlobalModal
                 show={show3}
                 onClose={() => setShow3(false)}
                 hasId={"move-down-modal"}
                 buttonRef={modalButtonRef}
+                title={<h2>Things to think about</h2>}
               >
-                  <div dangerouslySetInnerHTML={{ __html: response }}></div>
+                <div dangerouslySetInnerHTML={{ __html: response3 }}></div>
               </GlobalModal>
-              <button ref={modalButtonRef} className="button-link" onClick={() => setShow3(true)}>
+              <button
+                ref={modalButtonRef}
+                className="button-link"
+                onClick={() => setShow3(true)}
+              >
                 Read More
               </button>
             </div>
