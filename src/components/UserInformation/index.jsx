@@ -15,6 +15,7 @@ const UserPage = () => {
       try {
         const response = await axios.get(`http://localhost:3000/settings/${user.userId}`, { withCredentials: true });
         const fetchedUserData = response.data;
+        console.log(fetchUserData)
         setUserData(fetchedUserData);
         setIsLoading(false);
       } catch (error) {
