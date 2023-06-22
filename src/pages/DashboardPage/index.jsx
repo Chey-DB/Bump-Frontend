@@ -33,10 +33,6 @@ const DashboardPage = () => {
     fetchSettingsData();
   }, [user.userId]);
 
-  const handleFormSubmit = (formData) => {
-    setSettings(formData);
-  };
-
   const logout = async () => {
     try {
       const response = await axios.get('http://localhost:3000/auth/logout', { withCredentials: true });
@@ -67,7 +63,7 @@ const DashboardPage = () => {
           <MotivationalQuote />
         </div>
         {settings && <ProgressBar dueDate={settings.dueDate} currentWeek={settings.currentWeek} />}
-        <InformationCard />
+         {settings && <InformationCard currentWeek={settings.currentWeek}/>} 
       </div>
     </>
   );
