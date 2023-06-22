@@ -103,7 +103,7 @@ label{
   }
 
   .primary-btn-green{
-    background-image: linear-gradient(to right bottom, #49876e92, #89d6b6d6);
+    background-image: linear-gradient(to right bottom, #7cc8aa, #89d6b6);
     color: rgb(255, 255, 255);
   }
 
@@ -115,6 +115,6 @@ label{
     transition: all 0.2s ease;
   }
   .submit-btn:hover{
-    background-image: linear-gradient(to right bottom, #49876e92, #89d6b6d6);
+    background-image: linear-gradient(to right bottom, #7cc8aa, #89d6b6);
     color: white;
   }
