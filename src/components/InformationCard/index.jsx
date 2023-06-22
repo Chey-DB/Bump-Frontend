@@ -5,9 +5,10 @@ import woman from "./woman.png";
 import qm from "./question-mark.png";
 import GlobalModal from "../GlobalModal";
 import axios from "axios";
-NHS_SUBSCRIPTION_KEY = process.env.REACT_APP_NHS_SUBSCRIPTION_KEY;
+
 
 const InformationCard = ({ currentWeek }) => {
+  const NHS_SUBSCRIPTION_KEY = process.env.REACT_APP_NHS_SUBSCRIPTION_KEY;
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
