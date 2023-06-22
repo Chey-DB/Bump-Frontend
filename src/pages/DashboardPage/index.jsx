@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './styles.css';
 import MotivationalQuote from '../../components/MotivationalQuote';
 import ProgressBar from '../../components/ProgressBar';
-import { Greeting, InformationCard, NextAppointment, SettingsForm } from '../../components';
+import { Greeting, InformationCard, LoggedNav, NextAppointment, PfpDropdown } from '../../components';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../Context';
@@ -16,7 +16,6 @@ const DashboardPage = () => {
     const fetchSettingsData = async () => {
       try {
         const response = await axios.get(`http://localhost:3000/settings/${user.userId}`, { withCredentials: true });
-        console.log(response.data)
         const userData = response.data;
         if (userData) {
           setSettings({
@@ -29,7 +28,6 @@ const DashboardPage = () => {
         console.error('An error occurred while fetching user settings:', error);
       }
     };
-
     fetchSettingsData();
   }, [user.userId]);
 
@@ -41,13 +39,15 @@ const DashboardPage = () => {
           <Greeting name={settings?.name} />
         </div>
         <div>
-          <NextAppointment />
+          {/* <NextAppointment /> */}
         </div>
         <div>
           <MotivationalQuote />
         </div>
         {settings && <ProgressBar dueDate={settings.dueDate} currentWeek={settings.currentWeek} />}
          {settings && <InformationCard currentWeek={settings.currentWeek}/>} 
+         <div>
+         </div>
       </div>
     </>
   );

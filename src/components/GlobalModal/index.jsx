@@ -38,16 +38,12 @@ const GlobalModal = props => {
     >
       <div className="modal-content" onClick={e => e.stopPropagation()}>
         <div className="modal-header">
-          <h3 className="modal-title">{props.title}</h3>
+          <h2 className="modal-title">{props.title}</h2>
         </div>
         <div className="modal-body">{props.children}</div>
         <div className="modal-footer">
           {props.footer}
-          <button 
-            className='primary-btn red-btn' 
-            onClick={props.onClose}
-            style={{padding: '0.3rem 0.7rem'}}
-            > Close </button>
+          <button className="primary-btn red-btn" style={ { color:"white" , padding: '0.3rem 0.7rem'} } onClick={props.onClose}>Close</button>
         </div>
       </div>
     </div>

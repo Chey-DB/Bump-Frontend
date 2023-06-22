@@ -1,14 +1,9 @@
 import React, { useRef, useState } from 'react'
-
 import GlobalModal from '../GlobalModal';
-
 import './CommuntiySearchFilter.css'
-
 const CommunitySearchFilter = ({ showAll, showAllPosts, showAllQuestions, filterPost, show, setShow, handleSubmit, setTitle, setContext, isQuestion, setIsQuestion, setSelectedFile }) => {
   const modalButtonRef = useRef(null);
   const [activeFilter, setActiveFilter] = useState('All');
-
-
   function newPostPopup() {
     return (
       <>
@@ -66,7 +61,6 @@ const CommunitySearchFilter = ({ showAll, showAllPosts, showAllQuestions, filter
       </>
     );
   }
-
   return (
     <div className="filter-and-search-wrapper">
       <h4>Filter and Search Through Community Posts and Questions</h4>
@@ -83,13 +77,10 @@ const CommunitySearchFilter = ({ showAll, showAllPosts, showAllQuestions, filter
           <a id={activeFilter === 'All' ? 'activeFilter' : ''} className="primary-btn post-filter" onClick={() => { showAll(); setActiveFilter('All'); }}>All</a>
           <a id={activeFilter === 'Post' ? 'activeFilter' : ''} className="primary-btn post-filter" onClick={() => { showAllPosts(); setActiveFilter('Post'); }}>Post</a>
           <a id={activeFilter === 'Question' ? 'activeFilter' : ''} className="primary-btn post-filter" onClick={() => { showAllQuestions(); setActiveFilter('Question'); }}>Question</a>
-
-
           {newPostPopup()}
         </div>
       </div>
     </div >
   )
 }
-
 export default CommunitySearchFilter
