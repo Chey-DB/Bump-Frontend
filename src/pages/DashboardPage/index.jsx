@@ -63,7 +63,7 @@ const DashboardPage = () => {
           <Greeting name={settings?.name} />
         </div>
         <div>
-          <NextAppointment />
+          {/* <NextAppointment /> */}
         </div>
         <div>
           <MotivationalQuote />
