@@ -1,0 +1,199 @@
+/* ul {
+  display: block;
+  text-decoration: none;
+  float: center;
+}
+
+.post-navbar {
+  display: block;
+  text-align: center;
+  padding: 5% 7.5% 5% 7.5%;
+  float: left;
+}
+
+.post-navbar:hover,
+.post-navbar:focus {
+  background-color: #89d6b6;
+}
+
+.modal > .header {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+
+.modal > .content {
+  width: 100%;
+  padding: 10px 5px;
+}
+
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+
+.my-popup-arrow {
+  color: rgb(255, 255, 255);
+}
+
+[role="tooltip"].my-popup-content {
+  width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.my-popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+[data-popup="tooltip"].my-popup-overlay {
+  background: transparent;
+}
+
+.question-checkbox .ikxBAC {
+  appearance: none;
+  background-color: #dfe1e4;
+  border-radius: 72px;
+  border-style: none;
+  flex-shrink: 0;
+  height: 20px;
+  margin: 0;
+  position: relative;
+  width: 30px;
+}
+
+.question-checkbox .ikxBAC::before {
+  bottom: -6px;
+  content: "";
+  left: -6px;
+  position: absolute;
+  right: -6px;
+  top: -6px;
+}
+
+.question-checkbox .ikxBAC,
+.question-checkbox .ikxBAC::after {
+  transition: all 100ms ease-out;
+}
+
+.question-checkbox .ikxBAC::after {
+  background-color: #fff;
+  border-radius: 50%;
+  content: "";
+  height: 14px;
+  left: 3px;
+  position: absolute;
+  top: 3px;
+  width: 14px;
+}
+
+.question-checkbox input[type="checkbox"] {
+  cursor: default;
+}
+
+.question-checkbox .ikxBAC:hover {
+  background-color: #c9cbcd;
+  transition-duration: 0s;
+}
+
+.question-checkbox .ikxBAC:checked {
+  background-color: #6e79d6;
+}
+
+.question-checkbox .ikxBAC:checked::after {
+  background-color: #fff;
+  left: 13px;
+}
+
+.question-checkbox :focus:not(.focus-visible) {
+  outline: 0;
+}
+
+.question-checkbox .ikxBAC:checked:hover {
+  background-color: #535db3;
+}
+
+.post-nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+}
+
+.post-nav-list button,
+.new-Post,
+.submit-post button,
+.close {
+  background-color: #89D6B6;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  border: 1px solid #000000;
+  transition: background-color 0.3s;
+
+}
+
+.post-nav-list button:hover,
+.new-Post:hover,
+.submit-post button:hover,
+.close:hover {
+  background-color: #6db69a;
+}
+
+.post-nav-list button:active,
+.new-Post:active,
+.submit-post button:active,
+.close:active {
+  background-color: #4f906f;
+}
+
+#modal-submit{
+  margin-top: 1.5rem;
+}
+
+#input-image{
+  margin-top: 1.5rem;
+}
+
+.filter-and-search{
+  margin-top: 1.5rem;
+}
+
+#plus{
+  margin-left: 0.5rem;
+  font-weight: bold;
+  font-size: larger;
+  padding: 0.25rem 1rem;
+}
+
+#search-posts{
+  height: 2rem;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  background-color: rgba(137, 214, 182, 1);
+  font-weight: bold;
+  padding-left: 1rem;
+  width: 25%;
+} */

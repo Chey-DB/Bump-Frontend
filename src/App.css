@@ -1,6 +1,139 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Quicksand:wght@400;500;700&family=Sansita:wght@400;700&display=swap');
+/* font-family: 'Chilanka', cursive;
+font-family: 'Quicksand', sans-serif;
+font-family: 'Sansita', sans-serif; */
+
+:root{
+    --purple:#a194d5;
+    --green: #89D6B6;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-height: 100vh;
+    background-image: url('background-2.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    perspective: 1px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #e6e6e6;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Sansita', sans-serif;
+}
+
+p {
+    font-family: 'Quicksand', sans-serif;
+}
+
+li {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+    text-align: center;
+    max-width: 100vw;
+    padding: 0 3rem;
+    padding-bottom: 4rem;
+    /* margin-top: 1rem; */
+    /* height: 300vh; */
+    margin: 0 10vw;
+    /* border: 1px solid black; */
+    /* background: white; */
+    /* background-attachment: fixed; */
+}
+
+a{
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    
+}
+
+h1{
+    font-size: 3.5rem;
+    /* margin-top: 1.5rem; */
+}
+
+h2{
+    font-size: 1.8rem;
+    line-height: 2rem;
+}
+
+h3{
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+
+p{
+    line-height: 2rem;
+}
+
+li {
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+
+label{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.primary-btn{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    padding: 15px 40px;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    border-radius: 100px;
+    border: 0;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .primary-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  .primary-btn:active{
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .primary-btn-green{
+    background-image: linear-gradient(to right bottom, #7cc8aa, #89d6b6);
+    color: rgb(255, 255, 255);
+  }
+
+  .red-btn{
+    background-image: linear-gradient(to right bottom, #f1323292, #ff0000d6);
+    color: white;
+  }
+
+  .submit-btn{
+    transition: all 0.2s ease;
+  }
+  .submit-btn:hover{
+    background-image: linear-gradient(to right bottom, #7cc8aa, #89d6b6);
+    color: white;
+  }
+
+  textarea {
+    resize: vertical;
+    overflow: hidden;
+  }
