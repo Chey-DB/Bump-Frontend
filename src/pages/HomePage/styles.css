@@ -163,6 +163,7 @@
 
 }
 
+<<<<<<< HEAD
 
 .hp-image-wrapper > img{
   position: absolute;
@@ -248,3 +249,5 @@
 .hp-card > .fa-users{
   left: 110px;
 }
+=======
+>>>>>>> c9c997f (start styling homepage)
