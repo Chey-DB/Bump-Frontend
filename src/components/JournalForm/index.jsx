@@ -8,10 +8,10 @@ import { SymptomMoodPicker, SMIconDisplay } from '..';
 import { useAuth } from '../../Context';
 import './JournalForm.css';
 
-const JournalForm = ({addJournalEntry}) => {
+const JournalForm = ({ addJournalEntry }) => {
   const dispatch = useDispatch();
   const newEntry = useSelector((state) => state.newEntry);
-  const {user} = useAuth()
+  const { user } = useAuth()
 
   useEffect(() => {
     dispatch(updateNewEntry({ ...newEntry, user_id: user.userId }));
@@ -26,7 +26,7 @@ const JournalForm = ({addJournalEntry}) => {
     const journalEntry = e.target.value
     dispatch(updateNewEntry({ ...newEntry, content: journalEntry }))
   };
-  
+
   const createEntry = async () => {
 
     try {
@@ -44,6 +44,15 @@ const JournalForm = ({addJournalEntry}) => {
     dispatch(resetNewEntry());
   };
 
+  const autoResizeTextarea = () => {
+    const textareas = document.querySelectorAll('textarea');
+    textareas.forEach((textarea) => {
+      textarea.style.height = 'auto';
+      textarea.style.height = `${textarea.scrollHeight}px`;
+    });
+  };
+  
+
   return (
     <div className='journal-form-wrapper'>
       <h2>Add New Journal Entry</h2>
@@ -59,13 +68,20 @@ const JournalForm = ({addJournalEntry}) => {
           <label htmlFor="journal-title-fm" >Title</label>
         </div>
         <div className='fm-group'>
-          <textarea name="journalContent" id="journal-content-fm" value={newEntry.content} onChange={handleJournalEntryChange} required></textarea>
+          <textarea
+            name="journalContent"
+            id="journal-content-fm"
+            value={newEntry.content}
+            onChange={handleJournalEntryChange}
+            onInput={autoResizeTextarea}
+            required
+          ></textarea>
           <label htmlFor="journal-content-fm">Journal Entry</label>
         </div>
         <SMIconDisplay />
         <div className='symptom-mood-wrapper fm-group'>
           <SymptomMoodPicker />
-          <button className='primary-btn primary-btn-green red-btn' type='button' onClick={() => dispatch(resetMoodAndSymptoms())} style={{marginTop:'10px'}}>Remove</button>
+          <button className='primary-btn primary-btn-green red-btn' type='button' onClick={() => dispatch(resetMoodAndSymptoms())} style={{ marginTop: '10px' }}>Remove</button>
         </div>
         <button className='primary-btn submit-btn' type="submit">Submit</button>
       </form>

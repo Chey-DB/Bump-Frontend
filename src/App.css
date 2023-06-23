@@ -133,4 +133,7 @@ label{
     color: white;
   }
 
-  
+  textarea {
+    resize: vertical;
+    overflow: hidden;
+  }
