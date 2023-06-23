@@ -50,6 +50,14 @@ const JournalForm = ({ addJournalEntry }) => {
     dispatch(resetNewEntry());
   };
 
+  const autoResizeTextarea = () => {
+    const textareas = document.querySelectorAll("textarea");
+    textareas.forEach((textarea) => {
+      textarea.style.height = "auto";
+      textarea.style.height = `${textarea.scrollHeight}px`;
+    });
+  };
+
   return (
     <div className="journal-form-wrapper">
       <h2>Add New Journal Entry</h2>
@@ -70,6 +78,7 @@ const JournalForm = ({ addJournalEntry }) => {
             id="journal-content-fm"
             value={newEntry.content}
             onChange={handleJournalEntryChange}
+            onInput={autoResizeTextarea}
             required
           ></textarea>
           <label htmlFor="journal-content-fm">Journal Entry</label>
