@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
+import { NavLink, Outlet } from "react-router-dom";
+import axios from "axios";
 
-import './LoggedNav.css'
-import {Checklist, PfpDropdown} from '..'
+import "./LoggedNav.css";
+import { Checklist, PfpDropdown } from "..";
+import { useAuth } from "../../Context";
 
 const LoggedNav = () => {
-  const [profilePicture, setProfilePicture] = useState('')
+  const [profilePicture, setProfilePicture] = useState("");
   const [click, setClick] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [settingsToggle, setSettingsToggle] = useState(false);
   const [settings, setSettings] = useState(null);
+  const { user } = useAuth();
 
   const buttonPress = () => {
     setToggle(!toggle);
@@ -22,51 +24,81 @@ const LoggedNav = () => {
 
   const handleClick = () => setClick(!click);
 
-  // useEffect(() => {
-  //   const getProfilePicture = async () => {
-  //     try {
-  //       const response = await axios.get(`/users/`);
-  //       setProfilePicture(response.data.profilePic);
-  //     } catch (error) {
-  //       console.error('Error fetching ProfilePicture:', error);
-  //     }
-  //   };
+  useEffect(() => {
+    const getProfilePicture = async () => {
+      try {
+        //post method
+        const resLocal = await fetch(
+          `http://localhost:3000/local-users/${user.userId}`
+        );
+        const localData = await resLocal.json();
+        //return a url
+        if (!localData) {
+          const resGoogle = await fetch(
+            `http://localhost:3000/google-users/${user.userId}`
+          );
+          const googleResult = await resGoogle.json();
+          setProfilePicture(googleResult.profilePic);
+        } else {
+          const LocalResult = await resGoogle.json();
+          setProfilePicture(LocalResult.profilePic);
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
 
-  //   getProfilePicture();
-  // }, []);
-
+    getProfilePicture();
+    console.log(profilePicture);
+  }, [profilePicture]);
 
   return (
     <>
       <nav className="navbar">
         <div className="nav-container">
           <div className="nav-logo-holder">
-            <div onClick={buttonPress} id='checklist-toggler'>
+            <div onClick={buttonPress} id="checklist-toggler">
               <i className={toggle ? "fas fa-times" : "fas fa-list-check"}></i>
             </div>
             <Checklist toggle={toggle} />
-            <NavLink to="/" className='nav-logo'>
-              <img src="Bump-logo.png" alt="bump logo" id='navbar-logo-img' />
+            <NavLink to="/" className="nav-logo">
+              <img src="Bump-logo.png" alt="bump logo" id="navbar-logo-img" />
             </NavLink>
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <NavLink to="/dashboard" className="nav-links" onClick={handleClick}>
+              <NavLink
+                to="/dashboard"
+                className="nav-links"
+                onClick={handleClick}
+              >
                 Dashboard
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/calendar" className="nav-links" onClick={handleClick}>
+              <NavLink
+                to="/calendar"
+                className="nav-links"
+                onClick={handleClick}
+              >
                 Calendar
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/community" className="nav-links" onClick={handleClick}>
+              <NavLink
+                to="/community"
+                className="nav-links"
+                onClick={handleClick}
+              >
                 Community
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/my-journal" className="nav-links" onClick={handleClick}>
+              <NavLink
+                to="/my-journal"
+                className="nav-links"
+                onClick={handleClick}
+              >
                 My Journal
               </NavLink>
             </li>
@@ -77,15 +109,23 @@ const LoggedNav = () => {
             </li>
           </ul>
           <div className="nav-icon" onClick={handleClick}>
-            <i className={click ? "fas fa-times" : "fas fa-bars"} style={{ transform: 'translateY(5px)' }}></i>
+            <i
+              className={click ? "fas fa-times" : "fas fa-bars"}
+              style={{ transform: "translateY(5px)" }}
+            ></i>
           </div>
-          <img onClick={settingButtonPress} id='pfp' src={profilePicture ? profilePicture : "blank-profile-picture.webp"} alt="profile picture" />
+          <img
+            onClick={settingButtonPress}
+            id="pfp"
+            src={profilePicture ? profilePicture : "blank-profile-picture.webp"}
+            alt="profile picture"
+          />
           <PfpDropdown settingToggle={settingsToggle} />
         </div>
       </nav>
       <Outlet />
     </>
-  )
-}
+  );
+};
 
-export default LoggedNav
+export default LoggedNav;
