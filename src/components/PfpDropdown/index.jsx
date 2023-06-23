@@ -32,8 +32,8 @@ const PfpDropdown = ({ settingToggle }) => {
         <div className='dd-userInfo-holder'>
           <img id='pfp' src="blank-profile-picture.webp" alt="profile picture" />
           <div>
-            <p>name</p>
-            <p>username@mail.com</p>
+            <p>Chantal</p>
+            <p>chantal.cardillo378@gmail.com</p>
           </div>
         </div>
         <button className='primary-btn submit-btn' onClick={handleSettingsClick}>Settings</button>
