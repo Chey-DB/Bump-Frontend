@@ -11,6 +11,7 @@ const LoggedNav = () => {
   const [click, setClick] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [settingsToggle, setSettingsToggle] = useState(false);
+
   const [settings, setSettings] = useState(null);
   const { user } = useAuth();
 
@@ -23,7 +24,7 @@ const LoggedNav = () => {
   };
 
   const handleClick = () => setClick(!click);
-
+  
   useEffect(() => {
     const getProfilePicture = async () => {
       try {

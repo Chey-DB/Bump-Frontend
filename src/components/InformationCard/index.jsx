@@ -63,7 +63,7 @@ const InformationCard = ({ currentWeek }) => {
     getYouInfo();
     getBabyInfo();
     getAdditionalInfo();
-  }, [week, trim]);
+  }, [week, trim, currentWeek]);
 
   useEffect(() => {
     if (show1 || show2 || show3) {
