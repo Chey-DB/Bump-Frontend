@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './styles.css';
-import { useAuth } from '../../Context';
-import SettingsForm from '../../components/SettingsForm';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./styles.css";
+import { useAuth } from "../../Context";
+import SettingsForm from "../../components/SettingsForm";
 
 const UserPage = () => {
   const { user } = useAuth();
@@ -13,13 +13,16 @@ const UserPage = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/settings/${user.userId}`, { withCredentials: true });
+        const response = await axios.get(
+          `https://bump-backend.onrender.com/settings/${user.userId}`,
+          { withCredentials: true }
+        );
         const fetchedUserData = response.data;
-        console.log(fetchUserData)
+        console.log(fetchUserData);
         setUserData(fetchedUserData);
         setIsLoading(false);
       } catch (error) {
-        console.error('An error occurred while fetching user data:', error);
+        console.error("An error occurred while fetching user data:", error);
         setIsLoading(false);
       }
     };
@@ -29,11 +32,15 @@ const UserPage = () => {
 
   const handleFormSubmit = async (formData) => {
     try {
-      const response = await axios.patch(`http://localhost:3000/settings/${user.userId}`, formData, { withCredentials: true });
+      const response = await axios.patch(
+        `https://bump-backend.onrender.com/settings/${user.userId}`,
+        formData,
+        { withCredentials: true }
+      );
       setUserData(response.data);
       setIsEditMode(false);
     } catch (error) {
-      console.error('Error updating user data:', error);
+      console.error("Error updating user data:", error);
     }
   };
 
@@ -47,7 +54,17 @@ const UserPage = () => {
     }
 
     if (userData) {
-      const { name, addressLine1, addressLine2, city, postcode, currentWeek, dueDate, relationshipStatus, about } = userData;
+      const {
+        name,
+        addressLine1,
+        addressLine2,
+        city,
+        postcode,
+        currentWeek,
+        dueDate,
+        relationshipStatus,
+        about,
+      } = userData;
 
       return (
         <>

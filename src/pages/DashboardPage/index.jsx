@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import './styles.css';
-import MotivationalQuote from '../../components/MotivationalQuote';
-import ProgressBar from '../../components/ProgressBar';
-import { Greeting, InformationCard, LoggedNav, NextAppointment, PfpDropdown } from '../../components';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../Context';
+import React, { useEffect, useState } from "react";
+import "./styles.css";
+import MotivationalQuote from "../../components/MotivationalQuote";
+import ProgressBar from "../../components/ProgressBar";
+import {
+  Greeting,
+  InformationCard,
+  LoggedNav,
+  NextAppointment,
+  PfpDropdown,
+} from "../../components";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../Context";
 
 const DashboardPage = () => {
   const navigate = useNavigate();
@@ -15,17 +21,20 @@ const DashboardPage = () => {
   useEffect(() => {
     const fetchSettingsData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/settings/${user.userId}`, { withCredentials: true });
+        const response = await axios.get(
+          `https://bump-backend.onrender.com/settings/${user.userId}`,
+          { withCredentials: true }
+        );
         const userData = response.data;
         if (userData) {
           setSettings({
             dueDate: userData.dueDate,
             currentWeek: userData.currentWeek,
-            name: userData.name
+            name: userData.name,
           });
         }
       } catch (error) {
-        console.error('An error occurred while fetching user settings:', error);
+        console.error("An error occurred while fetching user settings:", error);
       }
     };
     fetchSettingsData();
@@ -38,16 +47,18 @@ const DashboardPage = () => {
         <div>
           <Greeting name={settings?.name} />
         </div>
-        <div>
-          {/* <NextAppointment /> */}
-        </div>
+        <div>{/* <NextAppointment /> */}</div>
         <div>
           <MotivationalQuote />
         </div>
-        {settings && <ProgressBar dueDate={settings.dueDate} currentWeek={settings.currentWeek} />}
-         {settings && <InformationCard currentWeek={settings.currentWeek}/>} 
-         <div>
-         </div>
+        {settings && (
+          <ProgressBar
+            dueDate={settings.dueDate}
+            currentWeek={settings.currentWeek}
+          />
+        )}
+        {settings && <InformationCard currentWeek={settings.currentWeek} />}
+        <div></div>
       </div>
     </>
   );
