@@ -44,6 +44,7 @@ const PostCard = ({ id, title, content, image, comments, question, createdAt, us
 
   useEffect(() => {
     getUsername()
+    console.log(userData.username)
   }, [])
 
 

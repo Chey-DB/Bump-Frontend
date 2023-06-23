@@ -52,7 +52,7 @@ const CommunitySearchFilter = ({ showAll, showAllPosts, showAllQuestions, filter
                 onChange={(e) => setSelectedFile(e.target.files[0])}
               ></input>
               <div className="submit-post">
-                <button id="modal-submit" type="submit"> Submit </button>
+                <button id="modal-submit" className='primary-btn submit-btn' type="submit"> Submit </button>
               </div>
             </div>
             <br />
