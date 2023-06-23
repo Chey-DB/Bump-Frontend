@@ -6,6 +6,7 @@ import { useAuth } from '../../Context';
 
 const PfpDropdown = ({ settingToggle }) => {
   const navigate = useNavigate();
+  const [pfp, setPfp] = useState('')
   const { user, setUser } = useAuth();
   const handleSettingsClick = () => {
     navigate('/user');
@@ -25,14 +26,29 @@ const PfpDropdown = ({ settingToggle }) => {
     console.error('An error occurred while trying to log out:', err);
   }
 };
-  
+
+useEffect(() => {
+  const getPfp = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3000/google-users/${user.userId}`);
+      setPfp(response.data.profilePic)
+      console.log(response.data.profilePic)
+    } catch (err) {
+      console.error('An error occurred while trying to log out:', err);
+    }
+  };
+    
+  getPfp()
+  console.log(user)
+}, [])
+
   return (
     <div className='pfp-options-dd' style={{ right: settingToggle ? '0' : '-500px' }}>
       <div className='manage-account-holder'>
         <div className='dd-userInfo-holder'>
-          <img id='pfp' src="blank-profile-picture.webp" alt="profile picture" />
+          <img id='pfp' src={pfp} alt="profile picture" />
           <div>
-            <p>name</p>
+            <p style={{textTransform: 'capitalize'}}>{user.username}</p>
             <p>username@mail.com</p>
           </div>
         </div>

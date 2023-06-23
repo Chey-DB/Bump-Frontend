@@ -10,6 +10,7 @@ const LoggedNav = () => {
   const [click, setClick] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [settingsToggle, setSettingsToggle] = useState(false);
+
   const [settings, setSettings] = useState(null);
 
   const buttonPress = () => {
@@ -23,17 +24,18 @@ const LoggedNav = () => {
   const handleClick = () => setClick(!click);
 
   // useEffect(() => {
-  //   const getProfilePicture = async () => {
+  //   const getPfp = async () => {
   //     try {
-  //       const response = await axios.get(`/users/`);
-  //       setProfilePicture(response.data.profilePic);
-  //     } catch (error) {
-  //       console.error('Error fetching ProfilePicture:', error);
+  //       const response = await axios.get(`http://localhost:3000/google-users/${user.userId}`);
+  //       setProfilePicture(response.data.profilePic)
+  //       console.log(response.data.profilePic)
+  //     } catch (err) {
+  //       console.error('An error occurred while trying to log out:', err);
   //     }
   //   };
-
-  //   getProfilePicture();
-  // }, []);
+      
+  //   getPfp()
+  // }, [])
 
 
   return (
