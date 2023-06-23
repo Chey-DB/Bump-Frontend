@@ -19,7 +19,6 @@ const UserPage = () => {
     formData.append("cloud_name", "dzbvvdev4");
     formData.append("upload_preset", "bumpPosts");
     console.log("creating image");
-    console.log(user.userId);
     try {
       //post method
       const res = await fetch(
