@@ -44,18 +44,18 @@ const UserPage = () => {
       //post method
 
       const resLocal = await fetch(
-        `http://localhost:3000/local-users/${user.userId}`
+        `https://bump-backend.onrender.com/local-users/${user.userId}`
       );
       const localData = await resLocal.json();
       //return a url
       if (!localData) {
         const resGoogle = await fetch(
-          `http://localhost:3000/google-users/${user.userId}`
+          `https://bump-backend.onrender.com/google-users/${user.userId}`
         );
         const googleData = await resGoogle.json();
         if (googleData) {
           const googlePFP = await fetch(
-            `http://localhost:3000/google-users/${user.userId}`,
+            `https://bump-backend.onrender.com/google-users/${user.userId}`,
             {
               method: "PATCH",
               body: JSON.stringify(data),
@@ -66,14 +66,14 @@ const UserPage = () => {
           );
 
           const reGetGoogle = await fetch(
-            `http://localhost:3000/google-users/${user.userId}`
+            `https://bump-backend.onrender.com/google-users/${user.userId}`
           );
           const patchGoogle = await reGetGoogle.json();
           return patchGoogle.profilePic;
         }
       } else {
         const localPFP = await fetch(
-          `http://localhost:3000/local-users/${user.userId}`,
+          `https://bump-backend.onrender.com/local-users/${user.userId}`,
           {
             method: "PATCH",
             body: JSON.stringify(data),
@@ -83,7 +83,7 @@ const UserPage = () => {
           }
         );
         const reGetLocal = await fetch(
-          `http://localhost:3000/local-users/${user.userId}`
+          `https://bump-backend.onrender.com/local-users/${user.userId}`
         );
         const patchLocal = await reGetLocal.json();
         return patchLocal.profilePic;

@@ -8,11 +8,11 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/checkUser", {
+      .get("https://bump-backend.onrender.com/auth/checkUser", {
         withCredentials: true,
       })
-      .then((response) => {       
-        const userId = response.data._id
+      .then((response) => {
+        const userId = response.data._id;
         const username = response.data.username;
         if (response.data) {
           setUser({ userId, username });
@@ -28,7 +28,5 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-
-
 
 export const useAuth = () => useContext(AuthContext);

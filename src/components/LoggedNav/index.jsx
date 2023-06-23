@@ -29,13 +29,13 @@ const LoggedNav = () => {
       try {
         //post method
         const resLocal = await fetch(
-          `http://localhost:3000/local-users/${user.userId}`
+          `https://bump-backend.onrender.com/local-users/${user.userId}`
         );
         const localData = await resLocal.json();
         //return a url
         if (!localData) {
           const resGoogle = await fetch(
-            `http://localhost:3000/google-users/${user.userId}`
+            `https://bump-backend.onrender.com/google-users/${user.userId}`
           );
           const googleResult = await resGoogle.json();
           setProfilePicture(googleResult.profilePic);

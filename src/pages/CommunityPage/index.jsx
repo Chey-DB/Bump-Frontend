@@ -19,7 +19,7 @@ const CommunityPage = () => {
 
   const getPosts = async () => {
     try {
-      const res = await fetch("http://localhost:3000/posts");
+      const res = await fetch("https://bump-backend.onrender.com/posts");
       //add token to header
       const data = await res.json();
       setPost(data.reverse());
@@ -107,7 +107,7 @@ const CommunityPage = () => {
 
     try {
       //post method
-      const res = await fetch("http://localhost:3000/posts", {
+      const res = await fetch("https://bump-backend.onrender.com/posts", {
         method: "POST",
         body: JSON.stringify(options),
         headers: {
@@ -141,7 +141,8 @@ const CommunityPage = () => {
           setContext={setContext}
           isQuestion={isQuestion}
           setIsQuestion={setIsQuestion}
-          setSelectedFile={setSelectedFile} />
+          setSelectedFile={setSelectedFile}
+        />
         <div>
           {state.map((p) => (
             <PostCard
@@ -159,9 +160,7 @@ const CommunityPage = () => {
           ))}
         </div>
         {/* <div className="All-post"></div> */}
-
       </div>
-
     </>
   );
 };
