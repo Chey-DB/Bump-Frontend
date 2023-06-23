@@ -3,11 +3,13 @@ import { SettingsForm, UserInformation, LoggedNav } from "../../components";
 import "./styles.css";
 import GlobalModal from "../../components/GlobalModal";
 let profilePicture = localStorage.getItem("profilePicture");
-
+import { useAuth } from "../../Context";
 const UserPage = () => {
   const [userData, setUserData] = useState(null);
   const [show, setShow] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
+
+  const { user } = useAuth();
   const handleFormSubmit = (data) => {
     setUserData(data);
   };
@@ -90,6 +92,14 @@ const UserPage = () => {
     } catch (error) {
       console.log(error.message);
     }
+  }
+  async function changePic(e) {
+    e.preventDefault();
+    profilePicture = await createImgUrl();
+    profilePicture = await updatePFP(profilePicture);
+    console.log(profilePicture);
+    setShow(false);
+    window.location.replace("/dashboard");
   }
 
   return (
