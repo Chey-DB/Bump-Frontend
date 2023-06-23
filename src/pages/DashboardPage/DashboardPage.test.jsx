@@ -7,11 +7,11 @@ import userEvent from "@testing-library/user-event";
 import matchers from "@testing-library/jest-dom/matchers";
 expect.extend(matchers);
 
-import MotivationalQuote from ".";
+import DashboardPage from ".";
 
 describe("Post Card component", () => {
   beforeEach(() => {
-    render(<MotivationalQuote />);
+    render(<DashboardPage />);
   });
   afterEach(() => {
     cleanup();

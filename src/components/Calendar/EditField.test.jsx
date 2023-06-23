@@ -1,18 +1,23 @@
 import React from "react";
-import { shallow } from "enzyme";
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { screen, render, cleanup } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 
 import matchers from "@testing-library/jest-dom/matchers";
 expect.extend(matchers);
 
-import MotivationalQuote from ".";
+import EditField from ".";
+import { MemoryRouter } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
 
-describe("Post Card component", () => {
+describe("LoggedNav", () => {
   beforeEach(() => {
-    render(<MotivationalQuote />);
+    render(
+      <MemoryRouter>
+        <EditField />
+      </MemoryRouter>
+    );
   });
+
   afterEach(() => {
     cleanup();
   });
