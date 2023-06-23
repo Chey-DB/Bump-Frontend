@@ -1,31 +1,35 @@
-import React, { useEffect, useState} from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import './PfpDropdown.css';
-import { useAuth } from '../../Context';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./PfpDropdown.css";
+import { useAuth } from "../../Context";
 
 const PfpDropdown = ({ settingToggle }) => {
   const navigate = useNavigate();
   const [pfp, setPfp] = useState('')
   const { user, setUser } = useAuth();
   const handleSettingsClick = () => {
-    navigate('/user');
+    navigate("/user");
   };
-  
+
   const logout = async () => {
-  try {
-    const response = await axios.get('http://localhost:3000/auth/logout', { withCredentials: true });
-    console.log(response)
-    if (response.status === 200) {
-      setUser({})
-      navigate('/');
-    } else {
-      console.error(`Error: Received status code ${response.status}`);
+    try {
+      const response = await axios.get(
+        "https://bump-backend.onrender.com/auth/logout",
+        { withCredentials: true }
+      );
+      console.log(response);
+      if (response.status === 200) {
+        setUser({});
+        navigate("/");
+      } else {
+        console.error(`Error: Received status code ${response.status}`);
+      }
+    } catch (err) {
+      console.error("An error occurred while trying to log out:", err);
     }
-  } catch (err) {
-    console.error('An error occurred while trying to log out:', err);
-  }
-};
+
+  } 
 
 useEffect(() => {
   const getPfp = async () => {
@@ -52,12 +56,17 @@ useEffect(() => {
             <p>username@mail.com</p>
           </div>
         </div>
-        <button className='primary-btn submit-btn' onClick={handleSettingsClick}>Settings</button>
+        <button
+          className="primary-btn submit-btn"
+          onClick={handleSettingsClick}
+        >
+          Settings
+        </button>
       </div>
-      <button className='primary-btn red-btn' onClick={logout} >Logout</button>
+      <button className="primary-btn red-btn" onClick={logout}>
+        Logout
+      </button>
     </div>
   );
 };
 export default PfpDropdown;
-
-

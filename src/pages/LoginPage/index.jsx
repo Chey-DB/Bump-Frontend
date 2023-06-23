@@ -1,26 +1,30 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
-import { useAuth } from '../../Context/';
-import googleIcon from './google.png';
-import './styles.css';
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
+import { useAuth } from "../../Context/";
+import googleIcon from "./google.png";
+import "./styles.css";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const { setUser } = useAuth();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:3000/local-users/login', {
-        username,
-        password,
-      }, { withCredentials: true })
+      .post(
+        "https://bump-backend.onrender.com/local-users/login",
+        {
+          username,
+          password,
+        },
+        { withCredentials: true }
+      )
       .then((response) => {
         setUser({ username: response.data.username, id: response.data.id });
-        navigate('/dashboard'); 
+        navigate("/dashboard");
       })
       .catch((error) => {
         console.log(error);
@@ -36,7 +40,7 @@ const LoginPage = () => {
   };
 
   const handleGoogleSignIn = () => {
-    window.open('http://localhost:3000/auth/google', '_self');
+    window.open("https://bump-backend.onrender.com/auth/google", "_self");
   };
 
   console.log(document.cookie);
@@ -56,7 +60,9 @@ const LoginPage = () => {
         <hr className="login-right-line" />
       </div>
       <form className="login-form" onSubmit={handleLogin}>
-        <label htmlFor="username" className="login-label">Username:</label>
+        <label htmlFor="username" className="login-label">
+          Username:
+        </label>
         <input
           onChange={handleUsernameChange}
           type="text"
@@ -65,7 +71,9 @@ const LoginPage = () => {
           placeholder="Username"
           className="login-input"
         />
-        <label htmlFor="password" className="login-label">Password:</label>
+        <label htmlFor="password" className="login-label">
+          Password:
+        </label>
         <input
           onChange={handlePasswordChange}
           type="password"
@@ -76,9 +84,13 @@ const LoginPage = () => {
         />
         <div>
           <span>Join The Community? </span>
-          <Link to="/register" className="register-signin-link">Register Here</Link>
+          <Link to="/register" className="register-signin-link">
+            Register Here
+          </Link>
         </div>
-        <button type="submit" className="login-submit-button">Log in</button>
+        <button type="submit" className="login-submit-button">
+          Log in
+        </button>
       </form>
     </div>
   );

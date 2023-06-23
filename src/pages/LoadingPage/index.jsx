@@ -10,7 +10,9 @@ const LoadingPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/checkUser", { withCredentials: true })
+      .get("https://bump-backend.onrender.com/auth/checkUser", {
+        withCredentials: true,
+      })
       .then((response) => {
         const userId = response.data._id;
         const username = response.data.username;

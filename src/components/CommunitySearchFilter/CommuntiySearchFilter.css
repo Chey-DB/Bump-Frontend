@@ -1,18 +1,18 @@
-.filter-and-search-wrapper{
+.filter-and-search-wrapper {
   border-bottom: 1px solid black;
   padding: 1rem 1rem 3rem;
   background-color: white;
 }
-.cm-search-filter-holder{
+.cm-search-filter-holder {
   margin-top: 2.2rem;
 }
-.cm-search-filter-holder > div > a{
+.cm-search-filter-holder > div > a {
   padding: 0.3rem 1rem;
   background-image: linear-gradient(to right bottom, #7cc8aa, #89d6b6);
   color: white;
 }
 
-#plus{
+#plus {
   background-color: rgb(228, 228, 228);
 }
 
@@ -20,7 +20,7 @@
   background-image: linear-gradient(to right bottom, #b2aad4, #a194d5);
 }
 
-.cm-search-holder{
+.cm-search-holder {
   position: relative;
   margin: 1rem auto;
   width: 15rem;
@@ -32,7 +32,6 @@
   width: 10rem;
   border-radius: 100px;
   padding: 0.5rem 1rem;
-
 }
 .cm-search-holder > label {
   position: absolute;
@@ -42,8 +41,8 @@
   background-color: white;
 }
 
-#modal-submit{
+#modal-submit {
   padding: 0.3rem 1rem;
   margin-top: 2rem;
-  margin-bottom: ;
+  margin-bottom: 1rem;
 }

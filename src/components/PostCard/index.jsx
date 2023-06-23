@@ -2,13 +2,22 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../../Context";
 import "../../App";
 import "./styles.css";
-import CommentIcon from './chat.png';
+import CommentIcon from "./chat.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const PostCard = ({ id, title, content, image, comments, question, createdAt, user_id}) => {
+const PostCard = ({
+  id,
+  title,
+  content,
+  image,
+  comments,
+  question,
+  createdAt,
+  user_id,
+}) => {
   const [newComment, setNewComment] = useState("");
-  const [userData, setUserData] = useState("")
+  const [userData, setUserData] = useState("");
   const [showAllComments, setShowAllComments] = useState(false);
 
   const { user } = useAuth();
@@ -35,18 +44,19 @@ const PostCard = ({ id, title, content, image, comments, question, createdAt, us
 
   const getUsername = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/google-users/${user_id}`)
-      setUserData(res.data)
+      const res = await axios.get(
+        `https://bump-backend.onrender.com/google-users/${user_id}`
+      );
+      setUserData(res.data);
     } catch (err) {
-      console.log(err.message)
+      console.log(err.message);
     }
-  }
+  };
 
   useEffect(() => {
-    getUsername()
-    console.log(userData.username)
-  }, [])
-
+    getUsername();
+    console.log(userData.username);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -57,13 +67,16 @@ const PostCard = ({ id, title, content, image, comments, question, createdAt, us
     };
 
     try {
-      const res = await fetch("http://localhost:3000/posts/comments", {
-        method: "POST",
-        body: JSON.stringify(options),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        "https://bump-backend.onrender.com/posts/comments",
+        {
+          method: "POST",
+          body: JSON.stringify(options),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = await res.json();
       console.log(data);
     } catch (error) {
@@ -71,25 +84,23 @@ const PostCard = ({ id, title, content, image, comments, question, createdAt, us
     }
   };
 
-
   const Comment = ({ author, text }) => (
     <div className="each-comment">
       <div className="each-comment-user">
         <img className="comment-icon" src={CommentIcon} alt="commentIcon" />
-        <p style={{ textTransform: 'capitalize' }}>{author}:</p>
+        <p style={{ textTransform: "capitalize" }}>{author}:</p>
         <p>{text}</p>
       </div>
     </div>
   );
-  
+
   const regularPost = () => {
-  
     const visibleComments = showAllComments ? comments : comments.slice(0, 3);
-  
+
     const handleShowMoreComments = () => {
       setShowAllComments(true);
     };
-  
+
     return (
       <div className="card">
         <div className="user-data-wrapper">
@@ -97,7 +108,7 @@ const PostCard = ({ id, title, content, image, comments, question, createdAt, us
             src={"blank-profile-picture.webp"}
             alt="profile-picture"
             id="pt-pfp"
-            style={{ width: '3.5rem', borderRadius: '100px' }}
+            style={{ width: "3.5rem", borderRadius: "100px" }}
           />
           <div className="user-data-holder">
             <p>{userData.username}</p>
@@ -126,7 +137,11 @@ const PostCard = ({ id, title, content, image, comments, question, createdAt, us
                 <button
                   className="show-more-comments primary-btn"
                   onClick={handleShowMoreComments}
-                  style={{padding:'0.3rem 1rem', fontSize: '0.8rem', marginTop:'1rem'}}
+                  style={{
+                    padding: "0.3rem 1rem",
+                    fontSize: "0.8rem",
+                    marginTop: "1rem",
+                  }}
                 >
                   Show More
                 </button>
@@ -144,7 +159,7 @@ const PostCard = ({ id, title, content, image, comments, question, createdAt, us
               <button
                 type="submit"
                 className="primary-btn submit-btn"
-                style={{ padding: '0.2rem 1rem' }}
+                style={{ padding: "0.2rem 1rem" }}
               >
                 Send
               </button>
@@ -154,15 +169,14 @@ const PostCard = ({ id, title, content, image, comments, question, createdAt, us
       </div>
     );
   };
-  
+
   const questionPost = () => {
-  
     const visibleComments = showAllComments ? comments : comments.slice(0, 3);
-  
+
     const handleShowMoreComments = () => {
       setShowAllComments(true);
     };
-  
+
     return (
       <div className="card">
         <div className="user-data-wrapper">
@@ -170,7 +184,7 @@ const PostCard = ({ id, title, content, image, comments, question, createdAt, us
             src={"blank-profile-picture.webp"}
             alt="profile-picture"
             id="pt-pfp"
-            style={{ width: '3.5rem', borderRadius: '100px' }}
+            style={{ width: "3.5rem", borderRadius: "100px" }}
           />
           <div className="user-data-holder">
             <p>{userData.username}</p>
@@ -200,7 +214,11 @@ const PostCard = ({ id, title, content, image, comments, question, createdAt, us
                 <button
                   className="show-more-comments primary-btn"
                   onClick={handleShowMoreComments}
-                  style={{padding:'0.3rem 1rem', fontSize: '0.8rem', marginTop:'1rem'}}
+                  style={{
+                    padding: "0.3rem 1rem",
+                    fontSize: "0.8rem",
+                    marginTop: "1rem",
+                  }}
                 >
                   Show More
                 </button>
@@ -218,7 +236,7 @@ const PostCard = ({ id, title, content, image, comments, question, createdAt, us
               <button
                 type="submit"
                 className="primary-btn submit-btn"
-                style={{ padding: '0.2rem 1rem' }}
+                style={{ padding: "0.2rem 1rem" }}
               >
                 Send
               </button>
@@ -229,11 +247,7 @@ const PostCard = ({ id, title, content, image, comments, question, createdAt, us
     );
   };
 
-  return (
-    <>
-      {question ? questionPost() : regularPost()}
-    </>
-  );
+  return <>{question ? questionPost() : regularPost()}</>;
 };
 
 export default PostCard;
