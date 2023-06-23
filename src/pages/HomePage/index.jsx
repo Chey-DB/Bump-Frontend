@@ -43,11 +43,14 @@ const HomePage = () => {
           <div className='hp-mid-wrapper'>
             <div className='mid-para-wrapper'>
               <p>Birth is something that unites all of mankind. It's such a beautiful and magical thing.
-                Bump was created so that the process that leads up to birth (pregnancy) can truly be a time of joy, peace and magic.
-                Pregnancy leads to the creation of life but no two pregnancies are the same. Everyone perceives it differently.
-                However, many women look back on their pregnancy and don't think of it as a nice experience due to stress, anxiety and worries related to not knowing what they need to know and even as far as feeling ill-equipped to be a mother. This can often continue postpartum!
-                Bump is an app created with one goal in mind. That is, ensuring that pregnant women all around the world are able to have a pleasant experience during pregnancy by receiving the support they need, when they need it, according to various needs that a pregnant woman might have.
-                The way in which Bump achieves this is by....</p>
+                Bump was created so that the process that leads up to birth <strong>(pregnancy)</strong> can truly be a time of joy, peace and magic.
+                Pregnancy leads to the creation of life but no two pregnancies are the same.
+                <br />
+                <br />
+                However, many women look back on their pregnancy and don't think of it as a nice experience due to stress, anxiety and worries related to not knowing what they need to know and even as far as feeling ill-equipped to be a mother. This can often contribute to postpartum!
+                <br />
+                <br />
+                Bump is an app created with one goal in mind. That is, ensuring that pregnant women can have a pleasant experience during pregnancy by receiving the support they need, when they need it, according to various needs that a pregnant woman might have.</p>
             </div>
             <div className='hp-image-wrapper' id='mid-section-hp'>
               <img src="calendar.png" alt=""  id='calendar-img-hp'/>

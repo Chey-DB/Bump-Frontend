@@ -163,6 +163,7 @@
 
 }
 
+
 .hp-image-wrapper > img{
   position: absolute;
   height: 15rem;
@@ -175,23 +176,24 @@
 }
 
 #calendar-img-hp{
-  top: 200px;
+  top: 250px;
   right: -200px;
 }
 .hp-image-wrapper > img:hover{
-  height: 17rem;
+  height: 20rem;
   z-index: 100;
+  box-shadow: 8.0px 16.0px 16.0px hsla(267, 50%, 51%, 0.546);
 }
 
 
 #journal-img-hp{
-  top: 300px;
-  right: -100px;
+  top: 350px;
+  right: -50px;
 }
 
 #dashboard-img-hp{
-  right: -0px;
-  top: 150px;
+  right: 50px;
+  top: 200px;
 }
 
 
@@ -200,9 +202,10 @@
   width: 40%;
   text-align: center;
   left: 25%;
-  top: 55%;
+  top: 50%;
   transform: translate(-50%, -50%);
   backdrop-filter: blur(10px);
+  font-size: 1.3rem;
 }
 
 /* end section */
@@ -219,12 +222,13 @@
   align-self: center;
   text-align: center;
   /* height: 5rem; */
-  width: 15rem;
-  height: 20rem;
+  width: 20rem;
+  height: 25rem;
   border-radius: 10px;
-  font-size: 0.9rem;
-  padding: 7rem 0.4rem;
+  font-size: 1.3rem;
+  padding: 10rem 0.4rem;
   /* border: 10px solid rgb(196, 196, 196); */
+  transform: translateY(20px);
 }
 
 .hp-card > i{
@@ -232,15 +236,15 @@
   opacity: 0.9;
   color: var(--purple);
   position: absolute;
-  top: 55px;
-  left: 85px;
+  top: 80px;
+  left: 125px;
 }
 
 .hp-card > p{
   border-top:1px solid rgb(162, 162, 162);
-  padding: 1rem 0;
+  padding: 1rem 1rem;
 
 }
 .hp-card > .fa-users{
-  left: 70px;
+  left: 110px;
 }
