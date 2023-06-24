@@ -7,7 +7,7 @@ code {
 	max-width: 1350px;
 	margin: 0 auto;
 	padding: 15px;
-    font-size: 28px;
+    font-size: 20px;
     align-content: space-between;
     font-family: 'Quicksand', sans-serif;
 }
@@ -24,7 +24,7 @@ code {
 
 .faqs .faq .faq-question {
 	position: relative;
-	font-size: 35px;
+	font-size: 25px;
 	padding-right: 80px;
     font-display: center;
     font-weight: 500;

@@ -7,31 +7,31 @@ import { useAuth } from '../../Context';
 
 const PfpDropdown = ({ settingToggle }) => {
   const navigate = useNavigate();
-  const { user, setUser } = useAuth();
-  // const [settings, setSettings] = useState(null);
+  const { user, setUser} = useAuth();
+  const [settings, setSettings] = useState(null);
 
   const handleSettingsClick = () => {
     navigate('/user');
   };
 
-  // useEffect(() => {
-  //   const fetchSettingsData = async () => {
-  //     try {
-  //       const response = await axios.get(`http://localhost:3000/settings/${user.userId}`, { withCredentials: true });
-  //       console.log(response.data)
-  //       const userData = response.data;
-  //       if (userData) {
-  //         setSettings({
-  //           name: userData.name
-  //         });
-  //       }
-  //     } catch (error) {
-  //       console.error('An error occurred while fetching user settings:', error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchSettingsData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3000/settings/${user.userId}`, { withCredentials: true });
+        console.log(response.data)
+        const userData = response.data;
+        if (userData) {
+          setSettings({
+            name: userData.name
+          });
+        }
+      } catch (error) {
+        console.error('An error occurred while fetching user settings:', error);
+      }
+    };
 
-  //   fetchSettingsData();
-  // }, [user.userId]);
+    fetchSettingsData();
+  }, [user.userId]);
 
   const logout = async () => {
     try {
@@ -55,7 +55,7 @@ const PfpDropdown = ({ settingToggle }) => {
           <img id='pfp' src="blank-profile-picture.webp" alt="profile picture" />
           <div>
             <p>name</p>
-            <p>username@mail.com</p>
+            {/* <p>username@mail.com</p> */}
           </div>
         </div>
         <button className='primary-btn submit-btn' onClick={handleSettingsClick}>Settings</button>

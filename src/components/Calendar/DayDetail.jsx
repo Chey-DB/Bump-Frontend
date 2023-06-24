@@ -98,7 +98,7 @@ const DayDetail = () => {
         ))}
       </ul>
 
-      <NewEventButton date={event.today} />
+      <NewEventButton date={dayDetail.event.today} />
     </div>
   );
 };

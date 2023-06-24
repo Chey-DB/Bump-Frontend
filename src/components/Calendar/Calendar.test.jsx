@@ -1,6 +1,8 @@
 import React from 'react'; 
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'; 
-import { screen, render, cleanup } from '@testing-library/react'; 
+import { screen, render, cleanup } from '@testing-library/react';
+import { Provider } from "react-redux";
+import store from "./store";
 
 import matchers from '@testing-library/jest-dom/matchers';
 expect.extend(matchers); 
@@ -13,9 +15,9 @@ describe('LoggedNav', () => {
 
   beforeEach(() => {
     render(
-      <MemoryRouter>
+      <Provider store={store}>
         <LoggedNav />
-      </MemoryRouter>
+      </Provider>
     )
   });
 
@@ -23,5 +25,8 @@ describe('LoggedNav', () => {
     cleanup();
   });
 
+  it('should render the LoggedNav component', () => {
+    expect(screen.getByTestId('logged-nav')).toBeInTheDocument();
+  });
 })
 

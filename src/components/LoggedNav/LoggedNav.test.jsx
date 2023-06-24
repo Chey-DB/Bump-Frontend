@@ -19,10 +19,6 @@ describe('LoggedNav', () => {
     )
   });
 
-  afterEach(() => {
-    cleanup();
-  });
-
 
   it('Should have dashboard link', () => {
     const dashboardLink = screen.getByRole('link', { name: /dashboard/i});
@@ -30,23 +26,28 @@ describe('LoggedNav', () => {
   });
 
   it('Should have calendar link', () => {
-    const calendarLink = screen.getByRole('link', { name: /calendar/i});
+    const calendarLink = screen.getAllByRole('link', { name: /calendar/i});
     expect(calendarLink).toBeInTheDocument();
   });
 
   it('Should have community link', () => {
-    const communityLink = screen.getByRole('link', { name: /community/i});
+    const communityLink = screen.getAllByRole('link', { name: /community/i});
     expect(communityLink).toBeInTheDocument();
   });
 
   it('Should have journal link', () => {
-    const journalLink = screen.getByRole('link', { name: /my journal/i});
+    const journalLink = screen.getAllByRole('link', { name: /my-journal/i});
     expect(journalLink).toBeInTheDocument();
   });
 
   it('Should have faqs link', () => {
-    const faqsLink = screen.getByRole('link', { name: /FAQs/i});
+    const faqsLink = screen.getAllByRole('link', { name: /FAQs/i});
     expect(faqsLink).toBeInTheDocument();
   });
+
+  afterEach(() => {
+    cleanup();
+})
+
 })
 
